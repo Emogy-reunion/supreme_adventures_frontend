@@ -20,33 +20,8 @@ body{
 	font-family: "Poppins", sans-serif;
 }
 
-nav {
-        position: fixed;
-        top: 0;
-        background-color: #102533;
-        width: 100%;
-        z-index: 1000;
-}
-
-nav ul {
-        list-style: none;
-        display: flex;
-        justify-content: space-evenly;
-}
-
-nav li {
-        height: 50px;
-}
-
 .wrapper {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 20px
-}
-
-@media screen and (max-width: 768px) {
-	nav ul {
-                display: flex;
-                justify-content: flex-end;
-        }
 }
