@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Typewriter from 'react-simple-typewriter'
+import { Typewriter } from 'react-simple-typewriter'
 import styles from '../styles/Hero.module.css';
 
 
