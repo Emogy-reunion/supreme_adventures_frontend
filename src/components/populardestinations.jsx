@@ -37,6 +37,6 @@ const PopularDestinations = () => {
     				</div>
   		</section>
 	);
-}
+};
 
 export default PopularDestinations;
