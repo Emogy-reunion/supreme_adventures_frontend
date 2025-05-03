@@ -44,6 +44,7 @@
 
 .active-link {
 	color: #00764d;
+	font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {
