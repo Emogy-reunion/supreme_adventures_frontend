@@ -35,7 +35,8 @@ const PopularDestinations = () => {
         					</div>
       					</div>
     				</div>
-  		</section>
+  			</section>
+		</>
 	);
 };
 
