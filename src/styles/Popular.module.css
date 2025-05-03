@@ -1,18 +1,26 @@
 #destinations {
+	max-width: 1600px;
 	width: 100%;
-	padding: 0 20px;
+	padding: 20px 0;
+	margin: auto;
+}
+
+#destinations h2 {
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 40px;
 }
 
 .card-container {
 	display: flex;
 	width: 100%;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	flex-wrap: wrap;
 }
 
 .card {
 	width: 30%;
-	height: 300px;
+	min-height: 350px;
 	background: #fff;
       	border-radius: 10px;
       	overflow: hidden;
@@ -29,6 +37,7 @@
 	height: 200px;
 	object-fit: cover;
 }
+
 
 .card-content {
 	padding: 20px;
