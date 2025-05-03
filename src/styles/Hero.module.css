@@ -1,6 +1,12 @@
-.hero {
+.hero-container {
+	background-color: rgba(0, 0, 0, 0.5);
 	width: 100%;
 	height: 100vh;
+}
+
+.hero {
+	width: 100%;
+	height: 100%;
 	background-image: url('/hero.webp');
 	background-position: center;
 	background-size: cover;
