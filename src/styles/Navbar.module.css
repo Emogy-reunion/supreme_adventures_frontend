@@ -1,3 +1,21 @@
+nav {
+        position: fixed;
+        top: 0;
+        background-color: #102533;
+        width: 100%;
+        z-index: 1000;
+}
+
+nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+}
+
+nav li {
+        height: 50px;
+}
+
 .nav-link {
 	text-decoration: none;
 	height: 100%;
@@ -56,4 +74,11 @@
 	.hide-on-mobile {
 		display: none;
 	}
+}
+
+@media screen and (max-width: 768px) {
+	nav ul {
+                display: flex;
+                justify-content: flex-end;
+        }
 }
