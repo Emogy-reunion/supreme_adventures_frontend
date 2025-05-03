@@ -14,31 +14,29 @@ const LandingHero = () => {
 	}, []);
         return (
                 <>
-                        <section className={styles['hero-container']}>
-				<div className={styles.hero}>
-                                	<div className={styles['hero-content']}>
-                                        	<h1>
-						<Typewriter
-							words={['Where do you wish to go?']}
-							loop={1}
-							cursor
-							cursorstyle='|'
-							typeSpeed={70}
-							deleteSpeed={50}
-							delaySpeed={1000}
-						/>
-						</h1>
-                                        	{showContent && (
-							<div className={styles['fade-in']}>
-								<p>Discover breathtaking destinations and unforgettable tours curated just for you.</p>
-              							<div className={styles['hero-buttons']}>
-									<a href="#destinations"><button className={styles.btn}>Explore Destinations</button></a>
-									<a href="#tours"><button className={styles.btn}>View Tours</button></a>
-								</div>
+                        <section className={styles.hero}>
+                                <div className={styles['hero-content']}>
+                                        <h1>
+					<Typewriter
+						words={['Where do you wish to go?']}
+						loop={1}
+						cursor
+						cursorstyle='|'
+						typeSpeed={85}
+						deleteSpeed={50}
+						delaySpeed={1000}
+					/>
+					</h1>
+                                        {showContent && (
+						<div className={styles['fade-in']}>
+							<p>Discover breathtaking destinations and unforgettable tours curated just for you.</p>
+              						<div className={styles['hero-buttons']}>
+								<a href="#destinations"><button className={styles.btn}>Explore Destinations</button></a>
+								<a href="#tours"><button className={styles.btn}>View Tours</button></a>
 							</div>
-						)}
-                                	</div>
-				</div>
+						</div>
+					)}
+                                </div>
                         </section>
                 </>
         );
