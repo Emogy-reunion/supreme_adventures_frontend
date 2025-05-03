@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../components/navbar';
-import LandingHero from '../components/landinghero';
-import PopularDestinations form '../components/populardestinations';
+import LandingHero from '.../components/landinghero';
+import PopularDestinations from '../components/populardestinations';
 
 const Home = () => {
 	return (
