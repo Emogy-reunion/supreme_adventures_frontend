@@ -43,7 +43,7 @@
 }
 
 .active-link {
-	background-color: #00764d;
+	color: #00764d;
 }
 
 @media screen and (max-width: 768px) {
