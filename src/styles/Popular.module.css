@@ -32,13 +32,18 @@
 	}
 }
 
+@media (min-width: 1024px) and (max-width: 1600px) {
+	.card-container {
+		padding: 0 20px;
+	}
+}
+
 @media (min-width: 800px) and (max-width: 1023px) {
 	.card-container {
-                padding: 0 15px;
+                padding: 0 20px;
         }
 
 	.card {
-		margin-bottom: 20px;
 		width: 45%;
 	}
 
@@ -47,12 +52,16 @@
 	}
 }
 
+@media 
+
 @media (max-width: 799px) {
 	.card-container {
 		justify-content: center;
+		flex-wrap: wrap;
 	}
 
 	.card {
+		margin: 10px 0;
 		width: 95%;
 	}
 }
