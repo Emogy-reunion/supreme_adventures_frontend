@@ -5,7 +5,7 @@ import styles from '../styles/Whychooseus.module.css';
 const WhyChooseUs = () => {
 	return (
 		<>
-			<section>
+			<section id={styles['why-container']}>
 				<h2>Why Choose Supreme Adventures?</h2>
 				
 				<div className={styles["icon-grid"]}>
