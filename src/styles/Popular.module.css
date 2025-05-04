@@ -12,39 +12,49 @@
 }
 
 .card-container {
-  display: grid;
-  gap: 30px;
-  justify-content: space-between;
-}
-
-
-@media (min-width: 1024px) {
-  .card-container {
-    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-  }
-}
-
-@media (min-width: 800px) and (max-width: 1199px) {
-  .card-container {
-    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
-  }
-}
-
-@media (max-width: 799px) {
-  .card-container {
-    grid-template-columns: 90%;
-    justify-content: center;
-  }
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	width: 100%;
 }
 
 .card {
-	width: 30%;
-	min-height: 350px;
 	background: #fff;
       	border-radius: 10px;
       	overflow: hidden;
       	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       	transition: transform 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+	.card {
+		width: 30%;
+	}
+}
+
+@media (min-width: 800px) and (max-width: 1023px) {
+	.card-container {
+                padding: 0 15px;
+        }
+
+	.card {
+		margin-bottom: 20px;
+		width: 45%;
+	}
+
+	.hide {
+		display: none;
+	}
+}
+
+@media (max-width: 799px) {
+	.card-container {
+		justify-content: center;
+	}
+
+	.card {
+		width: 95%;
+	}
 }
 
 .card:hover {
