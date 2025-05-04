@@ -13,6 +13,7 @@
 
 .card-container {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: stretch;
 	justify-content: space-between;
 	width: 100%;
@@ -57,7 +58,6 @@
 @media (max-width: 799px) {
 	.card-container {
 		justify-content: center;
-		flex-wrap: wrap;
 	}
 
 	.card {
