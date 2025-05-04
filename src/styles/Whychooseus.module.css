@@ -1,0 +1,28 @@
+#why-container {
+	padding: 20px 0px;
+	max-width: 1600px;
+	width: 100%;
+	margin: auto;
+}
+
+#why-container h2 {
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 40px;
+}
+
+.icon-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+	text-align: center;
+	justify-content: space-between;
+}
+
+.icon-box {
+	padding: 20px;
+}
+
+.icon-box img {
+	width: 50px;
+	margin-bottom: 15px;
+}
