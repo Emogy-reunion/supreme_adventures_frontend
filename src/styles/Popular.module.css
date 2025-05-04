@@ -12,9 +12,29 @@
 }
 
 .card-container {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-	justify-content: space-between;
+  display: grid;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+
+@media (min-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1199px) {
+  .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+  }
+}
+
+@media (max-width: 799px) {
+  .card-container {
+    grid-template-columns: 90%;
+    justify-content: center;
+  }
 }
 
 .card {
@@ -56,4 +76,6 @@
 	color: #eab308;
 	font-weight: bold;
 }
+
+
 
