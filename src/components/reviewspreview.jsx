@@ -21,6 +21,12 @@ const ReviewsPreview = () => {
         					<p>“The Singapore tour was perfectly planned and stress-free. The guides were professional, friendly, and made sure we saw the best of the city!”</p>
 						<h4>- Mark.</h4>
       					</div>
+
+					<div className={styles.hide}>
+						<p>
+							“Our trip to Zanzibar was unforgettable. The tour company took care of every detail, allowing us to fully relax and enjoy the beautiful beaches and rich culture.”
+						</p>
+						<h4>- Shellmith.</>
     				</div>
   			</section>
 		</>
