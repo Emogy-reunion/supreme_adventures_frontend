@@ -3,21 +3,18 @@
         max-width: 1600px;
         width: 100%;
         margin: auto;
+	display: flex;
+	justify-content: center;
 }
 
 .newsletter-section h2 {
-        text-align: center;
         font-size: 2rem;
         margin-bottom: 40px;
 }
 
-.newsletter-section p {
-	text-align: center;
-}
-
 .newsletter form {
 	max-width: 500px;
-      	margin: auto;
+	width: 450px;
       	display: flex;
       	flex-direction: column;
       	gap: 15px;
@@ -40,6 +37,6 @@
       	cursor: pointer;
 }
 
-.btn:hover {
+.newsletter-btn:hover {
       	background: #eab308;
 }
