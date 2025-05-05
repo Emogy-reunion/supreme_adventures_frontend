@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from '../components/navbar';
 import LandingHero from '../components/landinghero';
 import PopularDestinations from '../components/populardestinations';
+import WhyChooseUs from '../components/whychooseus';
 
 const Home = () => {
 	return (
@@ -9,6 +10,7 @@ const Home = () => {
 			<NavBar />
 			<LandingHero />
 			<PopularDestinations />
+			<WhyChooseUs />
 		</>
 	);
 };

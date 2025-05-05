@@ -26,7 +26,7 @@ const PopularDestinations = () => {
         					</div>
       					</div>
 
-      					<div className={styles.card}>
+      					<div className={`${styles.card} ${styles.hide}`}>
         					<img src="/zanzibar.jpg" alt="Bali" />
         					<div className={styles['card-content']}>
           						<h3>Zanzibar Retreat</h3>
