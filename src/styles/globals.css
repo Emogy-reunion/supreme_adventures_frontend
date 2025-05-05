@@ -1,4 +1,4 @@
-import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
@@ -7,6 +7,7 @@ import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&displa
 *{
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
@@ -14,15 +15,22 @@ html {
 }
 
 body{
-	background-color: #102533;	
+	background-color: white;	
 	width: 100%;
 	font-family: "Poppins", sans-serif;
 }
 
+.wrapper {
+	max-width: 1600px;
+	margin: 0 auto;
+}
+
 nav {
         position: fixed;
+	max-width: 1600px;
+	margin: 0 auto;
         top: 0;
-        background-color: #102533;
+        background-color: white;
         width: 100%;
         z-index: 1000;
 }
@@ -30,13 +38,12 @@ nav {
 nav ul {
         list-style: none;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
 }
 
 nav li {
         height: 50px;
 }
-
 
 @media screen and (max-width: 768px) {
 	nav ul {
