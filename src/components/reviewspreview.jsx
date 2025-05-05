@@ -26,6 +26,7 @@ const ReviewsPreview = () => {
 						<p>“Our trip to Zanzibar was unforgettable. The tour company took care of every detail, allowing us to fully relax and enjoy the beautiful beaches and rich culture.”
 						</p>
 						<h4>- Shellmith.</h4>
+					</div>
     				</div>
   			</section>
 		</>
