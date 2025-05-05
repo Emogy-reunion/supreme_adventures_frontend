@@ -1,17 +1,17 @@
-#newsletter-section {
+.newsletter-section {
         padding: 20px 0px;
         max-width: 1600px;
         width: 100%;
         margin: auto;
 }
 
-#newsletter-section h2 {
+.newsletter-section h2 {
         text-align: center;
         font-size: 2rem;
         margin-bottom: 40px;
 }
 
-#newsletter-section p {
+.newsletter-section p {
 	text-align: center;
 }
 
