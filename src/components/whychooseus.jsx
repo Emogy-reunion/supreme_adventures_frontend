@@ -5,10 +5,10 @@ import styles from '../styles/Whychooseus.module.css';
 const WhyChooseUs = () => {
 	return (
 		<>
-			<section id={styles['why-container']}>
+			<section id={styles['why-choose-us-container']}>
 				<h2>Why Choose Supreme Adventures?</h2>
 				
-				<div className={styles["icon-grid"]}>
+				<div className={styles["icon-container"]}>
       					<div className={styles["icon-box"]}>
         					<img src="https://img.icons8.com/ios-filled/50/globe--v1.png" alt="Global" />
         					<h3>Expert Guides</h3>
