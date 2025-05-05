@@ -27,7 +27,12 @@
       	padding: 20px;
       	border-radius: 10px;
       	font-style: italic;
-  }
+}
+
+.testimonial p {
+	text-align: center;
+}
+
 
 @media (min-width: 1024px) {
 
