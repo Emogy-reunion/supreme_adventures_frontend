@@ -22,7 +22,7 @@
 
 .testimonial {
 	width: 93%;
-	margin: 15px auto;
+	margin: 15px 0;
 	background: #f9f9f9;
       	padding: 20px;
       	border-radius: 10px;
@@ -47,7 +47,6 @@
 
 @media (min-width: 1024px) and (max-width: 1600px) {
         .testimonials-container {
-                justify-content: space-between;
                 padding: 0 20px;
         }
 }
