@@ -11,6 +11,10 @@
         margin-bottom: 40px;
 }
 
+#newsletter-section p {
+	text-align: center;
+}
+
 .newsletter form {
 	max-width: 500px;
       	margin: auto;
