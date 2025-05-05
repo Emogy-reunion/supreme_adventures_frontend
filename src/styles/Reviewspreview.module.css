@@ -41,12 +41,8 @@
         }
 
         .testimonial {
-                width: 30%;
+                width: 22%;
         }
-
-	.hide {
-		display: none;
-	}
 }
 
 @media (min-width: 1024px) and (max-width: 1600px) {
