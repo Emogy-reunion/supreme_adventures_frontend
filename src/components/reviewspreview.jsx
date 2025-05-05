@@ -10,19 +10,19 @@ const ReviewsPreview = () => {
       					<div className={styles.testimonial}>
         					<p>“Our Dubai experience was incredible thanks to the amazing organization and attention to detail. Everything ran smoothly from start to finish!.”</p>
         					<br><br/>
-						- Shantel.
+						<h4>- Shantel.</h4>
       					</div>
       					
 					<div className={styles.testimonial}>
         					<p>“Seeing lions up close on the safari was an unforgettable moment. Highly recommend!”</p>
         					<br><br/>
-						- Omosh.
+						<h4>- Omosh.</h4>
       					</div>
 
       					<div className={styles.testimonial}>
         					<p>“The Singapore tour was perfectly planned and stress-free. The guides were professional, friendly, and made sure we saw the best of the city!”</p>
         					<br><br/>
-						- Mark.
+						<h4>- Mark.</h4>
       					</div>
     				</div>
   			</section>
