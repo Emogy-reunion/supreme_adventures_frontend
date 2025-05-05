@@ -4,13 +4,11 @@
 	padding: 0 30px;
 	display: flex;
 	align-items: center;
-	color: #ffffff;
+	color: #102533;
 	background-color: transparent;
-	border-radius: 10px;
 }
 
-.nav-link:hover{
-	background-color: #00764d;
+.nav-link:hover {
 	font-weight: bold;
 }
 
@@ -45,7 +43,8 @@
 }
 
 .active-link {
-	background-color: chocolate;
+	color: #00764d;
+	font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {
