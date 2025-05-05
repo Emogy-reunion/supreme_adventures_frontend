@@ -44,6 +44,10 @@
 	padding: 20px;
 }
 
+.icon-box p {
+	text-align: center;
+}
+
 @media (min-width: 1024px) {
 
 	.icon-container {
@@ -57,6 +61,7 @@
 
 @media (min-width: 1024px) and (max-width: 1600px) {
 	.icon-container {
+		justify-content: space-between;
 		padding: 0 20px;
 	}
 }
