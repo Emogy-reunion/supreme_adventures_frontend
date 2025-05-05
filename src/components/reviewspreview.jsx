@@ -7,19 +7,19 @@ const ReviewsPreview = () => {
 			<section id={styles['testimonials-section']}>
     				<h2>What Our Customers Say</h2>
     				<div className={styles["testomonials-container"]}>
-      					<div classname={styles.testimonial}>
-        					“The Paris tour was simply magical. Everything was perfectly organized.”
-        					<br><br>– Sarah M.
+      					<div className={styles.testimonial}>
+        					<p>“Our Dubai experience was incredible thanks to the amazing organization and attention to detail. Everything ran smoothly from start to finish!.”</p>
+        					<br Maria./>
       					</div>
       					
 					<div className={styles.testimonial}>
-        					“Seeing lions up close on the safari was an unforgettable moment. Highly recommend!”
-        					<br><br>– John D.
+        					<p>“Seeing lions up close on the safari was an unforgettable moment. Highly recommend!”</p>
+        					<br Omosh. />
       					</div>
 
       					<div className={styles.testimonial}>
-        					“Loved the yoga retreat in Bali. Peaceful, beautiful, and totally worth it.”
-        					<br><br>– Anita R.
+        					<p>“The Singapore tour was perfectly planned and stress-free. The guides were professional, friendly, and made sure we saw the best of the city!”</p>
+        					<br Anita R. />
       					</div>
     				</div>
   			</section>
