@@ -1,4 +1,7 @@
 .newsletter-section {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
         padding: 20px 0px;
         max-width: 1600px;
         width: 100%;
@@ -6,23 +9,19 @@
 }
 
 .newsletter-section h2 {
-	text-align: center;
         font-size: 2rem;
         margin-bottom: 40px;
 }
 
-.newsletter-letter p {
-	text-align: center;
-}
-
 .newsletter-section form {
-	max-width: 500px;
+	width: 500px;
       	display: flex;
-      	flex-direction: column;
+	flex-direction: row;
       	gap: 15px;
 }
 
 .newsletter-section input[type="email"] {
+	width: 80%;
       	padding: 12px;
       	border: 1px solid #ccc;
 	margin: auto;
@@ -45,12 +44,9 @@
 }
 
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
 	.newsletter-section form {
-		flex-direction: row;
+		width: 90%;
 	}
-	
-	.newsletter-section input {
-		flex: 1;
-	}
+
 }
