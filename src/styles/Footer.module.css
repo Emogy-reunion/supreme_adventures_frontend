@@ -1,0 +1,14 @@
+.footer {
+	width: 100%;
+	max-width: 1600px;
+  	background: #222;
+  	color: white;
+  	padding: 30px 20px;
+  	text-align: center;
+}
+
+.link {
+	color: #facc15;
+  	margin: 0 10px;
+  	text-decoration: none;
+}
