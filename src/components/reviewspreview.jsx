@@ -6,7 +6,7 @@ const ReviewsPreview = () => {
 		<>
 			<section id={styles['testimonials-section']}>
     				<h2>What Our Customers Say</h2>
-    				<div className={styles["testomonials-container"]}>
+    				<div className={styles["testimonials-container"]}>
       					<div className={styles.testimonial}>
         					<p>“Our Dubai experience was incredible thanks to the amazing organization and attention to detail. Everything ran smoothly from start to finish!.”</p>
 						<h4>- Shantel.</h4>
