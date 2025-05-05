@@ -3,8 +3,6 @@
         max-width: 1600px;
         width: 100%;
         margin: auto;
-	display: flex;
-	justify-content: center;
 }
 
 .newsletter-section h2 {
@@ -12,7 +10,7 @@
         margin-bottom: 40px;
 }
 
-.newsletter form {
+.newsletter-section form {
 	max-width: 500px;
 	width: 450px;
       	display: flex;
@@ -20,7 +18,7 @@
       	gap: 15px;
 }
 
-.newsletter input[type="email"] {
+.newsletter-section input[type="email"] {
       	padding: 12px;
       	border: 1px solid #ccc;
       	border-radius: 5px;
@@ -39,4 +37,15 @@
 
 .newsletter-btn:hover {
       	background: #eab308;
+}
+
+
+@media (min-width: 600px) {
+	.newsletter-section form {
+		flex-direction: row;
+	}
+	
+	.newsletter-section input {
+		flex: 1;
+	}
 }
