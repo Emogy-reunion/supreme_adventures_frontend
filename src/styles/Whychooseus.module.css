@@ -1,11 +1,11 @@
-#why-container {
+#why-choose-us-container {
 	padding: 20px 0px;
 	max-width: 1600px;
 	width: 100%;
 	margin: auto;
 }
 
-#why-container h2 {
+#why-choose-us-container h2 {
 	text-align: center;
 	font-size: 2rem;
 	margin-bottom: 40px;
@@ -25,37 +25,45 @@
 .icon-box img {
 	margin-left: auto;
 	margin-right: auto;
-	width: 20%;
+	width: 15%;
 	margin-bottom: 15px;
 }
 
 
-.icon-grid {
+.icon-container {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: stretch;
-	justify-content: space-between;
+	justify-content: center;
 	width: 100%;
 }
 
 .icon-box {
+	width: 90%;
+	margin: 15px auto;
 	padding: 20px;
 }
 
 @media (min-width: 1024px) {
+
+	.icon-container {
+		justify-content: space-between;
+	}
+
 	.icon-box {
 		width: 30%;
 	}
 }
 
 @media (min-width: 1024px) and (max-width: 1600px) {
-	.icon-grid {
+	.icon-container {
 		padding: 0 20px;
 	}
 }
 
 @media (min-width: 800px) and (max-width: 1023px) {
-	.icon-grid {
+	.icon-container {
+		justify-content: space-between;
                 padding: 0 20px;
         }
 
