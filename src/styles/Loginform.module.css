@@ -1,6 +1,10 @@
 #login-section {
 	max-width: 1600px;
 	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .login-container {
@@ -11,6 +15,9 @@
       	max-width: 400px;
       	width: 100%;
       	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .logo {
@@ -18,8 +25,8 @@
 }
 
 .logo img {
-	width: 20%;
-	height: auto;
+	width: 80px;
+	height: 75px;
 }
 
 .login-container h2 {
