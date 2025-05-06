@@ -13,7 +13,7 @@ const LoginForm = () => {
     					</div>
    					 <h2>Login</h2>
     					<form>
-      						<div className={styles["form-group"]}.
+							<div className={styles["form-group"]}>
 							<label htmlFor="identifier">Email Address / Username</label>
 							<input type="text" id="identifier" name="identifier" placeholder="Enter you email or username" required />
 						</div>
