@@ -50,7 +50,7 @@ const RegisterForm = () => {
     					</form>
 
     					<div className={styles["footer-text"]}>
-      						<p>Already have an account? <Link href="#" className={styles.link}>sign in</Link></p>
+      						<p>Already have an account? <Link href="/login" className={styles.link}>sign in</Link></p>
     					</div>
   				</div>
 			</section>
