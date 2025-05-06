@@ -102,22 +102,7 @@
       	text-decoration: underline;
 }
 
-@media (min-width: 1024px) {
-	.login-container {
-		max-width: 800px;
-	}
-
-	.btn {
-		width: auto;
-	}
-
-	.logo img {
-		width: 150px;
-		height: 145px;
-	}
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) {
 	.login-container {
                 max-width: 600px;
         }
@@ -127,7 +112,7 @@
         }
 
 	.logo img {
-		width: 250px;
-		height: 245px;
+		width: 150px;
+		height: 145px;
 	}
 }
