@@ -11,8 +11,8 @@ const LoginForm = () => {
     					<div className={styles.logo}>
       						<img src="/supreme.svg" alt="Supreme adventures Logo" />
     					</div>
-   					 <h2 className={styless["login-form"]}>Login</h2>
-    					<form>
+   					 <h2>Login</h2>
+    					<form className={styles['login-form']}>
 							<div className={styles["form-group"]}>
 							<label htmlFor="identifier">Email/Username</label>
 							<input type="text" id="identifier" name="identifier" placeholder="Email or username" required />
