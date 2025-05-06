@@ -1,3 +1,31 @@
+.navbar {
+        position: fixed;
+	max-width: 1600px;
+	margin: 0 auto;
+        top: 0;
+        background-color: white;
+        width: 100%;
+        z-index: 1000;
+	padding: 0 20px;
+}
+
+.navbar ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+}
+
+.navbar li {
+        height: 50px;
+}
+
+@media screen and (max-width: 768px) {
+	.navbar ul {
+                display: flex;
+                justify-content: flex-end;
+        }
+}
+
 .nav-link {
 	text-decoration: none;
 	height: 100%;
@@ -18,6 +46,8 @@
 
 .pushLeft {
        	margin-right: auto;
+	display: flex;
+	align-items: center;
 }
 
 .pushRight {
