@@ -16,32 +16,32 @@ const RegisterForm = () => {
 					<form className={styles['signup-form']}>
       						<div className={styles["form-group"]}>
         						<label htmlFor="first_name">First Name</label>
-        						<input type="text" id="first_name" name="first_name" required>
+        						<input type="text" id="first_name" name="first_name" required />
       						</div>
 
 						<div className={styles["form-group"]}>
                                                         <label htmlFor="last_name">Last Name</label>
-                                                        <input type="text" id="last_name" name="last_name" required>
+                                                        <input type="text" id="last_name" name="last_name" required />
                                                 </div>
       
       						<div className={styles["form-group"]}>
         						<label htmFor="email">Email Address</label>
-        						<input type="email" id="email" name="email" required>
+        						<input type="email" id="email" name="email" required />
       						</div>
 
 						<div className={styles["form-group"]}>
                                                         <label htmlFor="username">First Name</label>
-                                                        <input type="text" id="username" name="username" required>
+                                                        <input type="text" id="username" name="username" required />
                                                 </div>
 
       						<div className={styles["form-group"]}>
         						<label htmlFor="password">Create Password</label>
-        						<input type="password" id="password" name="password" placeholder="Choose a strong password" required>
+        						<input type="password" id="password" name="password" placeholder="Choose a strong password" required />
       						</div>
 
       						<div className={styles["form-group"]}>
         						<label htmlFor="confirm-password">Confirm Password</label>
-        						<input type="password" id="confirm-password" name="confirm-password" placeholder="Retype your password" required>
+        						<input type="password" id="confirm-password" name="confirm-password" placeholder="Retype your password" required />
       						</div>
 
 						<div className={styles['button-container']}>
