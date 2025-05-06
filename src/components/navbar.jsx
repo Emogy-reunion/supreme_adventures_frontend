@@ -23,6 +23,13 @@ const NavBar = () => {
     return (
         <nav>
             <ul>
+
+	    	<li className={styles.pushLeft}>
+	    		<Link href="/">
+        			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Logo.svg/600px-Logo.svg.png" alt="Random Logo" className={styles.logo} />
+      			</Link>
+	    	</li>
+
                 <li className={styles['hide-on-mobile']}>
                     <Link href='/' className={`${styles['nav-link']} ${isActive('/')}`}>Home</Link>
                 </li>

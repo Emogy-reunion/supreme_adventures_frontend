@@ -16,6 +16,21 @@
 	margin-left: auto;
 }
 
+.pushLeft {
+       	margin-right: auto;
+}
+
+.pushRight {
+	margin-left: auto;
+}
+
+.logo {
+  	width: 50px;
+  	height: 50px;
+  	border-radius: 50%;
+  	object-fit: cover;
+}
+
 .menu-button {
 	display: none;
 }
