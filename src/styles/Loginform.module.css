@@ -5,14 +5,15 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 20px;
 }
 
 .login-container {
       	background: white;
-      	padding: 40px;
+      	padding: 20px;
       	border-radius: 10px;
       	box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      	max-width: 400px;
+      	max-width: 450px;
       	width: 100%;
       	text-align: center;
 	display: flex;
@@ -25,8 +26,8 @@
 }
 
 .logo img {
-	width: 80px;
-	height: 75px;
+	width: 100px;
+	height: 95px;
 }
 
 .login-container h2 {
@@ -94,4 +95,34 @@
 }
 .link:hover {
       	text-decoration: underline;
+}
+
+@media (min-width: 1024px) {
+	.login-container {
+		max-width: 800px;
+	}
+
+	.btn {
+		width: auto;
+	}
+
+	.logo img {
+		width: 150px;
+		height: 145px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.login-container {
+                max-width: 600px;
+        }
+
+        .btn {
+                width: auto;
+        }
+
+	.logo img {
+		width: 125px;
+		height: 120px;
+	}
 }
