@@ -21,7 +21,7 @@ const NavBar = () => {
     };
 
     return (
-        <nav className={styles.navbar}>
+        <nav>
             <ul>
 
 	    	<li className={styles.pushLeft}>
