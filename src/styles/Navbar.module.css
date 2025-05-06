@@ -12,6 +12,10 @@
 	font-weight: bold;
 }
 
+.push-right {
+	margin-left: auto;
+}
+
 .menu-button {
 	display: none;
 }
