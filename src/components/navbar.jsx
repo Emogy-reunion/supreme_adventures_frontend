@@ -21,12 +21,12 @@ const NavBar = () => {
     };
 
     return (
-        <nav>
+        <nav className={styles.navbar}>
             <ul>
 
 	    	<li className={styles.pushLeft}>
 	    		<Link href="/">
-        			<img src="/supreme.svg" alt="Random Logo" className={styles.logo} />
+        			<img src="/supreme.svg" alt="supreme company logo" className={styles.logo} />
       			</Link>
 	    	</li>
 
