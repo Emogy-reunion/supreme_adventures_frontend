@@ -15,7 +15,7 @@ const LoginForm = () => {
     					<form>
 							<div className={styles["form-group"]}>
 							<label htmlFor="identifier">Email Address / Username</label>
-							<input type="text" id="identifier" name="identifier" placeholder="Enter you email or username" required />
+							<input type="text" id="identifier" name="identifier" placeholder="Email or username" required />
 						</div>
 
       						<div className={styles["form-group"]}>
