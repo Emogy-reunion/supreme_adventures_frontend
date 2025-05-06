@@ -1,0 +1,118 @@
+#register-section {
+	max-width: 1600px;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
+.signup-container {
+      	background: white;
+      	padding: 20px;
+      	border-radius: 10px;
+      	box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      	max-width: 450px;
+      	width: 100%;
+      	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.logo {
+	margin-bottom: 20px;
+}
+
+.logo img {
+	width: 150px;
+	height: 145px;
+}
+
+.signup-container h2 {
+	margin-bottom: 25px;
+	font-size: 2rem;
+	color: #333;
+}
+
+.signup-form {
+	width: 100%;
+	border: none;
+}
+
+.form-group {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 6px;
+	font-weight: 500;
+}
+
+.form-group input {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 1rem;
+}
+
+.form-group input:focus {
+	border-color: #facc15;
+	outline: none;
+	box-shadow: 0 0 0 2px #fde68a;
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+}
+
+.btn {
+      	width: 100%;
+      	padding: 12px;
+      	background: #facc15;
+      	border: none;
+      	border-radius: 6px;
+      	font-weight: bold;
+      	font-size: 1rem;
+      	cursor: pointer;
+      	transition: background 0.3s ease;
+}
+
+.btn:hover {
+      	background: #eab308;
+}
+
+.footer-text {
+	margin-top: 15px;
+      	font-size: 0.95rem;
+}
+
+.link {
+	margin-bottom: 10px;
+      	color: #facc15;
+      	text-decoration: none;
+      	font-weight: 500;
+}
+.link:hover {
+      	text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+	.signup-container {
+                max-width: 600px;
+        }
+
+        .btn {
+                width: auto;
+        }
+
+	.logo img {
+		width: 150px;
+		height: 145px;
+	}
+}
