@@ -26,7 +26,7 @@ const NavBar = () => {
 
 	    	<li className={styles.pushLeft}>
 	    		<Link href="/">
-        			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Logo.svg/600px-Logo.svg.png" alt="Random Logo" className={styles.logo} />
+        			<img src="/supreme.svg" alt="Random Logo" className={styles.logo} />
       			</Link>
 	    	</li>
 
