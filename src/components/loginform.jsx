@@ -30,7 +30,7 @@ const LoginForm = () => {
 
     					<div className={styles["footer-text"]}>
       						<p>Don’t have an account? <Link href="#" className={styles.link}>Sign up</Link></p>
-						<p>Forgot password? <Link href='#' className={styles.link}>Reset password</Link></p>
+						<p>Forgot password? <Link href='/register' className={styles.link}>Reset password</Link></p>
     					</div>
   				</div>
 			</section>
