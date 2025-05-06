@@ -1,14 +1,16 @@
-#login-section {
+.register-section {
 	max-width: 1600px;
 	width: 100%;
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 20px;
+	padding: 20px;
+	margin-top: 60px;
+
 }
 
-.login-container {
+.signup-container {
       	background: white;
       	padding: 20px;
       	border-radius: 10px;
@@ -30,13 +32,13 @@
 	height: 145px;
 }
 
-.login-container h2 {
+.signup-container h2 {
 	margin-bottom: 25px;
 	font-size: 2rem;
 	color: #333;
 }
 
-.login-form {
+.signup-form {
 	width: 100%;
 	border: none;
 }
@@ -103,7 +105,7 @@
 }
 
 @media (min-width: 768px) {
-	.login-container {
+	.signup-container {
                 max-width: 600px;
         }
 
