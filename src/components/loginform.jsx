@@ -9,14 +9,14 @@ const LoginForm = () => {
 			<section id={styles['login-section']}>
 				<div className={styles["login-container"]}>
     					<div className={styles.logo}>
-      						<img src="https://img.icons8.com/emoji/96/airplane-emoji.png" alt="Wanderlust Logo" />
+      						<img src="/supreme.svg" alt="Supreme adventures Logo" />
     					</div>
    					 <h2>Login</h2>
     					<form>
-      						<div className={styles["form-group"]}>
-        						<label htmlFor="email">Email Address / Username </label>
-        						<input type="email" id="email" name="email" placeholder="you@example.com" required />
-      						</div>
+      						<div className={styles["form-group"]}.
+							<label htmlFor="identifier">Email Address / Username</label>
+							<input type="text" id="identifier" name="identifier" placeholder="Enter you email or username" required />
+						</div>
 
       						<div className={styles["form-group"]}>
         						<label htmlFor="password">Password</label>
