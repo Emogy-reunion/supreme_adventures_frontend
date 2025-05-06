@@ -26,21 +26,35 @@ const NavBar = () => {
                 <li className={styles['hide-on-mobile']}>
                     <Link href='/' className={`${styles['nav-link']} ${isActive('/')}`}>Home</Link>
                 </li>
+
                 <li className={styles['hide-on-mobile']}>
                     <Link href='#' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
                 </li>
+
                 <li className={styles['hide-on-mobile']}>
                     <Link href='#' className={`${styles['nav-link']} ${isActive('/destinations')}`}>Destinations</Link>
                 </li>
+
                 <li className={styles['hide-on-mobile']}>
                     <Link href='#' className={`${styles['nav-link']} ${isActive('/tours')}`}>Tours</Link>
                 </li>
+
                 <li className={styles['hide-on-mobile']}>
                     <Link href='#' className={`${styles['nav-link']} ${isActive('/shop')}`}>Shop</Link>
                 </li>
-		 <li className={styles['hide-on-mobile']}>
+
+	    	<li className={styles['hide-on-mobile']}>
+                    <Link href='#' className={`${styles['nav-link']} ${isActive('/login')}`}>Sign in</Link>
+                </li>
+
+	    	<li className={styles['hide-on-mobile']}>
+                    <Link href='#' className={`${styles['nav-link']} ${isActive('/register')}`}>Sign up</Link>
+                </li>
+
+		<li className={styles['hide-on-mobile']}>
                     <Link href='#' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
                 </li>
+
                 <li className={styles["menu-button"]}>
                     <Link href='#' className={styles['nav-link']} onClick={ShowSidebar}>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -58,31 +72,49 @@ const NavBar = () => {
           		</svg>
         		</Link>
       		</li>
+
       		<li>
         		<Link href="/" className={`${styles['nav-link']} ${isActive('/')}`}>
           		Home
         		</Link>
       		</li>
+
       		<li>
         		<Link href="#" className={`${styles['nav-link']} ${isActive('/about')}`}>
           		About Us
         		</Link>
       		</li>
+
       		<li>
         		<Link href="#" className={`${styles['nav-link']} ${isActive('/destinations')}`}>
           		Services
         		</Link>
       		</li>
+
       		<li>
         		<Link href="#" className={`${styles['nav-link']} ${isActive('/tours')}`}>
           		Tours
         		</Link>
       		</li>
+
       		<li>
         		<Link href="#" className={`${styles['nav-link']} ${isActive('/shop')}`}>
           		Shop
         		</Link>
       		</li>
+	    	
+		<li>
+                        <Link href="#" className={`${styles['nav-link']} ${isActive('/login')}`}>
+                        Sign in
+                        </Link>
+                </li>
+
+	    	<li>
+                        <Link href="#" className={`${styles['nav-link']} ${isActive('/register')}`}>
+                        Sign up
+                        </Link>
+                </li>
+
 		<li>
 			<Link href="#" className={`${styles['nav-link']} ${isActive('/contact')}`}>
                         Contact
