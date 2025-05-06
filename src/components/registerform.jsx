@@ -30,7 +30,7 @@ const RegisterForm = () => {
       						</div>
 
 						<div className={styles["form-group"]}>
-                                                        <label htmlFor="username">First Name</label>
+                                                        <label htmlFor="username">Username</label>
                                                         <input type="text" id="username" name="username" required />
                                                 </div>
 
