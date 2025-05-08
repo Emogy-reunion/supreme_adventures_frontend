@@ -5,12 +5,13 @@ import styles from '../styles/Resetpasswordemail.module.css';
 const ResetPasswordEmail = () => {
 	return (
 			<>
-				<section id={styles['reset-sectionm ']}>
+				<section id={styles['reset-section']}>
 					<div className={styles['reset-container']}>
     						<div className={styles.logo}>
       							<img src="/supreme.svg" alt="Supreme adventures Logo" />
     						</div>
    					 	<h2>Reset Password</h2>
+						<p>Enter your email address and we will send you a link to reset your password.</p>
 						<form className={styles['reset-form']}>
 							<div className={styles['form-group']}>
 								<label htmlFor='resetpassword'>Email</label>
@@ -18,7 +19,7 @@ const ResetPasswordEmail = () => {
 							</div>
 							
 							<div className={styles['button-container']}>
-								<button type="submit" className={styles.btn}>Request password</button>
+								<button type="submit" className={styles.btn}>Reset password</button>
 							</div>
 						</form>
 
