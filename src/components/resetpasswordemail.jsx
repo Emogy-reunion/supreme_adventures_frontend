@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '/next/link';
+import Link from 'next/link';
 import styles from '../styles/Resetpasswordemail.module.css';
 
 const ResetPasswordEmail = () => {
