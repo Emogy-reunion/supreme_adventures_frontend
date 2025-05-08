@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '/next/link';
 import styles from '../styles/Resetpasswordemail.module.css';
 
 const ResetPasswordEmail = () => {
@@ -13,7 +14,7 @@ const ResetPasswordEmail = () => {
 						<form className={styles['reset-form']}>
 							<div className={styles['form-group']}>
 								<label htmlFor='resetpassword'>Email</label>
-								<input type='email' id='resetpassword' name='resetpassword' placeholder='Enter you email...' required>
+								<input type='email' id='resetpassword' name='resetpassword' placeholder='Enter you email...' required />
 							</div>
 							
 							<div className={styles['button-container']}>
