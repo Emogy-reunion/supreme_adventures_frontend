@@ -25,7 +25,7 @@ const RegisterForm = () => {
                                                 </div>
       
       						<div className={styles["form-group"]}>
-        						<label htmFor="email">Email Address</label>
+        						<label htmlFor="email">Email Address</label>
         						<input type="email" id="email" name="email" required />
       						</div>
 
