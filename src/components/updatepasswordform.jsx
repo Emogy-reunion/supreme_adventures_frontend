@@ -33,4 +33,7 @@ const UpdatePasswordForm = ({ userId }) => {
 					</div>
 				</section>
 			</>
-	)
+	);
+};
+
+export default UpdatePasswordForm;
