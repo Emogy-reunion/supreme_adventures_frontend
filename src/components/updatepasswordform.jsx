@@ -23,6 +23,11 @@ const UpdatePasswordForm = ({ userId }) => {
                                                                 <input type='password' id='confirmpassword' name='confirmpassword' placeholder='Confirm you new password...' required />
                                                         </div>
 							
+							<div className={styles["form-group"]}>
+								<label htmlFor='showpassword'>Show password</>
+								<input type='checkbox' id='showpassword' name='showpassword'>
+							</div>
+							
 							<div className={styles['button-container']}>
 								<button type="submit" className={styles.btn}>Reset password</button>
 							</div>
