@@ -23,6 +23,11 @@ const LoginForm = () => {
         						<input type="password" id="password" name="password" placeholder="Enter your password" required />
       						</div>
 						
+						<div className={styles["form-group"]}>
+							<label htmlFor='showpassword'>Show password</>
+							<input type='checkbox' id='showpassword' name='showpassword'>
+						</div>
+						
 						<div className={styles['button-container']}>
 							<button type="submit" className={styles.btn}>Sign In</button>
 						</div>
