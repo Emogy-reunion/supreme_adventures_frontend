@@ -45,7 +45,7 @@ const RegisterForm = () => {
       						</div>
 
 						<div className={styles["form-group"]}>
-                                                        <label htmlFor='showpasswords'>Show passwords</>
+                                                        <label htmlFor='showpasswords'>Show passwords</label>
                                                         <input type='checkbox' id='showpasswords' name='showpasswords'>
                                                 </div>
 
