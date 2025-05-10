@@ -25,7 +25,7 @@ const LoginForm = () => {
 						
 						<div className={styles["form-group"]}>
 							<label htmlFor='showpassword'>Show password</label>
-							<input type='checkbox' id='showpassword' name='showpassword'>
+							<input type='checkbox' id='showpassword' name='showpassword' />
 						</div>
 						
 						<div className={styles['button-container']}>
