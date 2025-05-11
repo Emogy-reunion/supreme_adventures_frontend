@@ -66,6 +66,14 @@
 	box-shadow: 0 0 0 2px #fde68a;
 }
 
+.form-group input[type="checkbox"] {
+	width: auto;
+  	padding: 0;
+  	border: none;
+  	border-radius: 0;
+  	box-shadow: none;
+}
+
 .button-container {
 	display: flex;
 	justify-content: center;
