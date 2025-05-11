@@ -66,6 +66,13 @@
 	box-shadow: 0 0 0 2px #fde68a;
 }
 
+.check-box label {
+        display: inline;
+        margin-bottom: 6px;
+        font-weight: 500;
+}
+
+
 .form-group input[type="checkbox"] {
 	width: auto;
   	padding: 0;
