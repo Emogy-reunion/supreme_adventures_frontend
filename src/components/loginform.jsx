@@ -23,7 +23,7 @@ const LoginForm = () => {
         						<input type="password" id="password" name="password" placeholder="Enter your password" required />
       						</div>
 						
-						<div className=`${styles['check-box']} ${styles["form-group"]}`>
+						<div className={`${styles['check-box']} ${styles["form-group"]}`}>
 							<label htmlFor='showpassword'>Show password</label>
 							<input type='checkbox' id='showpassword' name='showpassword' />
 						</div>
