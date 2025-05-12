@@ -44,7 +44,7 @@ const RegisterForm = () => {
         						<input type="password" id="confirm-password" name="confirm-password" placeholder="Retype your password" required />
       						</div>
 
-						<div className={`${styles["form-group"]} ${styles['check-box']`}>
+						<div className={`${styles["form-group"]} ${styles['check-box']}`}>
                                                         <label htmlFor='showpasswords'>Show passwords</label>
                                                         <input type='checkbox' id='showpasswords' name='showpasswords' />
                                                 </div>
