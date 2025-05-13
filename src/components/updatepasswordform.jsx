@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from '../src/Updatepasswordform.module.css';
+import styles from '../styles/Updatepasswordform.module.css';
 
 
 const UpdatePasswordForm = ({ userId }) => {
