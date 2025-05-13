@@ -8,7 +8,7 @@ const VerificationStatus = ({ status }) => {
 	if (status === 'true') {
 		return (
 			<>
-				<section className={styles['verification-section']>
+				<section className={styles['verification-section']}>
 					<div className={styles['success-card']}>
 						<div className={styles.logo}>
       							<img src="/supreme.svg" alt="Supreme adventures Logo" />
@@ -23,7 +23,7 @@ const VerificationStatus = ({ status }) => {
 	} else {
 		return (
 			<>
-				<section className={styles['verification-section']>
+				<section className={styles['verification-section']}>
       					<div className={styles['failure-card']}>
 						<div className={styles.logo}>
       							<img src="/supreme.svg" alt="Supreme adventures Logo" />
