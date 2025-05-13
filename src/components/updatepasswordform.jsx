@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../components/Updatepasswordform.module';
+import styles from '../components/Updatepasswordform.module.css';
 
 
 const UpdatePasswordForm = ({ userId }) => {
