@@ -15,7 +15,7 @@ const VerificationStatus = ({ status }) => {
     						</div>
         					<h2>Email Verified Successfully!</h2>
         					<p>Welcome! Your email has been confirmed, and your account is now fully activated.</p>
-        					<Link to="/login" className={styles.button}>Go to Login></Link>
+        					<Link to="/login" className={styles.button}>Go to Login</Link>
 					</div>
 				</section>
 			</>
