@@ -29,7 +29,7 @@ const UpdatePasswordForm = ({ userId }) => {
 						</form>
 						<div className={styles["footer-text"]}>
       							<p>Remembered your password? <Link href="/login" className={styles.link}>Sign in</Link></p>
-    						</div
+    						</div>
 					</div>
 				</section>
 			</>
