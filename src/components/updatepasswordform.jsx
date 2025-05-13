@@ -19,7 +19,7 @@ const UpdatePasswordForm = ({ userId }) => {
 								<input type='password' id='password' name='password' placeholder='Enter you new password...' required />
 							</div>
 
-							<div className={styles['form-group']}>
+							<div className={` ${styles['form-group']} ${styles['check-box']}`}>
                                                                 <label htmlFor='confirmpassword'>Email</label>
                                                                 <input type='password' id='confirmpassword' name='confirmpassword' placeholder='Confirm you new password...' required />
                                                         </div>
