@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/Verificationstatus.module';
+import styles from '../styles/Verificationstatus.module.css';
 import Link from 'next/link';
 
 
