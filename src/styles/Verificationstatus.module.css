@@ -29,42 +29,41 @@
 }
 
 .success-card h2 {
-  color: #2e7d32;
+  	color: #2e7d32;
 }
 
 .failure-card h2 {
-  color: #c62828;
+  	color: #c62828;
 }
 
 .success-card p,
 .failure-card p {
-  font-size: 16px;
-  margin: 16px 0 24px 0;
+  	font-size: 16px;
+  	margin: 16px 0 24px 0;
 }
 
 .button {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  color: #fff;
+  	display: inline-block;
+  	padding: 12px 24px;
+  	border-radius: 6px;
+  	text-decoration: none;
+  	font-weight: 500;
+  	transition: background-color 0.3s ease;
+  	color: #fff;
 }
 
 .success-card .button {
-  background-color: #2e7d32;
+  	background-color: #2e7d32;
 }
 
 .success-card .button:hover {
-  background-color: #27682a;
+  	background-color: #27682a;
 }
 
 .failure-card .button {
-  background-color: #c62828;
+  	background-color: #c62828;
 }
 
 .failure-card .button:hover {
-  background-color: #a61b1b;
+  	background-color: #a61b1b;
 }
-
