@@ -35,7 +35,7 @@ const NavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='/verification-status/true' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
+                    <Link href='#' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
