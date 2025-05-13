@@ -15,7 +15,7 @@ const VerificationStatus = ({ status }) => {
     						</div>
         					<h2>Email Verified Successfully!</h2>
         					<p>Welcome! Your email has been confirmed, and your account is now fully activated.</p>
-        					<Link to="/login" className={styles.button}>Go to Login</Link>
+        					<Link href="/login" className={styles.button}>Go to Login</Link>
 					</div>
 				</section>
 			</>
@@ -30,7 +30,7 @@ const VerificationStatus = ({ status }) => {
     						</div>
         					<h2>Verification Failed!</h2>
         					<p>Sorry, we couldn’t verify your email. The link may be invalid or expired.</p>
-        					<Link to="/resend-verification" className={styles.button}>Resend Verification Email</Link>
+        					<Link href="/resend-verification" className={styles.button}>Resend Verification Email</Link>
     					</div>
 				</section>
 			</>
