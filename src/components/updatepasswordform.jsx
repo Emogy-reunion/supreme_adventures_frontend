@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from '../components/Updatepasswordform.module';
+import Link from 'next/link';
+import styles from '../styles/Updatepasswordform.module.css';
 
 
 const UpdatePasswordForm = ({ userId }) => {
@@ -18,7 +19,7 @@ const UpdatePasswordForm = ({ userId }) => {
 								<input type='password' id='password' name='password' placeholder='Enter you new password...' required />
 							</div>
 
-							<div className={styles['form-group']}>
+							<div className={` ${styles['form-group']} ${styles['check-box']}`}>
                                                                 <label htmlFor='confirmpassword'>Email</label>
                                                                 <input type='password' id='confirmpassword' name='confirmpassword' placeholder='Confirm you new password...' required />
                                                         </div>
@@ -34,7 +35,7 @@ const UpdatePasswordForm = ({ userId }) => {
 						</form>
 						<div className={styles["footer-text"]}>
       							<p>Remembered your password? <Link href="/login" className={styles.link}>Sign in</Link></p>
-    						</div
+    						</div>
 					</div>
 				</section>
 			</>

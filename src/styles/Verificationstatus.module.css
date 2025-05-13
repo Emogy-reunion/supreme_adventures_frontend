@@ -1,0 +1,70 @@
+.verification-section {
+	max-width: 1600px;
+	min-height: 100vh;
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	padding: 20px;
+}
+
+.success-card,
+.failure-card {
+  	background: #ffffff;
+  	padding: 40px;
+  	border-radius: 12px;
+  	max-width: 500px;
+  	text-align: center;
+  	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.logo {
+	margin-bottom: 20px;
+}
+
+.logo img {
+	width: 150px;
+	height: 145px;
+}
+
+.success-card h2 {
+  	color: #2e7d32;
+}
+
+.failure-card h2 {
+  	color: #c62828;
+}
+
+.success-card p,
+.failure-card p {
+  	font-size: 16px;
+  	margin: 16px 0 24px 0;
+}
+
+.button {
+  	display: inline-block;
+  	padding: 12px 24px;
+  	border-radius: 6px;
+  	text-decoration: none;
+  	font-weight: 500;
+  	transition: background-color 0.3s ease;
+  	color: #fff;
+}
+
+.success-card .button {
+  	background-color: #2e7d32;
+}
+
+.success-card .button:hover {
+  	background-color: #27682a;
+}
+
+.failure-card .button {
+  	background-color: #c62828;
+}
+
+.failure-card .button:hover {
+  	background-color: #a61b1b;
+}
