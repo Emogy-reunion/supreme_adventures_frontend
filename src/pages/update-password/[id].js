@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 
 
 const UpdatePassword = () => {
+	const router = useRouter();
         const { id: userId } = router.query;
 
         return (
