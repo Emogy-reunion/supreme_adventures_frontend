@@ -79,6 +79,13 @@ const RegisterForm = () => {
     					<h2>Create Account</h2>
     					
 					<form className={styles['signup-form']} onSubmit={handleSubmit}>
+
+						{(globalError || successMessage) && (
+							<div className={ globalError ? styles["error"] : styles["success-message"]}>
+								<p>{globalError || successMessage}</p>
+							</div
+						)}
+						
       						<div className={styles["form-group"]}>
         						<label htmlFor="first_name">First Name</label>
         						<input type="text" id="first_name" name="first_name" required />
