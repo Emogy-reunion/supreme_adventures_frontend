@@ -42,7 +42,6 @@ const RegisterForm = () => {
 						return acc;
 					 }, {});
 
-					alert('form errors');
 					setFormErrors(formattedErrors);
 
 					setTimeout(() => {
@@ -50,7 +49,6 @@ const RegisterForm = () => {
 					}, 3000);
 
 				} else if (data.error) {
-					alert(data.error);
 					setGlobalError(data.error);
 
 					setTimeout(() => {
@@ -84,20 +82,32 @@ const RegisterForm = () => {
       						<div className={styles["form-group"]}>
         						<label htmlFor="first_name">First Name</label>
         						<input type="text" id="first_name" name="first_name" required />
+							{formErrors.first_name && (
+								<p className={styles["error-message"]}>{formErrors.first_name}</p>
+							)}
       						</div>
 
 						<div className={styles["form-group"]}>
                                                         <label htmlFor="last_name">Last Name</label>
                                                         <input type="text" id="last_name" name="last_name" required />
+							{formErrors.last_name && (
+                                                                <p className={styles["error-message"]}>{formErrors.last_name}</p>
+                                                        )}
                                                 </div>
       						<div className={styles["form-group"]}>
         						<label htmlFor="email">Email Address</label>
         						<input type="email" id="email" name="email" required />
+							{formErrors.email && (
+                                                                <p className={styles["error-message"]}>{formErrors.email}</p>
+                                                        )}
       						</div>
 
 						<div className={styles["form-group"]}>
                                                         <label htmlFor="username">Username</label>
                                                         <input type="text" id="username" name="username" required />
+							{formErrors.username && (
+                                                                <p className={styles["error-message"]}>{formErrors.username}</p>
+                                                        )}
                                                 </div>
 
 						<div className={styles["form-group"]}>
@@ -110,16 +120,25 @@ const RegisterForm = () => {
     								pattern="^(07\d{8}|(\+2547\d{8}))$"
     								placeholder="e.g. 0712345678 or +254712345678"
   							/>
+							{formErrors.phone_number && (
+                                                                <p className={styles["error-message"]}>{formErrors.phone_number}</p>
+                                                        )}
 						</div>
 
       						<div className={styles["form-group"]}>
         						<label htmlFor="password">Create Password</label>
         						<input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="Choose a strong password" required />
+							{formErrors.password && (
+                                                                <p className={styles["error-message"]}>{formErrors.password}</p>
+                                                        )}
       						</div>
 
       						<div className={styles["form-group"]}>
         						<label htmlFor="confirm-password">Confirm Password</label>
         						<input type={showPassword ? "text" :"password"} id="confirm-password" name="confirm-password" placeholder="Retype your password" required />
+							{formErrors.confirmpassword && (
+                                                                <p className={styles["error-message"]}>{formErrors.confirmpassword}</p>
+                                                        )}
       						</div>
 
 						<div className={`${styles["form-group"]} ${styles['check-box']}`}>
