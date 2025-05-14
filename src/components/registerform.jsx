@@ -70,12 +70,6 @@ const RegisterForm = () => {
 		}
 	};
 
-
-
-
-
-		
-
 	return (
 		<>
 			<section className={styles['register-section']}>
@@ -85,7 +79,7 @@ const RegisterForm = () => {
     					</div>
     					<h2>Create Account</h2>
     					
-					<form className={styles['signup-form']}>
+					<form className={styles['signup-form']} onSubmit={handleSubmit}>
       						<div className={styles["form-group"]}>
         						<label htmlFor="first_name">First Name</label>
         						<input type="text" id="first_name" name="first_name" required />
@@ -104,6 +98,18 @@ const RegisterForm = () => {
                                                         <label htmlFor="username">Username</label>
                                                         <input type="text" id="username" name="username" required />
                                                 </div>
+
+						<div className={styles["form-group"]}>
+							<label htmlFor="phone_number">Phone Number</label>
+  							<input
+    								type="tel"
+    								id="phone_number"
+    								name="phone_number"
+    								required
+    								pattern="^(07\d{8}|(\+2547\d{8}))$"
+    								placeholder="e.g. 0712345678 or +254712345678"
+  							/>
+						</div>
 
       						<div className={styles["form-group"]}>
         						<label htmlFor="password">Create Password</label>
