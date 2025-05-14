@@ -83,7 +83,7 @@ const RegisterForm = () => {
 						{(globalError || successMessage) && (
 							<div className={ globalError ? styles["error"] : styles["success-message"]}>
 								<p>{globalError || successMessage}</p>
-							</div
+							</div>
 						)}
 						
       						<div className={styles["form-group"]}>
