@@ -24,7 +24,7 @@ const RegisterForm = () => {
 		const formData = new FormData(event.target);
 
 		try {
-			const response = async await fetch('http://127.0.0.1:5000/register', {
+			const response = await fetch('http://127.0.0.1:5000/register', {
 				method: 'POST',
 				headers: {
 					'Content-Type': application/json
@@ -56,7 +56,7 @@ const RegisterForm = () => {
 						setGlobalError(null);
 					}, 3000);
 				} else {
-					throw New Error('An unknown error occurred: ' + JSON.stringify(data));
+					throw new Error('An unknown error occurred: ' + JSON.stringify(data));
 				}
 			} else {
 				alert(data.success);
