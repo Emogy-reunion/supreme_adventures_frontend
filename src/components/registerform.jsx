@@ -16,12 +16,13 @@ const RegisterForm = () => {
 	};
 
 	const handleSubmit = async (event) => {
-		event.preventDefault;
+		event.preventDefault();
 		setFormErrors({});
 		setGlobalError(null);
 		setSuccessMessage(null);
 
 		const formData = new FormData(event.target);
+		const formJson = Object.fromEntries(formData.entries());
 
 		try {
 			const response = await fetch('http://127.0.0.1:5000/register', {
@@ -29,7 +30,7 @@ const RegisterForm = () => {
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify(formData),
+				body: JSON.stringify(formJson),
 			});
 			
 			const data = await response.json();
@@ -41,7 +42,7 @@ const RegisterForm = () => {
 						return acc;
 					 }, {});
 
-					alert(data.errors);
+					alert('form errors');
 					setFormErrors(formattedErrors);
 
 					setTimeout(() => {
