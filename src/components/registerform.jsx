@@ -23,7 +23,7 @@ const RegisterForm = () => {
 
 		const formData = new FormData(event.target);
 
-		try:
+		try {
 			const response = async await fetch('http://127.0.0.1:5000/register', {
 				method: 'POST',
 				headers: {
@@ -65,7 +65,7 @@ const RegisterForm = () => {
 					setSuccessMessage(null);
 				}, 3000);
 			}
-		catch (error) {
+		} catch (error) {
 			alert('Network error. Please try again.');
 		}
 	};
