@@ -1,9 +1,17 @@
 import React from 'react';
 import Link from 'next/head';
 import styles from '../styles/Registerform.module.css';
+import { useState } from 'react';
 
 
 const RegisterForm = () => {
+
+	const [showPassword, setShowPassword] = useState(false)
+
+	const handleToggle = () => {
+		setShowPassword((prev) => !prev);
+	};
+
 	return (
 		<>
 			<section className={styles['register-section']}>
@@ -23,7 +31,6 @@ const RegisterForm = () => {
                                                         <label htmlFor="last_name">Last Name</label>
                                                         <input type="text" id="last_name" name="last_name" required />
                                                 </div>
-      
       						<div className={styles["form-group"]}>
         						<label htmlFor="email">Email Address</label>
         						<input type="email" id="email" name="email" required />
@@ -36,17 +43,22 @@ const RegisterForm = () => {
 
       						<div className={styles["form-group"]}>
         						<label htmlFor="password">Create Password</label>
-        						<input type="password" id="password" name="password" placeholder="Choose a strong password" required />
+        						<input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="Choose a strong password" required />
       						</div>
 
       						<div className={styles["form-group"]}>
         						<label htmlFor="confirm-password">Confirm Password</label>
-        						<input type="password" id="confirm-password" name="confirm-password" placeholder="Retype your password" required />
+        						<input type={showPassword ? "text" :"password"} id="confirm-password" name="confirm-password" placeholder="Retype your password" required />
       						</div>
 
 						<div className={`${styles["form-group"]} ${styles['check-box']}`}>
                                                         <label htmlFor='showpasswords'>Show passwords</label>
-                                                        <input type='checkbox' id='showpasswords' name='showpasswords' />
+                                                        <input
+								type='checkbox'
+								id='showpasswords'
+								checked={showPassword}
+								onChange={handleToggle}
+								name='showpasswords' />
                                                 </div>
 
 						<div className={styles['button-container']}>
