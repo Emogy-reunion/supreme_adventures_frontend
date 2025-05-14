@@ -134,8 +134,8 @@ const RegisterForm = () => {
       						</div>
 
       						<div className={styles["form-group"]}>
-        						<label htmlFor="confirm-password">Confirm Password</label>
-        						<input type={showPassword ? "text" :"password"} id="confirm-password" name="confirm-password" placeholder="Retype your password" required />
+        						<label htmlFor="confirmpassword">Confirm Password</label>
+        						<input type={showPassword ? "text" :"password"} id="confirmpassword" name="confirmpassword" placeholder="Retype your password" required />
 							{formErrors.confirmpassword && (
                                                                 <p className={styles["error-message"]}>{formErrors.confirmpassword}</p>
                                                         )}
