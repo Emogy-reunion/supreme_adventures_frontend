@@ -46,14 +46,14 @@ const RegisterForm = () => {
 
 					setTimeout(() => {
 						setFormErrors({});
-					}, 3000);
+					}, 5000);
 
 				} else if (data.error) {
 					setGlobalError(data.error);
 
 					setTimeout(() => {
 						setGlobalError(null);
-					}, 3000);
+					}, 5000);
 				} else {
 					throw new Error('An unknown error occurred: ' + JSON.stringify(data));
 				}
@@ -62,7 +62,7 @@ const RegisterForm = () => {
 				setSuccessMessage(data.success);
 				setTimeout(() => {
 					setSuccessMessage(null);
-				}, 3000);
+				}, 5000);
 			}
 		} catch (error) {
 			alert('Network error. Please try again.');
