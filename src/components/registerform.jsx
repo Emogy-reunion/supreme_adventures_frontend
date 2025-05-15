@@ -58,7 +58,6 @@ const RegisterForm = () => {
 					throw new Error('An unknown error occurred: ' + JSON.stringify(data));
 				}
 			} else {
-				alert(data.success);
 				setSuccessMessage(data.success);
 				setTimeout(() => {
 					setSuccessMessage(null);
