@@ -5,11 +5,12 @@ import { useState } from 'react';
 
 
 const LoginForm = () => {
+	const [showPassword, setShowPassword] = useState(false);
+	const handleToggle = () => {
+		setShowPassword((prev) => !prev);
+	};
+
 	return (
-		const [showPassword, setShowPassword] = useState(false);
-		const handleToggle = () => {
-			setShowPassword((prev) => !prev);
-		};
 		<>
 			<section id={styles['login-section']}>
 				<div className={styles["login-container"]}>
