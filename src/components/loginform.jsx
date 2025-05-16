@@ -35,7 +35,7 @@ const LoginForm = () => {
 								id='showpassword'
 								name='showpassword'
 								checked={showPassword}
-								onChange={handleToggle)/>
+								onChange={handleToggle}/>
 						</div>
 						
 						<div className={styles['button-container']}>
