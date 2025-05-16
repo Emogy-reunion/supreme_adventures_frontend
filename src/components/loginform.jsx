@@ -1,10 +1,15 @@
 import React from 'react';
 import styles from '../styles/Loginform.module.css';
 import Link from 'next/link';
+import { useState } from 'react';
 
 
 const LoginForm = () => {
 	return (
+		const [showPassword, setShowPassword] = useState(false);
+		const handleToggle = () => {
+			setShowPassword((prev) => !prev);
+		};
 		<>
 			<section id={styles['login-section']}>
 				<div className={styles["login-container"]}>
@@ -20,12 +25,16 @@ const LoginForm = () => {
 
       						<div className={styles["form-group"]}>
         						<label htmlFor="password">Password</label>
-        						<input type="password" id="password" name="password" placeholder="Enter your password" required />
+        						<input type={showPassword ? 'text': 'password'} id="password" name="password" placeholder="Enter your password" required />
       						</div>
 						
 						<div className={`${styles['check-box']} ${styles["form-group"]}`}>
 							<label htmlFor='showpassword'>Show password</label>
-							<input type='checkbox' id='showpassword' name='showpassword' />
+							<input type='checkbox'
+								id='showpassword'
+								name='showpassword'
+								checked={showPassword}
+								onChange={handleToggle)/>
 						</div>
 						
 						<div className={styles['button-container']}>
