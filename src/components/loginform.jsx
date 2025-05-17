@@ -21,7 +21,7 @@ const LoginForm = () => {
 		// clear existing error messages
 		setGlobalError(null);
 		setSuccessMessage(null);
-		setFormErrors(null);
+		setFormErrors({});
 
 		const formData = new FormData(event.target);
 		const formJson = Object.fromEntries(formData.entries());
@@ -46,13 +46,22 @@ const LoginForm = () => {
 					}, {});
 
 					setFormErrors(formattedErrors);
+					setTimeout(() => {
+						setFormErrors({});
+					}, 5000);
 				} else (data.error) {
 					setGlobalError(data.error);
+					setTimeout(() => {
+						setGlobalError(null);
+					}, 5000);
 				} else {
 					throw new Error('A network error occured: ', Json.stringify(error));
 				}
 			} else {
 				setSuccessMessage(data.success);
+				setTimeout(() => {
+					setSuccessMessage(null);
+				}, 5000);
 			}
 		} catch(error) {
 			alert('Network error. Please try again.');
