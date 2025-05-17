@@ -119,6 +119,27 @@
       	text-decoration: underline;
 }
 
+.error-message {
+    	color: red;
+    	font-size: 12px;
+    	margin-top: 5px;
+}
+
+
+.error {
+  	background-color: #ffe0e0;
+  	color: #b20000;
+  	border: 1px solid #ffcccc;
+	padding: 10px;
+}
+
+.success-message {
+  	background-color: #e0ffe0;
+  	color: #006600;
+  	border: 1px solid #b3ffb3;
+	padding: 10px;
+}
+
 @media (min-width: 768px) {
 	.login-container {
                 max-width: 600px;
