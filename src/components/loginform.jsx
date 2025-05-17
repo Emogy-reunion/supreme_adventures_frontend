@@ -67,7 +67,9 @@ const LoginForm = () => {
     					<div className={styles.logo}>
       						<img src="/supreme.svg" alt="Supreme adventures Logo" />
     					</div>
+
    					 <h2>Login</h2>
+
     					<form className={styles['login-form']} onsubmit={handleSubmit}>
 						{(globalError || sucessMessage) && (
 							<div className={globalError ? styles['error'] : styles['success-message']}>
@@ -77,11 +79,17 @@ const LoginForm = () => {
 						<div className={styles["form-group"]}>
 							<label htmlFor="identifier">Email/Username</label>
 							<input type="text" id="identifier" name="identifier" placeholder="Email or username" required />
+							{formErrors.identifier && (
+								<p>{formErrors.identifier}</p>
+							)}
 						</div>
 
       						<div className={styles["form-group"]}>
         						<label htmlFor="password">Password</label>
         						<input type={showPassword ? 'text': 'password'} id="password" name="password" placeholder="Enter your password" required />
+							{formErrors.password && (
+								<p>{formErrors.password}</p>
+							)}
       						</div>
 						
 						<div className={`${styles['check-box']} ${styles["form-group"]}`}>
