@@ -80,7 +80,7 @@ const LoginForm = () => {
 							<label htmlFor="identifier">Email/Username</label>
 							<input type="text" id="identifier" name="identifier" placeholder="Email or username" required />
 							{formErrors.identifier && (
-								<p>{formErrors.identifier}</p>
+								<p className={styles['error-message']}>{formErrors.identifier}</p>
 							)}
 						</div>
 
@@ -88,7 +88,7 @@ const LoginForm = () => {
         						<label htmlFor="password">Password</label>
         						<input type={showPassword ? 'text': 'password'} id="password" name="password" placeholder="Enter your password" required />
 							{formErrors.password && (
-								<p>{formErrors.password}</p>
+								<p className={styles['error-message']}>{formErrors.password}</p>
 							)}
       						</div>
 						
