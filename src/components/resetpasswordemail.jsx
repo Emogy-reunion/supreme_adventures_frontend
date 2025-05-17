@@ -59,7 +59,7 @@ const ResetPasswordEmail = () => {
 		} catch(error) {
 			alert('Network error. Please try again!');
 		}
-	});
+	};
 
 	return (
 			<>
@@ -100,4 +100,3 @@ const ResetPasswordEmail = () => {
 
 
 export default ResetPasswordEmail;
-
