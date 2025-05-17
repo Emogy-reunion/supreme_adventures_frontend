@@ -49,7 +49,7 @@ const LoginForm = () => {
 					setTimeout(() => {
 						setFormErrors({});
 					}, 5000);
-				} else (data.error) {
+				} else if (data.error) {
 					setGlobalError(data.error);
 					setTimeout(() => {
 						setGlobalError(null);
