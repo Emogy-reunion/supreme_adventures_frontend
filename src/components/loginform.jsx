@@ -8,7 +8,7 @@ const LoginForm = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [formErrors, setFormErrors] = useState({});
 	const [globalError, setGlobalError] = useState(null);
-	const [successMessage, setSuccessMessage] = useState(null):
+	const [successMessage, setSuccessMessage] = useState(null);
 
 
 	const handleToggle = () => {
@@ -55,7 +55,7 @@ const LoginForm = () => {
 						setGlobalError(null);
 					}, 5000);
 				} else {
-					throw new Error('A network error occured: ', Json.stringify(error));
+					throw new Error('A network error occured: ', Json.stringify(data));
 				}
 			} else {
 				setSuccessMessage(data.success);
