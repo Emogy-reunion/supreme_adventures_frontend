@@ -79,7 +79,7 @@ const ResetPasswordEmail = () => {
 							<div className={styles['form-group']}>
 								<label htmlFor='resetpassword'>Email</label>
 								<input type='email' id='resetpassword' name='resetpassword' placeholder='Enter you email...' required />
-								{formErrors.email (
+								{formErrors.email && (
 									<p className={styles['error-message']}>{formErrors.email}</p>
 								)}
 							</div>
