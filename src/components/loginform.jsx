@@ -80,7 +80,7 @@ const LoginForm = () => {
    					 <h2>Login</h2>
 
     					<form className={styles['login-form']} onSubmit={handleSubmit}>
-						{(globalError || sucessMessage) && (
+						{(globalError || successMessage) && (
 							<div className={globalError ? styles['error'] : styles['success-message']}>
 								<p>{globalError || successMessage}</p>
 							</div>
