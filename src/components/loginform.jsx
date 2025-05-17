@@ -8,7 +8,7 @@ const LoginForm = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [formErrors, setFormErrors] = useState({});
 	const [globalError, setGlobalError] = useState(null);
-	const [successMessage, setSuccessMessage] = useState(null):
+	const [successMessage, setSuccessMessage] = useState(null);
 
 
 	const handleToggle = () => {
@@ -21,7 +21,7 @@ const LoginForm = () => {
 		// clear existing error messages
 		setGlobalError(null);
 		setSuccessMessage(null);
-		setFormErrors(null);
+		setFormErrors({});
 
 		const formData = new FormData(event.target);
 		const formJson = Object.fromEntries(formData.entries());
@@ -31,7 +31,7 @@ const LoginForm = () => {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: Json.stringify(formJson),
+			body: JSON.stringify(formJson),
 		});
 
 
@@ -46,13 +46,22 @@ const LoginForm = () => {
 					}, {});
 
 					setFormErrors(formattedErrors);
-				} else (data.error) {
+					setTimeout(() => {
+						setFormErrors({});
+					}, 5000);
+				} else if (data.error) {
 					setGlobalError(data.error);
+					setTimeout(() => {
+						setGlobalError(null);
+					}, 5000);
 				} else {
-					throw new Error('A network error occured: ', Json.stringify(error));
+					throw new Error('A network error occured: ', JSON.stringify(data));
 				}
 			} else {
 				setSuccessMessage(data.success);
+				setTimeout(() => {
+					setSuccessMessage(null);
+				}, 5000);
 			}
 		} catch(error) {
 			alert('Network error. Please try again.');
@@ -70,8 +79,8 @@ const LoginForm = () => {
 
    					 <h2>Login</h2>
 
-    					<form className={styles['login-form']} onsubmit={handleSubmit}>
-						{(globalError || sucessMessage) && (
+    					<form className={styles['login-form']} onSubmit={handleSubmit}>
+						{(globalError || successMessage) && (
 							<div className={globalError ? styles['error'] : styles['success-message']}>
 								<p>{globalError || successMessage}</p>
 							</div>
@@ -80,7 +89,7 @@ const LoginForm = () => {
 							<label htmlFor="identifier">Email/Username</label>
 							<input type="text" id="identifier" name="identifier" placeholder="Email or username" required />
 							{formErrors.identifier && (
-								<p>{formErrors.identifier}</p>
+								<p className={styles['error-message']}>{formErrors.identifier}</p>
 							)}
 						</div>
 
@@ -88,7 +97,7 @@ const LoginForm = () => {
         						<label htmlFor="password">Password</label>
         						<input type={showPassword ? 'text': 'password'} id="password" name="password" placeholder="Enter your password" required />
 							{formErrors.password && (
-								<p>{formErrors.password}</p>
+								<p className={styles['error-message']}>{formErrors.password}</p>
 							)}
       						</div>
 						
