@@ -31,7 +31,7 @@ const LoginForm = () => {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: Json.stringify(formJson),
+			body: JSON.stringify(formJson),
 		});
 
 
@@ -55,7 +55,7 @@ const LoginForm = () => {
 						setGlobalError(null);
 					}, 5000);
 				} else {
-					throw new Error('A network error occured: ', Json.stringify(data));
+					throw new Error('A network error occured: ', JSON.stringify(data));
 				}
 			} else {
 				setSuccessMessage(data.success);
