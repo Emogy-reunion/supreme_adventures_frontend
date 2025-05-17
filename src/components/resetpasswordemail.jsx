@@ -8,7 +8,7 @@ const ResetPasswordEmail = () => {
 	const [formErrors, setFormErrors] = useState({});
 	const [successMessage, setSuccessMessage] = useState(null);
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		setGlobalError(null);
