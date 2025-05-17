@@ -69,7 +69,12 @@ const LoginForm = () => {
     					</div>
    					 <h2>Login</h2>
     					<form className={styles['login-form']} onsubmit={handleSubmit}>
-							<div className={styles["form-group"]}>
+						{(globalError || sucessMessage) && (
+							<div className={globalError ? styles['error'] : styles['success-message']}>
+								<p>{globalError || successMessage}</p>
+							</div>
+						)}
+						<div className={styles["form-group"]}>
 							<label htmlFor="identifier">Email/Username</label>
 							<input type="text" id="identifier" name="identifier" placeholder="Email or username" required />
 						</div>
