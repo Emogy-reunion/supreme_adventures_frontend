@@ -4,6 +4,13 @@ import styles from '../styles/Updatepasswordform.module.css';
 
 
 const UpdatePasswordForm = ({ userId }) => {
+	const [showPassword, setShowPassword] = useState(false);
+
+	const handleToggle = () => {
+		setShowPassword((prev) => {
+			return !prev;
+		});
+
 	return (
 			<>
 				<section id={styles['update-password-section']}>
@@ -16,13 +23,23 @@ const UpdatePasswordForm = ({ userId }) => {
 						<form className={styles['update-password-form']}>
 							<div className={styles['form-group']}>
 								<label htmlFor='password'>Email</label>
-								<input type='password' id='password' name='password' placeholder='Enter you new password...' required />
+								<input type={showPassword ? 'text' : 'password'} id='password' name='password' placeholder='Enter you new password...' required />
 							</div>
 
 							<div className={` ${styles['form-group']} ${styles['check-box']}`}>
                                                                 <label htmlFor='confirmpassword'>Email</label>
-                                                                <input type='password' id='confirmpassword' name='confirmpassword' placeholder='Confirm you new password...' required />
+                                                                <input type={showPassword ? 'text' : 'password'} id='confirmpassword' name='confirmpassword' placeholder='Confirm you new password...' required />
                                                         </div>
+
+							<div className={`${styles["form-group"]} ${styles['check-box']}`}>
+                                                        	<label htmlFor='showpasswords'>Show passwords</label>
+                                                        	<input
+									type='checkbox'
+									id='showpasswords'
+									checked={showPassword}
+									onChange={handleToggle}
+									name='showpasswords' />
+                                                	</div>
 							
 							<div className={styles["form-group"]}>
 								<label htmlFor='showpassword'>Show password</label>
