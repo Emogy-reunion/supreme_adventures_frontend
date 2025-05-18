@@ -30,6 +30,16 @@ const UpdatePasswordForm = ({ userId }) => {
                                                                 <label htmlFor='confirmpassword'>Email</label>
                                                                 <input type={showPassword ? 'text' : 'password'} id='confirmpassword' name='confirmpassword' placeholder='Confirm you new password...' required />
                                                         </div>
+
+							<div className={`${styles["form-group"]} ${styles['check-box']}`}>
+                                                        	<label htmlFor='showpasswords'>Show passwords</label>
+                                                        	<input
+									type='checkbox'
+									id='showpasswords'
+									checked={showPassword}
+									onChange={handleToggle}
+									name='showpasswords' />
+                                                	</div>
 							
 							<div className={styles["form-group"]}>
 								<label htmlFor='showpassword'>Show password</label>
