@@ -12,7 +12,8 @@ const UpdatePasswordForm = ({ token }) => {
 	const handleToggle = () => {
 		setShowPassword((prev) => {
 			return !prev;
-		)};
+		});
+	};
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
