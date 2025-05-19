@@ -12,7 +12,7 @@ const UpdatePasswordForm = ({ token }) => {
 	const handleToggle = () => {
 		setShowPassword((prev) => {
 			return !prev;
-		});
+		)};
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -68,7 +68,7 @@ const UpdatePasswordForm = ({ token }) => {
 		} catch(error) {
 			alert('Network error. Please try again!');
 		}
-	});
+	};
 
 	return (
 			<>
@@ -110,7 +110,7 @@ const UpdatePasswordForm = ({ token }) => {
 									onChange={handleToggle}
 									name='showpasswords' />
                                                 	</div>
-							
+
 							<div className={styles['button-container']}>
 								<button type="submit" className={styles.btn}>Reset password</button>
 							</div>
