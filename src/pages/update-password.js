@@ -1,8 +1,9 @@
+'use client';
 import React from 'react'
 import Footer from '../components/footer';
 import UpdatePasswordForm from '../components/updatepasswordform';
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'next/navigation';
 
 
 const UpdatePassword = () => {
