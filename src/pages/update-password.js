@@ -1,16 +1,17 @@
 import React from 'react'
 import Footer from '../../components/footer';
 import UpdatePasswordForm from '../../components/updatepasswordform';
-import { useRouter } from 'next/router';
 
 
 const UpdatePassword = () => {
-	const router = useRouter();
-        const { id: userId } = router.query;
+	const token = new URLSearchParams(window.location.search).get("token");
+	if (token) {
+		window.history.replaceState(null, "", "/reset-password");
+	}
 
         return (
                         <>
-                                <UpdatePasswordForm userId={userId} />
+                                <UpdatePasswordForm token={token} />
                                 <Footer />
                         </>
         );
