@@ -14,7 +14,7 @@ const UpdatePasswordForm = ({ token }) => {
 			return !prev;
 		});
 
-	const handleSubmit = async(event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 		
 		// clear any existing errors
@@ -45,13 +45,25 @@ const UpdatePasswordForm = ({ token }) => {
 					}, {});
 
 					setFormErrors(formattedErrors);
+
+					setTimeout(() => {
+						setFormErrors({});
+					}, 5000);
 				} else if (data.error) {
 					setGlobalError(data.error);
+
+					setTimeout(() => {
+						setGlobalError(null);
+					}, 5000);
 				} else {
 					throw new Error('Error: ', JSON.stringify(data));
 				}
 			} else {
 				setSuccessMessage(data.success);
+
+				setTimeout(() => {
+					setSuccessMessage(null);
+				}, 5000);
 			}
 		} catch(error) {
 			alert('Network error. Please try again!');
