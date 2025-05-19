@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from '../components/footer';
 import UpdatePasswordForm from '../components/updatepasswordform';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const UpdatePassword = () => {
