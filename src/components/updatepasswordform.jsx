@@ -76,11 +76,17 @@ const UpdatePasswordForm = ({ token }) => {
 							<div className={styles['form-group']}>
 								<label htmlFor='password'>Email</label>
 								<input type={showPassword ? 'text' : 'password'} id='password' name='password' placeholder='Enter you new password...' required />
+								{formErrors.password && (
+									<p>{formErrors.password}</p>
+								)}
 							</div>
 
 							<div className={` ${styles['form-group']} ${styles['check-box']}`}>
                                                                 <label htmlFor='confirmpassword'>Email</label>
                                                                 <input type={showPassword ? 'text' : 'password'} id='confirmpassword' name='confirmpassword' placeholder='Confirm you new password...' required />
+								{formErrors.confirmpassword && (
+                                                                        <p>{formErrors.confirmpassword}</p>
+                                                                )}
                                                         </div>
 
 							<div className={`${styles["form-group"]} ${styles['check-box']}`}>
