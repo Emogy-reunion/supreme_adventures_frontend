@@ -68,6 +68,11 @@ const UpdatePasswordForm = ({ token }) => {
    					 	<h2>Update Password</h2>
 						<p>Please enter and confirm your new password to complete the reset process.</p>
 						<form className={styles['update-password-form']} onSubmit={handleSubmit}>
+							{(globalError || successMessage) && (
+								<div className={globalError ? styles.error : styles['success-message']}>
+									<p>{globalError || successMessage}</p>
+								</div>
+							)}
 							<div className={styles['form-group']}>
 								<label htmlFor='password'>Email</label>
 								<input type={showPassword ? 'text' : 'password'} id='password' name='password' placeholder='Enter you new password...' required />
