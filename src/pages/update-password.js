@@ -7,9 +7,15 @@ import { useSearchParams } from 'next/navigation';
 
 
 const UpdatePassword = () => {
-
-	const [searchParams] = useSearchParams();
+	const [token, setToken] = useState<string | null>(null);
+	const [hasMounted, setHasMounted] = useState(false);
 	const token = searchParams.get('token');
+
+	useEffect(() => {
+    		// Only run this client-side
+    		setToken(searchParams.get('token'));
+    		setHasMounted(true);
+	}, [searchParams]);
 
         return (
                         <>
