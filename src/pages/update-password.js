@@ -1,6 +1,6 @@
 import React from 'react'
-import Footer from '../../components/footer';
-import UpdatePasswordForm from '../../components/updatepasswordform';
+import Footer from '../components/footer';
+import UpdatePasswordForm from '../components/updatepasswordform';
 
 
 const UpdatePassword = () => {
