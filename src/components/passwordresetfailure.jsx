@@ -4,7 +4,7 @@ import styles from "../styles/Passwordresetfailure.module.css";
 
 const PasswordResetFailure = () => {
 	return (
-		<section className={styles['failure-container']}>
+		<section className={styles['failure-section']}>
 			<div className={styles.card}>
 				<div className={styles.logo}>
 					<img src="/supreme.svg" alt="Supreme adventures Logo" />
