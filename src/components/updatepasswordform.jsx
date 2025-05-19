@@ -29,8 +29,8 @@ const UpdatePasswordForm = ({ token }) => {
 		const formJson = Object.fromEntries(formData.entries());
 
 		try {
-			const reponse = await fetch('http://127.0.0.1:500/update_password', {
-				method: 'POST',
+			const reponse = await fetch('http://127.0.0.1:5000/update_password', {
+				method: 'PATCH',
 				headers: {
 					'Content-Type': 'application/json'
 				},
@@ -112,12 +112,7 @@ const UpdatePasswordForm = ({ token }) => {
 									onChange={handleToggle}
 									name='showpasswords' />
                                                 	</div>
-							
-							<div className={styles["form-group"]}>
-								<label htmlFor='showpassword'>Show password</label>
-								<input type='checkbox' id='showpassword' name='showpassword' />
-							</div>
-							
+
 							<div className={styles['button-container']}>
 								<button type="submit" className={styles.btn}>Reset password</button>
 							</div>
