@@ -33,7 +33,7 @@ const UpdatePasswordForm = ({ token }) => {
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body = JSON.stringify(formJson),
+				body : JSON.stringify(formJson),
 			});
 
 			const data = await response.json();
