@@ -16,6 +16,7 @@ const UpdatePassword = () => {
     		setToken(searchParams.get('token'));
     		setHasMounted(true);
 	}, [searchParams]);
+	if (!hasMounted) return null; // Prevent render until client-side mount
 
         return (
                         <>
