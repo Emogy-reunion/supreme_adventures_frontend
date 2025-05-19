@@ -29,7 +29,7 @@ const UpdatePasswordForm = ({ token }) => {
 		const formJson = Object.fromEntries(formData.entries());
 
 		try {
-			const reponse = await fetch('http://127.0.0.1:500/update_password', {
+			const reponse = await fetch('http://127.0.0.1:5000/update_password', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
