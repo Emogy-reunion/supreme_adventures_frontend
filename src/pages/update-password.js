@@ -9,7 +9,6 @@ import { useSearchParams } from 'next/navigation';
 const UpdatePassword = () => {
 	const [token, setToken] = useState<string | null>(null);
 	const [hasMounted, setHasMounted] = useState(false);
-	const token = searchParams.get('token');
 
 	useEffect(() => {
     		// Only run this client-side
