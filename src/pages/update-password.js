@@ -2,18 +2,13 @@ import React from 'react'
 import Footer from '../components/footer';
 import UpdatePasswordForm from '../components/updatepasswordform';
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom'
 
 
 const UpdatePassword = () => {
-	const [token, setToken] = useState(null);
-	
-	useEffect(() => {
-    		const urlToken = new URLSearchParams(window.location.search).get("token");
-    		if (urlToken) {
-      			setToken(urlToken);
-      			window.history.replaceState(null, "", "/reset-password"); // clean URL
-    		}
-	}, []);
+
+	const [searchParams] = useSearchParams();
+	const token = searchParams.get('token');
 
         return (
                         <>
