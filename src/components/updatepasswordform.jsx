@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from '../styles/Updatepasswordform.module.css';
+import { useState } from 'react';
 
 
 const UpdatePasswordForm = ({ token }) => {
