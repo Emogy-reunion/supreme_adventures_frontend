@@ -11,7 +11,7 @@ const PasswordResetFailure = () => {
 				</div>
 				<h2>Password Reset Failed</h2>
 				<p>The password reset link may have expired, is invalid, or something went wrong.</p>
-        			<Link href="/reset-password" className={styles['reset-link']}>Request a new reset link</Link>
+        			<Link href="/passwordresetemail" className={styles['reset-link']}>Request a new reset link</Link>
 			</div>
     		</section>
   );

@@ -39,6 +39,7 @@
 
 
 .btn {
+	flex: 1;
 	background: #facc15;
       	color: #000;
       	padding: 12px 25px;
