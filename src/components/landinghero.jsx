@@ -32,7 +32,7 @@ const LandingHero = () => {
 							<p>Discover breathtaking destinations and unforgettable tours curated just for you.</p>
               						<div className={styles['hero-buttons']}>
 								<a href="#destinations"><button className={styles.btn}>Explore Destinations</button></a>
-								<a href="#tours"><button className={styles.btn}>View Tours</button></a>
+								<a href="#tours"><button className={styles.btn}>Explore our  Tours</button></a>
 							</div>
 						</div>
 					)}
