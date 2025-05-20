@@ -91,7 +91,7 @@ const UpdatePasswordForm = ({ token }) => {
 								<label htmlFor='password'>Email</label>
 								<input type={showPassword ? 'text' : 'password'} id='password' name='password' placeholder='Enter you new password...' required />
 								{formErrors.password && (
-									<p>{formErrors.password}</p>
+									<p className={styles['error-message']}>{formErrors.password}</p>
 								)}
 							</div>
 
@@ -99,7 +99,7 @@ const UpdatePasswordForm = ({ token }) => {
                                                                 <label htmlFor='confirmpassword'>Email</label>
                                                                 <input type={showPassword ? 'text' : 'password'} id='confirmpassword' name='confirmpassword' placeholder='Confirm you new password...' required />
 								{formErrors.confirmpassword && (
-                                                                        <p>{formErrors.confirmpassword}</p>
+                                                                        <p className={styles['error-message']}>{formErrors.confirmpassword}</p>
                                                                 )}
                                                         </div>
 
