@@ -2,9 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import styles from '../styles/Updatepasswordform.module.css';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 
 const UpdatePasswordForm = ({ token }) => {
+	const router = useRouter();
 	const [showPassword, setShowPassword] = useState(false);
 	const [globalError, setGlobalError] = useState(null);
 	const [successMessage, setSuccessMessage] = useState(null);
@@ -65,7 +67,8 @@ const UpdatePasswordForm = ({ token }) => {
 
 				setTimeout(() => {
 					setSuccessMessage(null);
-				}, 5000);
+					router.push('/login');
+				}, 3000);
 			}
 		} catch(error) {
 			alert('Network error. Please try again!');
