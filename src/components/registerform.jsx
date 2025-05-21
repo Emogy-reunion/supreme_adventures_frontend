@@ -2,10 +2,12 @@ import React from 'react';
 import Link from 'next/head';
 import styles from '../styles/Registerform.module.css';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 
 const RegisterForm = () => {
 
+	const router = useRouter();
 	const [showPassword, setShowPassword] = useState(false)
 	const [formErrors, setFormErrors] = useState({});
 	const [globalError, setGlobalError] = useState(null);
@@ -46,14 +48,14 @@ const RegisterForm = () => {
 
 					setTimeout(() => {
 						setFormErrors({});
-					}, 5000);
+					}, 8000);
 
 				} else if (data.error) {
 					setGlobalError(data.error);
 
 					setTimeout(() => {
 						setGlobalError(null);
-					}, 5000);
+					}, 8000);
 				} else {
 					throw new Error('An unknown error occurred: ' + JSON.stringify(data));
 				}
@@ -61,7 +63,8 @@ const RegisterForm = () => {
 				setSuccessMessage(data.success);
 				setTimeout(() => {
 					setSuccessMessage(null);
-				}, 5000);
+					router.push('/login');
+				}, 3000);
 			}
 		} catch (error) {
 			alert('Network error. Please try again.');
