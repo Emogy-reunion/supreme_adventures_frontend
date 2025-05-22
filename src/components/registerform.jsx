@@ -48,14 +48,14 @@ const RegisterForm = () => {
 
 					setTimeout(() => {
 						setFormErrors({});
-					}, 8000);
+					}, 5000);
 
 				} else if (data.error) {
 					setGlobalError(data.error);
 
 					setTimeout(() => {
 						setGlobalError(null);
-					}, 8000);
+					}, 5000);
 				} else {
 					throw new Error('An unknown error occurred: ' + JSON.stringify(data));
 				}
