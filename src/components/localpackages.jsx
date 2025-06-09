@@ -94,7 +94,7 @@ const specialPackages = [
   	},
   	{
     		title: 'Wellness Retreats',
-    		image: '/wellness.jpg',
+    		image: '/wellness.jpeg',
     		description: 'Relax, recharge, and find balance with yoga and spa experiences.',
   	},
   	{
