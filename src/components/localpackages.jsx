@@ -54,7 +54,9 @@ const PackagesSwiper = () => {
           				768: { slidesPerView: 2 },
           				1024: { slidesPerView: 3 },
 					className={styles.swiperContainer}
-        				}}>
+        				}}
+					className={styles.swiperContainer}
+				>
         					{packages.map((pkg, index) => (
 							<SwiperSlide key={index}>
 								<div className={styles.cardWrapper}>
