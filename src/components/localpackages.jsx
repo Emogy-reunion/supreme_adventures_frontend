@@ -39,8 +39,11 @@ const packages = [
 
 const LocalPackagesSwiper = () => {
 	return (
-    			<section className ={styles['local-packages']}>
-      				<h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Local Packages</h2>
+		<section className={styles=['destinations-section']}>
+
+    			<section className ={styles.package}>
+      				<h2 className={styles.heading}>Local Packages</h2>
+				<div className={styles.swiperContainer}>
       				<Swiper
 					modules={[Navigation, Pagination]}
         				spaceBetween={20}
@@ -54,23 +57,30 @@ const LocalPackagesSwiper = () => {
         				}}>
         					{packages.map((pkg, index) => (
 							<SwiperSlide key={index}>
-            							<div className={styles.card}>
-              								<Image
-                								src={pkg.image}
-                								alt={pkg.title}
-                								width={400}
-                								height={250}
-                								className={styles.image}
-              								/>
-              								<div className={styles.content}>
-              									<h3>{pkg.title}</h3>
-            	    								<p>{pkg.description}</p>
+								<div className={styles.cardWrapper}>
+            								<div className={styles.card}>
+              									<Image
+                									src={pkg.image}
+                									alt={pkg.title}
+                									width={400}
+                									height={200}
+                									className={styles.image}
+              									/>
+              									<div className={styles.content}>
+              										<h3>{pkg.title}</h3>
+            	    									<p>{pkg.description}</p>
+											<a href="/contact" className={styles.inquireButton}>
+          											Inquire for Details
+        										</a>
+										</div>
               								</div>
             							</div>
           						</SwiperSlide>
 						))}
       				</Swiper>
+				</div>
     			</section>
+		</section>
 	);
 };
 
