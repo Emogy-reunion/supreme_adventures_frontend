@@ -56,7 +56,7 @@ const internationalPackages = [
   	},
   	{
     		title: 'Bali',
-    		image: '/bali.jpg',
+    		image: '/bali.jpeg',
     		description: 'Relax in tropical paradise with beaches and rice terraces.',
   	},
   	{
