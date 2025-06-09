@@ -35,11 +35,11 @@ const NavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
+                    <Link href='/about' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/destinations')}`}>Destinations</Link>
+                    <Link href='/destinations' className={`${styles['nav-link']} ${isActive('/destinations')}`}>Destinations</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
@@ -51,7 +51,7 @@ const NavBar = () => {
                 </li>
 
 		<li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
+                    <Link href='/contact' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
                 </li>
 
 	    	<li className={`${styles['hide-on-mobile']} ${styles['push-right']}`}>

@@ -1,0 +1,40 @@
+.aboutSection {
+	width: 100%;
+  	padding: 4rem 2rem;
+  	background-color: #f4f4f4;
+  	color: #333;
+}
+
+.contentWrapper {
+  	max-width: 1200px;
+  	margin: 0 auto;
+  	display: grid;
+  	gap: 2rem;
+}
+
+.heading {
+  	font-size: 2rem;
+  	color: #007BFF;
+  	margin-bottom: 1rem;
+  	text-align: center;
+}
+
+.paragraph {
+  	line-height: 1.8;
+  	margin-bottom: 1rem;
+  	font-size: 1.1rem;
+}
+
+.imageGrid {
+  	display: flex;
+  	flex-wrap: wrap;
+  	gap: 1rem;
+  	justify-content: center;
+}
+
+.image {
+  	border-radius: 10px;
+  	object-fit: cover;
+  	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
