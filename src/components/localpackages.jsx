@@ -53,7 +53,6 @@ const PackagesSwiper = () => {
           				640: { slidesPerView: 1 },
           				768: { slidesPerView: 2 },
           				1024: { slidesPerView: 3 },
-					className={styles.swiperContainer}
         				}}
 					className={styles.swiperContainer}
 				>
