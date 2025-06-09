@@ -37,11 +37,11 @@ const packages = [
   	},
 ];
 
-const LocalPackagesSwiper = () => {
+const PackagesSwiper = () => {
 	return (
-		<section className={styles=['destinations-section']}>
+		<section className={styles['destinations-section']}>
 
-    			<section className ={styles.package}>
+    			<section className ={styles['tour-package']}>
       				<h2 className={styles.heading}>Local Packages</h2>
 				<div className={styles.swiperContainer}>
       				<Swiper
@@ -85,4 +85,4 @@ const LocalPackagesSwiper = () => {
 };
 
 
-export default LocalPackagesSwiper;
+export default PackagesSwiper;
