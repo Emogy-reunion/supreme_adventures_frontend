@@ -20,7 +20,7 @@ const ContactSection = () => {
         					Have questions or want to book a trip? Reach out to us through the form below or contact us directly via WhatsApp.
       					</p>
 
-    					<form className={styles['contact-form']} onSubmit={handleSubmit}>
+    					<form className={styles['contact-form']}>
 						<div className={styles["form-group"]}>
 							<label htmlFor="Name"></label>
 							<input type="text" id="name" name="name" placeholder="Your name" required />
