@@ -76,6 +76,35 @@ const internationalPackages = [
   	},
 ];
 
+const specialPackages = [
+  	{
+    		title: 'Honeymoon Getaways',
+    		image: '/honeymoon.jpg',
+    		description: 'Romantic escapes to start your forever in unforgettable locations.',
+  	},
+  	{
+    		title: 'Corporate Team Building',
+    		image: '/team-building.jpg',
+    		description: 'Boost team morale with fun and engaging group experiences.',
+  	},
+  	{
+    		title: 'Adventure Retreats',
+    		image: '/adventure-retreat.jpg',
+    		description: 'Perfect for thrill seekers — hiking, zip-lining, rafting and more.',
+  	},
+  	{
+    		title: 'Wellness Retreats',
+    		image: '/wellness.jpg',
+    		description: 'Relax, recharge, and find balance with yoga and spa experiences.',
+  	},
+  	{
+    		title: 'Cultural Tours',
+    		image: '/cultural-tour.jpg',
+    		description: 'Immerse yourself in rich traditions, history, and local experiences.',
+  	},
+];
+
+
 
 const PackagesSwiper = () => {
 	return (
@@ -83,6 +112,9 @@ const PackagesSwiper = () => {
 
     			<section className ={styles['tour-package']}>
       				<h2 className={styles.heading}>Local Packages</h2>
+				<p className={styles.packageDescription}>
+      					Discover breathtaking destinations right here in Kenya — from iconic wildlife parks to tranquil beach escapes. These packages are tailored for unforgettable local adventures.
+    				</p>
       				<Swiper
 					modules={[Navigation, Pagination]}
         				spaceBetween={20}
@@ -123,6 +155,10 @@ const PackagesSwiper = () => {
 
 			<section className ={styles['tour-package']}>
                                 <h2 className={styles.heading}>International Packages</h2>
+				<p className={styles.packageDescription}>
+  				Explore the world with our curated international travel experiences — from exotic beaches to vibrant cityscapes. Perfect for those seeking adventure beyond borders.
+				</p>
+
                                 <Swiper
                                         modules={[Navigation, Pagination]}
                                         spaceBetween={20}
@@ -137,6 +173,50 @@ const PackagesSwiper = () => {
                                         className={styles.swiperContainer}
                                 >
                                                 {internationalPackages.map((pkg, index) => (
+                                                        <SwiperSlide key={index}>
+                                                                <div className={styles.cardWrapper}>
+                                                                        <div className={styles.card}>
+                                                                                <Image
+                                                                                        src={pkg.image}
+                                                                                        alt={pkg.title}
+                                                                                        width={400}
+                                                                                        height={200}
+                                                                                        className={styles.image}
+                                                                                />
+                                                                                <div className={styles.content}>
+                                                                                        <h3 className={styles.title}>{pkg.title}</h3>
+                                                                                        <p>{pkg.description}</p>
+                                                                                        <button type="button" className={styles.inquireButton}>
+                                                                                                Inquire for Details
+                                                                                        </button>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        </SwiperSlide>
+                                                ))}
+                                </Swiper>
+                        </section>
+
+			<section className ={styles['tour-package']}>
+                                <h2 className={styles.heading}>Special Packages</h2>
+				<p className={styles.packageDescription}>
+  				Whether you are planning a romantic honeymoon, an exciting team-building retreat, or a unique celebration, our special packages are designed to make every moment memorable.
+				</p>
+
+                                <Swiper
+                                        modules={[Navigation, Pagination]}
+                                        spaceBetween={20}
+                                        slidesPerView={1}
+                                        navigation
+                                        pagination={{ clickable: true }}
+                                        breakpoints={{
+                                        640: { slidesPerView: 1 },
+                                        768: { slidesPerView: 2 },
+                                        1024: { slidesPerView: 3 },
+                                        }}
+                                        className={styles.swiperContainer}
+                                >
+                                                {specialPackages.map((pkg, index) => (
                                                         <SwiperSlide key={index}>
                                                                 <div className={styles.cardWrapper}>
                                                                         <div className={styles.card}>
