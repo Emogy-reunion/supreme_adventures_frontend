@@ -7,7 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import Image from 'next/image';
-import styles from './Localpackagesswiper.module.css';
+import styles from '../styles/Localpackagesswiper.module.css';
 
 const packages = [
 	{
