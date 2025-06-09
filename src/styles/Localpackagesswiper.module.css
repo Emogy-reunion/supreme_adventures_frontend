@@ -56,31 +56,15 @@
   	transition: background-color 0.3s ease;
 }
 
-.inquireButton:hover {
-  	background-color: #0056b3;
-}
 
 .swiperContainer {
-  	position: relative;
   	padding-bottom: 50px;
+  	position: relative;
 }
 
-.swiper-pagination {
-  	bottom: 10px !important;
-  	text-align: center;
-}
-
-.swiper-pagination-bullets {
+.swiperContainer :global(.swiper-pagination) {
+  	bottom: 0;
   	position: absolute;
   	width: 100%;
-}
-
-.swiper-pagination-bullet {
-  	background: #007bff;
-  	opacity: 0.6;
-}
-
-.swiper-pagination-bullet-active {
-  	background: #0056b3;
-  	opacity: 1;
+  	text-align: center;
 }

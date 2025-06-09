@@ -43,7 +43,6 @@ const PackagesSwiper = () => {
 
     			<section className ={styles['tour-package']}>
       				<h2 className={styles.heading}>Local Packages</h2>
-				<div className={styles.swiperContainer}>
       				<Swiper
 					modules={[Navigation, Pagination]}
         				spaceBetween={20}
@@ -54,6 +53,7 @@ const PackagesSwiper = () => {
           				640: { slidesPerView: 1 },
           				768: { slidesPerView: 2 },
           				1024: { slidesPerView: 3 },
+					className={styles.swiperContainer}
         				}}>
         					{packages.map((pkg, index) => (
 							<SwiperSlide key={index}>
@@ -78,7 +78,6 @@ const PackagesSwiper = () => {
           						</SwiperSlide>
 						))}
       				</Swiper>
-				</div>
     			</section>
 		</section>
 	);
