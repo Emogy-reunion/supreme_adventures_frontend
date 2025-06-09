@@ -39,7 +39,7 @@ const packages = [
 
 const LocalPackagesSwiper = () => {
 	return (
-    			<section className = styles['local-packages']>
+    			<section className ={styles['local-packages']}>
       				<h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Local Packages</h2>
       				<Swiper
 					modules={[Navigation, Pagination]}

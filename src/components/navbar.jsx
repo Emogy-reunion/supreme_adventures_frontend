@@ -39,7 +39,7 @@ const NavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/destinations')}`}>Destinations</Link>
+                    <Link href='/destinations' className={`${styles['nav-link']} ${isActive('/destinations')}`}>Destinations</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
