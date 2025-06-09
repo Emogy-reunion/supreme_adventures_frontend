@@ -13,7 +13,9 @@ const PopularDestinations = () => {
         					<div className={styles['card-content']}>
           						<h3>Dubai Getaway</h3>
           						<p>Experience luxury in the heart of the desert — stunning skyscrapers, golden dunes, and unforgettable adventures await in Dubai.</p>
-          						<span className={styles.price}>From $999</span>
+          						<button type="button" className={styles.inquireButton}>
+								Inquire for Details
+							</button>
         					</div>
       					</div>
 
@@ -22,16 +24,18 @@ const PopularDestinations = () => {
         					<div className={styles['card-content']}>
           						<h3>Kenya Safari</h3>
           						<p>Spot the Big Five on this luxury safari experience in the heart of Africa.</p>
-          						<span className={styles.price}>From $1299</span>
+          						 <button type="button" className={styles.inquireButton}>                                                                Inquire for Details
+                                                        </button>
         					</div>
       					</div>
 
       					<div className={`${styles.card} ${styles.hide}`}>
-        					<img src="/zanzibar.jpg" alt="Bali" />
+        					<img src="/zanzibar.jpg" alt="zanzibar" />
         					<div className={styles['card-content']}>
           						<h3>Zanzibar Retreat</h3>
           						<p>Escape to paradise — relax on white-sand beaches, explore turquoise waters, and unwind in the serene beauty of Zanzibar.</p>
-          						<span className={styles.price}>From $899</span>
+          						 <button type="button" className={styles.inquireButton}>                                                                Inquire for Details
+                                                        </button>
         					</div>
       					</div>
     				</div>
