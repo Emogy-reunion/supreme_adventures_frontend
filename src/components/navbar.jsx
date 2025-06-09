@@ -51,7 +51,7 @@ const NavBar = () => {
                 </li>
 
 		<li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
+                    <Link href='/contact' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
                 </li>
 
 	    	<li className={`${styles['hide-on-mobile']} ${styles['push-right']}`}>
