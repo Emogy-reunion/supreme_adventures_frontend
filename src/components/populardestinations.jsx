@@ -13,9 +13,11 @@ const PopularDestinations = () => {
         					<div className={styles['card-content']}>
           						<h3>Dubai Getaway</h3>
           						<p>Experience luxury in the heart of the desert — stunning skyscrapers, golden dunes, and unforgettable adventures await in Dubai.</p>
-          						<button type="button" className={styles.inquireButton}>
-								Inquire for Details
-							</button>
+							<div className={styles['button-container']}>
+          							<button type="button" className={styles.inquireButton}>
+									Inquire for Details
+								</button>
+							</div>
         					</div>
       					</div>
 
@@ -24,8 +26,10 @@ const PopularDestinations = () => {
         					<div className={styles['card-content']}>
           						<h3>Kenya Safari</h3>
           						<p>Spot the Big Five on this luxury safari experience in the heart of Africa.</p>
-          						 <button type="button" className={styles.inquireButton}>                                                                Inquire for Details
-                                                        </button>
+							<div className={styles['button-container']}>
+          							<button type="button" className={styles.inquireButton}>                                                                Inquire for Details
+                                                        	</button>
+							</div>
         					</div>
       					</div>
 
@@ -34,8 +38,10 @@ const PopularDestinations = () => {
         					<div className={styles['card-content']}>
           						<h3>Zanzibar Retreat</h3>
           						<p>Escape to paradise — relax on white-sand beaches, explore turquoise waters, and unwind in the serene beauty of Zanzibar.</p>
-          						 <button type="button" className={styles.inquireButton}>                                                                Inquire for Details
-                                                        </button>
+							<div className={styles['button-container']}>
+          						 	<button type="button" className={styles.inquireButton}>                                                                Inquire for Details
+                                                        	</button>
+							</div>
         					</div>
       					</div>
     				</div>
