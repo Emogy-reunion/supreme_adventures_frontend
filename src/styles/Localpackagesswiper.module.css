@@ -1,35 +1,86 @@
-.local-packages {
+.destinations-section {
 	width: 100%;
+	min-height: 100vh;
 	max-width: 1600px;
-	max-width: 1600px;
-  	margin: 0 auto;
-  	padding: 2rem;
+	padding: 20px;
+}
+
+.package {
+	width: 100%;
+	margin: 20px 0;
+}
+
+.cardWrapper {
+  	display: flex;
+  	height: 100%;
+  	justify-content: center;
+  	align-items: stretch;
 }
 
 .card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
+  	background: white;
+  	border-radius: 12px;
+  	overflow: hidden;
+  	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  	height: 100%;
+  	max-width: 400px;
+  	width: 100%;
 }
 
 .image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  	width: 100%;
+  	height: 200px;
+  	object-fit: cover;
 }
 
 .content {
-  padding: 16px;
+  	padding: 16px;
+  	flex-grow: 1;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
 }
 
-.content h3 {
-  margin: 0 0 10px;
-  color: #007BFF;
+.inquireButton {
+  	display: inline-block;
+  	margin-top: 1rem;
+  	padding: 10px 16px;
+  	background-color: #007bff;
+  	color: #fff;
+  	border-radius: 5px;
+  	text-decoration: none;
+  	font-weight: 500;
+  	transition: background-color 0.3s ease;
 }
 
-.content p {
-  font-size: 0.95rem;
-  color: #555;
+.inquireButton:hover {
+  	background-color: #0056b3;
 }
 
+.swiperContainer {
+  	position: relative;
+  	padding-bottom: 50px;
+}
+
+.swiper-pagination {
+  	bottom: 10px !important;
+  	text-align: center;
+}
+
+.swiper-pagination-bullets {
+  	position: absolute;
+  	width: 100%;
+}
+
+.swiper-pagination-bullet {
+  	background: #007bff;
+  	opacity: 0.6;
+}
+
+.swiper-pagination-bullet-active {
+  	background: #0056b3;
+  	opacity: 1;
+}
