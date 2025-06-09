@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -36,7 +37,7 @@ const packages = [
   	},
 ];
 
-const LocalPackagesSwiper = () = {
+const LocalPackagesSwiper = () => {
 	return (
     			<section className = styles['local-packages']>
       				<h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Local Packages</h2>
@@ -71,7 +72,7 @@ const LocalPackagesSwiper = () = {
       				</Swiper>
     			</section>
 	);
-}
+};
 
 
-export default function LocalPackagesSwiper;
+export default LocalPackagesSwiper;
