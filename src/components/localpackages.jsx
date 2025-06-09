@@ -9,7 +9,8 @@ import 'swiper/css/pagination';
 import Image from 'next/image';
 import styles from '../styles/Localpackagesswiper.module.css';
 
-const packages = [
+const localPackages = [
+
 	{
 		title: 'Nairobi National Park',
 		image: '/nairobi-national-park.jpg',
@@ -37,6 +38,45 @@ const packages = [
   	},
 ];
 
+const internationalPackages = [
+  	{
+		title: 'Dubai',
+    		image: '/dubai.jpg',
+    		description: 'Experience luxury, skyscrapers, and desert adventures.',
+  	},
+  	{
+    		title: 'Zanzibar',
+    		image: '/zanzibar.jpg',
+    		description: 'Discover turquoise waters, spice farms, and vibrant culture.',
+  	},
+  	{
+    		title: 'Singapore',
+    		image: '/singapore.jpg',
+    		description: 'Explore a modern city with lush gardens and great cuisine.',
+  	},
+  	{
+    		title: 'Bali',
+    		image: '/bali.jpg',
+    		description: 'Relax in tropical paradise with beaches and rice terraces.',
+  	},
+  	{
+    		title: 'Rwanda',
+    		image: '/rwanda.jpg',
+    		description: 'Go gorilla trekking and explore lush green hills.',
+  	},
+  	{
+    		title: 'Uganda',
+    		image: '/uganda.jpg',
+    		description: 'Discover the source of the Nile and abundant wildlife.',
+  	},
+  	{
+    		title: 'Tanzania',
+    		image: '/tanzania.jpg',
+    		description: 'Climb Kilimanjaro and visit the Serengeti plains.',
+  	},
+];
+
+
 const PackagesSwiper = () => {
 	return (
 		<section className={styles['destinations-section']}>
@@ -56,7 +96,7 @@ const PackagesSwiper = () => {
         				}}
 					className={styles.swiperContainer}
 				>
-        					{packages.map((pkg, index) => (
+        					{localPackages.map((pkg, index) => (
 							<SwiperSlide key={index}>
 								<div className={styles.cardWrapper}>
             								<div className={styles.card}>
@@ -68,11 +108,11 @@ const PackagesSwiper = () => {
                 									className={styles.image}
               									/>
               									<div className={styles.content}>
-              										<h3>{pkg.title}</h3>
+              										<h3 className={styles.title}>{pkg.title}</h3>
             	    									<p>{pkg.description}</p>
-											<a href="/contact" className={styles.inquireButton}>
-          											Inquire for Details
-        										</a>
+											<button type="button" className={styles.inquireButton}>
+												Inquire for Details
+											</button>
 										</div>
               								</div>
             							</div>
@@ -80,6 +120,46 @@ const PackagesSwiper = () => {
 						))}
       				</Swiper>
     			</section>
+
+			<section className ={styles['tour-package']}>
+                                <h2 className={styles.heading}>International Packages</h2>
+                                <Swiper
+                                        modules={[Navigation, Pagination]}
+                                        spaceBetween={20}
+                                        slidesPerView={1}
+                                        navigation
+                                        pagination={{ clickable: true }}
+                                        breakpoints={{
+                                        640: { slidesPerView: 1 },
+                                        768: { slidesPerView: 2 },
+                                        1024: { slidesPerView: 3 },
+                                        }}
+                                        className={styles.swiperContainer}
+                                >
+                                                {internationalPackages.map((pkg, index) => (
+                                                        <SwiperSlide key={index}>
+                                                                <div className={styles.cardWrapper}>
+                                                                        <div className={styles.card}>
+                                                                                <Image
+                                                                                        src={pkg.image}
+                                                                                        alt={pkg.title}
+                                                                                        width={400}
+                                                                                        height={200}
+                                                                                        className={styles.image}
+                                                                                />
+                                                                                <div className={styles.content}>
+                                                                                        <h3 className={styles.title}>{pkg.title}</h3>
+                                                                                        <p>{pkg.description}</p>
+                                                                                        <button type="button" className={styles.inquireButton}>
+                                                                                                Inquire for Details
+                                                                                        </button>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        </SwiperSlide>
+                                                ))}
+                                </Swiper>
+                        </section>
 		</section>
 	);
 };
