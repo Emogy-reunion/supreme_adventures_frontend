@@ -38,7 +38,7 @@ const packages = [
 
 const LocalPackagesSwiper = () = {
 	return (
-    			<section style={{ padding: '2rem' }}>
+    			<section className = styles['local-packages']>
       				<h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Local Packages</h2>
       				<Swiper
 					modules={[Navigation, Pagination]}
