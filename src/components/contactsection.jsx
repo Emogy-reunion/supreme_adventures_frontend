@@ -28,7 +28,7 @@ const ContactSection = () => {
 
       						<div className={styles["form-group"]}>
         						<label htmlFor="email">Password</label>
-        						<input type='email' placeholder="Enter your Email" required /
+        						<input type='email' placeholder="Enter your Email" required />
       						</div>
 	  					
 	  					<div className={styles["form-group"]}>
