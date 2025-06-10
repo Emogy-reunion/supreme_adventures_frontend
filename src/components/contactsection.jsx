@@ -40,7 +40,7 @@ const ContactSection = () => {
 						
 						
 						<div className={styles['button-container']}>
-							<button type="submit" className={styles.btn}>Sign In</button>
+							<button type="submit" className={styles.btn}>Contact us</button>
 						</div>
     					</form> 
 
