@@ -1,4 +1,4 @@
-#contactSection {
+.contactSection {
 	max-width: 1600px;
 	width: 100%;
 	min-height: 100vh;
@@ -76,6 +76,11 @@
   	font-family: inherit;
 }
 
+.form-group textarea:focus {
+        border-color: #facc15;
+        outline: none;
+        box-shadow: 0 0 0 2px #fde68a;
+}
 
 .button-container {
 	display: flex;
@@ -133,4 +138,3 @@
 .whatsappLink:hover {
   	background-color: #1ebe5d;
 }
-
