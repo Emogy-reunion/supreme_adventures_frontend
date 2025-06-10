@@ -30,7 +30,7 @@ const ContactSection = () => {
 
 			if (!response.ok) {
 				if (data.errors) {
-					formattedErrors = Object.keys(data.errors).reduce((acc, key) => {
+					const formattedErrors = Object.keys(data.errors).reduce((acc, key) => {
 						acc[key] = data.errors[key].join(', ');
 						return acc;
 					}, {});
