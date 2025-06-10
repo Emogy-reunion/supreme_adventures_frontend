@@ -73,14 +73,26 @@ const ContactSection = () => {
       				</p>
 
     				<form className={styles['contact-form']} onSubmit={handleSubmit}>
+					{(globalError || successMessage) && (
+						<div className={ globalError ? styles["error"] : styles["success-message"]}>
+							<p>{globalError || successMessage}</p>
+						</div>
+					)}
+
 					<div className={styles["form-group"]}>
 						<label htmlFor="Name"></label>
 						<input type="text" id="name" name="name" placeholder="Your name" required />
+						{formErrors.name && (
+							<p className={styles["error-message"]}>{formErrors.name}</p>
+						)}
 					</div>
 
       					<div className={styles["form-group"]}>
         					<label htmlFor="email">Password</label>
         					<input type='email' placeholder="Enter your Email" required />
+						{formErrors.email && (
+							<p className={styles["error-message"]}>{formErrors.email}</p>
+						)}
       					</div>
 	  					
 	  				<div className={styles["form-group"]}>
@@ -93,6 +105,9 @@ const ContactSection = () => {
     						className={styles.textarea}
     						rows="5"
   						></textarea>
+						{formErrors.message && (
+                                                        <p className={styles["error-message"]}>{formErrors.message}</p>
+                                                )}
 					</div>
 						
 						
