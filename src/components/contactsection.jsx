@@ -89,7 +89,7 @@ const ContactSection = () => {
 
       					<div className={styles["form-group"]}>
         					<label htmlFor="email">Email</label>
-        					<input type='email' placeholder="Enter your Email" required />
+        					<input type='email' id='email' name='email' placeholder="Enter your Email" required />
 						{formErrors.email && (
 							<p className={styles["error-message"]}>{formErrors.email}</p>
 						)}
