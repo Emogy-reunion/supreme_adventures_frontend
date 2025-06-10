@@ -5,11 +5,6 @@ import { FaWhatsapp } from 'react-icons/fa';
 const ContactSection = () => {
   return (
     <section className={styles.contactSection}>
-	  <h2 className={styles.heading}>Get in Touch</h2>
-	  <p className={styles.description}>
-	  Have questions or want to book a trip? Reach out to us through the form below or contact us directly via WhatsApp.
-	  </p>
-
 	 <div className={styles["contact-container"]}>
     					<div className={styles.logo}>
       						<img src="/supreme.svg" alt="Supreme adventures Logo" />
