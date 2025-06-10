@@ -26,7 +26,7 @@ const ContactSection = () => {
 		});
 
 		try {
-			data = await response.json();
+			const data = await response.json();
 
 			if (!response.ok) {
 				if (data.errors) {
@@ -80,7 +80,7 @@ const ContactSection = () => {
 					)}
 
 					<div className={styles["form-group"]}>
-						<label htmlFor="Name"></label>
+						<label htmlFor="Name">Name</label>
 						<input type="text" id="name" name="name" placeholder="Your name" required />
 						{formErrors.name && (
 							<p className={styles["error-message"]}>{formErrors.name}</p>
@@ -88,7 +88,7 @@ const ContactSection = () => {
 					</div>
 
       					<div className={styles["form-group"]}>
-        					<label htmlFor="email">Password</label>
+        					<label htmlFor="email">Email</label>
         					<input type='email' placeholder="Enter your Email" required />
 						{formErrors.email && (
 							<p className={styles["error-message"]}>{formErrors.email}</p>
