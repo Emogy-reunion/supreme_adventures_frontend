@@ -2,8 +2,10 @@ import React from 'react';
 import styles from '../styles/Contact.module.css';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const ContactSection = () => {
+	const router = useRouter();
 	const [globalError, setGlobalError] = useState(null);
 	const [formErrors, setFormErrors] = useState({});
 	const [successMessage, setSuccessMessage] = useState(null);
@@ -53,7 +55,8 @@ const ContactSection = () => {
 
 				setTimeout(() => {
 					setSuccessMessage(null);
-				}, 3000);
+					router.push('/');
+				}, 4000);
 			}
 		} catch (error) {
 			alert('Network error! Please try again!');
