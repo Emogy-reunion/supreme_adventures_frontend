@@ -138,3 +138,24 @@
 .whatsappLink:hover {
   	background-color: #1ebe5d;
 }
+
+.error-message {
+    	color: red;
+    	font-size: 12px;
+    	margin-top: 5px;
+}
+
+
+.error {
+  	background-color: #ffe0e0;
+  	color: #b20000;
+  	border: 1px solid #ffcccc;
+	padding: 10px;
+}
+
+.success-message {
+  	background-color: #e0ffe0;
+  	color: #006600;
+  	border: 1px solid #b3ffb3;
+	padding: 10px;
+}
