@@ -36,6 +36,12 @@
 	color: #333;
 }
 
+.formWrapper {
+        position: relative;
+	width: 100%;
+
+}
+
 .login-form {
 	width: 100%;
 	border: none;
@@ -140,9 +146,6 @@
 	padding: 10px;
 }
 
-.formWrapper {
-	position: relative;
-}
 
 .loadingOverlay {
 	position: absolute;
