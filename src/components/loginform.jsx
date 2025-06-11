@@ -31,6 +31,7 @@ const LoginForm = () => {
 		const formJson = Object.fromEntries(formData.entries());
 		
 		setLoading(true);
+		const start = Date.now();
 		try {
 			const response = await fetch('http://127.0.0.1:5000/login', {
 				method: 'POST',
@@ -76,8 +77,14 @@ const LoginForm = () => {
 			}
 		} catch(error) {
 			alert('Network error. Please try again.');
-		} finally { 
-			setLoading(false);
+		} finally {
+			const end = Date.now();
+			const elapsed = end - start;
+			const minLoadingTime = 800; // milliseconds
+
+			setTimeout(() => {
+				setLoading(false);
+			}, Math.max(minLoadingTime - elapsed, 0));
 		}
 	};
 
