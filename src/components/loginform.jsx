@@ -134,6 +134,7 @@ const LoginForm = () => {
 								<Loading />
 							</div>
 						)}
+					</div>
 
     					<div className={styles["footer-text"]}>
       						<p>Don’t have an account? <Link href="/register" className={styles.link}>Sign up</Link></p>
