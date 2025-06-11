@@ -99,7 +99,7 @@ export function AuthProvider({ children }) {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			if (authStatus === 'admin' || authStatus === 'member') {
-				await checkLogin();
+				checkLogin();
 			} else if (authStatus !== 'loading') {
 				logoutAndRedirect();
 			}
