@@ -16,23 +16,6 @@
 	margin-left: auto;
 }
 
-.pushLeft {
-       	margin-right: auto;
-	display: flex;
-	align-items: center;
-}
-
-.pushRight {
-	margin-left: auto;
-}
-
-.logo {
-  	width: 50px;
-  	height: 45px;
-  	border-radius: 50%;
-  	object-fit: cover;
-}
-
 .menu-button {
 	display: none;
 }
