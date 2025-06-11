@@ -13,6 +13,7 @@ const LoginForm = () => {
 	const [successMessage, setSuccessMessage] = useState(null);
 	const { setUserRole, setAuthStatus } = useAuth();
 	const [loading, setLoading] = useState(false);
+	const router = useRouter();
 
 
 	const handleToggle = () => {
