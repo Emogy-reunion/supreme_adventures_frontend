@@ -92,6 +92,11 @@ const LoginForm = () => {
 	return (
 		<>
 			<section id={styles['login-section']}>
+				{loading && (
+					<div className={styles.loadingOverlay}>
+						<Loading />
+					</div>
+				)}
 				<div className={styles["login-container"]}>
     					<div className={styles.logo}>
       						<img src="/supreme.svg" alt="Supreme adventures Logo" />
@@ -135,12 +140,6 @@ const LoginForm = () => {
 								<button type="submit" className={styles.btn}>Sign In</button>
 							</div>
     						</form>
-
-						{loading && (
-							<div className={styles.loadingOverlay}>
-								<Loading />
-							</div>
-						)}
 					</div>
 
     					<div className={styles["footer-text"]}>
