@@ -204,8 +204,8 @@ const UploadForm = () => {
   						<select
     							id="size"
    	 						name="size"
-    							value={tourData.size}
-    							onChange={handleChange}
+    							value={merchData.size}
+    							onChange={handleMerchChange}
     							className={styles.selectStyles}
   						>
     							<option value="">Select Size</option>
