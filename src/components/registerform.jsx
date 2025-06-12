@@ -12,6 +12,7 @@ const RegisterForm = () => {
 	const [formErrors, setFormErrors] = useState({});
 	const [globalError, setGlobalError] = useState(null);
 	const [successMessage, setSuccessMessage] = useState(null);
+	const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 	const handleToggle = () => {
 		setShowPassword((prev) => !prev);
@@ -27,7 +28,7 @@ const RegisterForm = () => {
 		const formJson = Object.fromEntries(formData.entries());
 
 		try {
-			const response = await fetch('http://127.0.0.1:5000/register', {
+			const response = await fetch(`${baseUrl}/register`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -57,7 +58,11 @@ const RegisterForm = () => {
 						setGlobalError(null);
 					}, 5000);
 				} else {
-					throw new Error('An unknown error occurred: ' + JSON.stringify(data));
+					setGlobalError(data);
+
+                                        setTimeout(() => {
+                                                setGlobalError(null);
+                                        }, 5000);
 				}
 			} else {
 				setSuccessMessage(data.success);

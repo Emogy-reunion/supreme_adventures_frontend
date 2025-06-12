@@ -13,6 +13,7 @@ const LoginForm = () => {
 	const [successMessage, setSuccessMessage] = useState(null);
 	const { setUserRole, setAuthStatus } = useAuth();
 	const [loading, setLoading] = useState(false);
+	const router = useRouter();
 
 
 	const handleToggle = () => {
@@ -31,13 +32,15 @@ const LoginForm = () => {
 		const formJson = Object.fromEntries(formData.entries());
 		
 		setLoading(true);
+		const start = Date.now();
 		try {
-			const response = await fetch('http://127.0.0.1:5000/login', {
+			const response = await fetch(`/api/login`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify(formJson),
+				credentials: 'include',
 			});
 
 			const data = await response.json();
@@ -59,7 +62,11 @@ const LoginForm = () => {
 						setGlobalError(null);
 					}, 5000);
 				} else {
-					throw new Error('A network error occured: ', JSON.stringify(data));
+					console.error('Unexpected error format:', data);
+					setGlobalError('An unexpected error occurred. Please try again.');
+					setTimeout(() => {
+                                                setGlobalError(null);
+                                        }, 5000);
 				}
 			} else {
 				setUserRole(data.role)
@@ -75,9 +82,16 @@ const LoginForm = () => {
 				}, 2000);
 			}
 		} catch(error) {
+			console.log(error);
 			alert('Network error. Please try again.');
-		} finally { 
-			setLoading(false);
+		} finally {
+			const end = Date.now();
+			const elapsed = end - start;
+			const minLoadingTime = 800; // milliseconds
+
+			setTimeout(() => {
+				setLoading(false);
+			}, Math.max(minLoadingTime - elapsed, 0));
 		}
 	};
 
@@ -85,6 +99,11 @@ const LoginForm = () => {
 	return (
 		<>
 			<section id={styles['login-section']}>
+				{loading && (
+					<div className={styles.loadingOverlay}>
+						<Loading />
+					</div>
+				)}
 				<div className={styles["login-container"]}>
     					<div className={styles.logo}>
       						<img src="/supreme.svg" alt="Supreme adventures Logo" />
@@ -128,12 +147,6 @@ const LoginForm = () => {
 								<button type="submit" className={styles.btn}>Sign In</button>
 							</div>
     						</form>
-
-						{loading && (
-							<div className={styles.loadingOverlay}>
-								<Loading />
-							</div>
-						)}
 					</div>
 
     					<div className={styles["footer-text"]}>
