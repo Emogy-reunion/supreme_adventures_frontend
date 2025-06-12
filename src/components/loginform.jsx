@@ -14,6 +14,7 @@ const LoginForm = () => {
 	const { setUserRole, setAuthStatus } = useAuth();
 	const [loading, setLoading] = useState(false);
 	const router = useRouter();
+	const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 
 	const handleToggle = () => {
@@ -34,7 +35,7 @@ const LoginForm = () => {
 		setLoading(true);
 		const start = Date.now();
 		try {
-			const response = await fetch('http://127.0.0.1:5000/login', {
+			const response = await fetch(`${baseUrl}/login`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
