@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import styles from '../styles/UploadForm.module.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import '../styles/Filepreviewslider.css';
 
 
 const TourForm = () => {
@@ -25,9 +29,21 @@ const TourForm = () => {
                 setTourData((prev) => ({ ...prev, [name]: value }));
         };
 
-        const handleTourFiles = (e) => {
-                setTourFiles([...e.target.files]);
-        };
+	const handleFileChange = (e) => {
+		const files = Array.from(e.target.files);
+
+		files.forEach((file) => {
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				setTourFiles((prev) => [...prev, { file, preview: reader.result }]);
+			};
+			reader.readAsDataURL(file);
+		});
+	};
+
+	const removeFile = (indexToRemove) => {
+		setTourFiles((prev) => prev.filter((_, index) => index !== indexToRemove));
+	};
 
 	return (
 		<form className={styles.form}>
@@ -101,7 +117,25 @@ const TourForm = () => {
                                         <div className={styles['form-group']}>
                                                 <label>Files</label>
                                                 <input type="file" multiple onChange={handleTourFiles} required />
+						{tourFiles.length > 0 && (
+							<Swiper
+          							spaceBetween={10}
+          							slidesPerView={3}
+          							navigation
+        						>
+          							{tourFiles.map((item, index) => (
+            								<SwiperSlide key={index}>
+              									<div className="slide-wrapper">
+                									<button className="remove-button" onClick={() => removeFile(index)}>×</button>
+                									<img src={item.preview} alt={`Preview ${index}`} className="preview-img" />
+              									</div>
+            								</SwiperSlide>
+          							))}
+        						</Swiper>
+      						)}
                                         </div>
+					
+					
 
                                         <div className={styles['button-container']}>
                                                 <button type="submit" className={styles.btn}>Upload tour</button>
