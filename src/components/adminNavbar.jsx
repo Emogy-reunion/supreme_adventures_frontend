@@ -28,7 +28,7 @@ const AdminNavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/upload')}`}>Upload</Link>
+                    <Link href='/upload' className={`${styles['nav-link']} ${isActive('/upload')}`}>Upload</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
