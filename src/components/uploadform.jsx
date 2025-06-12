@@ -16,7 +16,7 @@ const UploadForm = () => {
 		nights: '',
 		original_price: '',
 		discount_percent: '',
-		status: '',
+		status: 'upcoming',
 		included: '',
 		excluded: '',
 	});
@@ -28,7 +28,7 @@ const UploadForm = () => {
 		product_type: '',
 		discount_rate: '',
 		description: '',
-		status: '',
+		status: 'in-stock',
 		size: '',
 	});
 	const [merchImages, setMerchImages] = useState([]);
@@ -88,7 +88,6 @@ const UploadForm = () => {
 						{ label: 'Nights', name: 'nights', type: 'number' },
 						{ label: 'Original Price', name: 'original_price', type: 'number' },
 						{ label: 'Discount (%)', name: 'discount_percent', type: 'number' },
-						{ label: 'Status', name: 'status' },
 					].map((field) => (
 						<div className={styles['form-group']} key={field.name}>
 							<label>{field.label}</label>
@@ -133,8 +132,26 @@ const UploadForm = () => {
 					</div>
 
 					<div className={styles['form-group']}>
+  						<label htmlFor="status">Status</label>
+  						<select
+    							id="status"
+    							name="status"
+    							value="upcoming"
+    							disabled
+    							className={styles.selectStyles}
+  						>
+    							<option value="upcoming">Upcoming</option>
+  						</select>
+					</div>
+
+					
+					<div className={styles['form-group']}>
 						<label>Files</label>
 						<input type="file" multiple onChange={handleTourFiles} required />
+					</div>
+
+					<div className={styles['button-container']}>
+						<button type="submit" className={styles.btn}>Upload tour</button>
 					</div>
 				</form>
 			)}
@@ -146,8 +163,6 @@ const UploadForm = () => {
 						{ label: 'Original Price', name: 'original_price', type: 'number' },
 						{ label: 'Product Type', name: 'product_type' },
 						{ label: 'Discount Rate (%)', name: 'discount_rate', type: 'number' },
-						{ label: 'Status', name: 'status' },
-						{ label: 'Size', name: 'size' },
 					].map((field) => (
 						<div className={styles['form-group']} key={field.name}>
 							<label>{field.label}</label>
@@ -170,10 +185,47 @@ const UploadForm = () => {
 							required
 						/>
 					</div>
+					
+					<div className={styles['form-group']}>
+  						<label htmlFor="status">Status</label>
+  						<select
+    							id="status"
+    							name="status"
+    							value="in-stock"
+    							disabled
+    							className={styles.selectStyles}
+  						>
+    							<option value="in-stock">In Stock</option>
+  						</select>
+					</div>
+
+					<div className={styles['form-group']}>
+  						<label htmlFor="size">Size</label>
+  						<select
+    							id="size"
+   	 						name="size"
+    							value={tourData.size}
+    							onChange={handleChange}
+    							className={styles.selectStyles}
+  						>
+    							<option value="">Select Size</option>
+    							<option value="M">Medium (M)</option>
+    							<option value="L">Large (L)</option>
+    							<option value="XL">Extra Large (XL)</option>
+    							<option value="XXL">2XL</option>
+    							<option value="XXXL">3XL</option>
+    							<option value="XXXXL">4XL</option>
+  							</select>
+					</div>
+
 
 					<div className={styles['form-group']}>
 						<label>Images</label>
 						<input type="file" multiple onChange={handleMerchImages} required />
+					</div>
+
+					<div className={styles['button-container']}>
+						<button type="submit" className={styles.btn}>Upload Merchandise</button>
 					</div>
 				</form>
 			)}
