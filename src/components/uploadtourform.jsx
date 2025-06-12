@@ -3,7 +3,7 @@ import styles from '../styles/UploadForm.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import '../styles/Filepreviewslider.css';
+import '../styles/Filepreviewslider.module.css';
 
 
 const TourForm = () => {
@@ -116,7 +116,7 @@ const TourForm = () => {
 
                                         <div className={styles['form-group']}>
                                                 <label>Files</label>
-                                                <input type="file" multiple onChange={handleTourFiles} required />
+                                                <input type="file" multiple onChange={handleFileChange} required />
 						{tourFiles.length > 0 && (
 							<Swiper
           							spaceBetween={10}
