@@ -62,6 +62,7 @@ const LoginForm = () => {
 						setGlobalError(null);
 					}, 5000);
 				} else {
+					console.error('Unexpected error format:', data);
 					setGlobalError('An unexpected error occurred. Please try again.');
 					setTimeout(() => {
                                                 setGlobalError(null);
@@ -81,6 +82,7 @@ const LoginForm = () => {
 				}, 2000);
 			}
 		} catch(error) {
+			console.log(error);
 			alert('Network error. Please try again.');
 		} finally {
 			const end = Date.now();

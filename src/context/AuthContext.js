@@ -103,7 +103,7 @@ export function AuthProvider({ children }) {
 			} else if (authStatus !== 'loading') {
 				logoutAndRedirect();
 			}
-		}, 5 * 60 * 1000);
+		}, 2 * 60 * 1000);
 
 		return () => clearInterval(interval);
 	}, [authStatus, checkLogin]);
