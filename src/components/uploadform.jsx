@@ -32,9 +32,11 @@ const UploadForm = () => {
 				</select>
 			</div>
 			{uploadType === 'tour' && (
+				<TourForm />
 			)}
 
 			{uploadType === 'merch' && (
+				<MerchandiseForm />
 			)}
 		</div>
 		</section>
