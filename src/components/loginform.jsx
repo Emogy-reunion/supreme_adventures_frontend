@@ -62,7 +62,10 @@ const LoginForm = () => {
 						setGlobalError(null);
 					}, 5000);
 				} else {
-					throw new Error('A network error occured: ', JSON.stringify(data));
+					setGlobalError('An unexpected error occurred. Please try again.');
+					setTimeout(() => {
+                                                setGlobalError(null);
+                                        }, 5000);
 				}
 			} else {
 				setUserRole(data.role)
