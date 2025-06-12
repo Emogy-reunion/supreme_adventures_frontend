@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TourForm from '../components/uploadtourform';
-import MerchandiseFrom from '../components/uploadmerchandiseform';
+import MerchandiseForm from '../components/uploadmerchandiseform';
 import styles from '../styles/UploadForm.module.css';
 
 
