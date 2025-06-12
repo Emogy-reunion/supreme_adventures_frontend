@@ -5,83 +5,100 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 20px;
+	padding: 60px 20px;
 	position: relative;
 }
 
 .uploadWrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  font-family: 'Segoe UI', sans-serif;
+  	max-width: 800px;
+	width: 100%;
+  	margin: 0 auto;
+  	padding: 2rem;
+  	background-color: #fff;
+  	border-radius: 1rem;
+  	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+	margin-bottom: 20px;
+}
+
+.logo img {
+	width: 150px;
+	height: 145px;
+}
+
+.login-container h2 {
+	margin-bottom: 25px;
+	font-size: 2rem;
+	color: #333;
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.5rem;
+  	display: flex;
+  	flex-direction: column;
+  	margin-bottom: 1.5rem;
 }
 
 .form-group label {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #2d2d2d;
-  margin-bottom: 0.5rem;
+  	font-weight: 600;
+  	font-size: 0.95rem;
+  	color: #2d2d2d;
+  	margin-bottom: 0.5rem;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
-  padding: 0.75rem 1rem;
-  font-size: 0.95rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  background-color: #fafafa;
-  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  	padding: 0.75rem 1rem;
+  	font-size: 0.95rem;
+  	border: 1px solid #d1d5db;
+  	border-radius: 0.5rem;
+  	background-color: #fafafa;
+  	transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: #10b981; /* green */
-  background-color: #fff;
-  outline: none;
+  	border-color: #10b981; /* green */
+  	background-color: #fff;
+  	outline: none;
 }
 
 .form-group textarea {
-  min-height: 100px;
-  resize: vertical;
+  	min-height: 100px;
+  	resize: vertical;
 }
 
 .selectStyles {
-  appearance: none;
-  background-color: #f9f9f9;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" fill="%23999999" viewBox="0 0 20 20"><path d="M7 7l3-3 3 3H7zm0 6h6l-3 3-3-3z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 1rem;
-  cursor: pointer;
+  	appearance: none;
+  	background-color: #f9f9f9;
+  	background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" fill="%23999999" viewBox="0 0 20 20"><path d="M7 7l3-3 3 3H7zm0 6h6l-3 3-3-3z"/></svg>');
+  	background-repeat: no-repeat;
+  	background-position: right 0.75rem center;
+  	background-size: 1rem;
+  	cursor: pointer;
+	margin-bottom: 15px;
 }
 
 .form-group input[type='file'] {
-  border: none;
-  background-color: transparent;
-  padding: 0;
+  	border: none;
+  	background-color: transparent;
+  	padding: 0;
 }
 
 @media (max-width: 640px) {
-  .uploadWrapper {
-    padding: 1.5rem;
-  }
+  	.uploadWrapper {
+    		padding: 1.5rem;
+    		max-width: 450px;
+  	}
 
-.form-group input,
-.form-group textarea,
- .form-group select {
-    font-size: 0.9rem;
-  }
+	.form-group input,
+	.form-group textarea,
+	.form-group select {
+    		font-size: 0.9rem;
+  	}
 }
 
 

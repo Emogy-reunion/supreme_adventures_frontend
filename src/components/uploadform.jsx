@@ -33,7 +33,7 @@ const UploadForm = () => {
 	});
 	const [merchImages, setMerchImages] = useState([]);
 
-	onst handleTourChange = (e) => {
+	const handleTourChange = (e) => {
 		const { name, value } = e.target;
 		setTourData((prev) => ({ ...prev, [name]: value }));
 	};
@@ -56,6 +56,13 @@ const UploadForm = () => {
 
 		<section id={styles['upload-section']}>
 		<div className={styles.uploadWrapper}>
+
+			<div className={styles.logo}>
+				<img src="/supreme.svg" alt="Supreme adventures Logo" />
+			</div>
+
+   			<h2>UPLOAD TOUR/MERCHANDISE</h2>
+
 			<div className={styles['form-group']}>
 				<label htmlFor="uploadType">Select Upload Type</label>
 				<select
