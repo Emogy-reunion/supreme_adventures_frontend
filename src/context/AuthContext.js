@@ -10,10 +10,11 @@ export function AuthProvider({ children }) {
 	const [userRole, setUserRole] = useState(null);
 	const [isLoggingOut, setIsLoggingOut] = useState(false);
 	const router = useRouter();
+	const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 	const checkLogin = useCallback(async () => {
 		try {
-			const response = await fetch('http://127.0.0.1:5000/is_logged_in', {
+			const response = await fetch(`${baseUrl}/is_logged_in`, {
 				method: 'GET',
 				credentials: 'include',
 			});
@@ -24,7 +25,7 @@ export function AuthProvider({ children }) {
 				const refreshed = await tryRefreshToken();
 				if (refreshed) {
 
-					const retryResponse = await fetch('http://127.0.0.1:5000/is_logged_in',{
+					const retryResponse = await fetch(`${baseUrl}/is_logged_in`,{
 						method: 'GET',
 						credentials: 'include',
 					});
@@ -54,7 +55,7 @@ export function AuthProvider({ children }) {
 
 	const tryRefreshToken = async () => {
 		try {
-			const response = await fetch('http://127.0.0.1:5000/refresh_token', {
+			const response = await fetch(`${baseUrl}/refresh_token`, {
 				method: 'POST',
 				credentials: 'include',
 			});
@@ -79,7 +80,7 @@ export function AuthProvider({ children }) {
 	const logout = async () => {
 		setIsLoggingOut(true);
 		try {
-			await fetch('http://127.0.0.1:5000/logout', {
+			await fetch(`${baseUrl}/logout`, {
 				method: 'POST',
 				credentials: 'include',
 			});
@@ -119,7 +120,3 @@ export function AuthProvider({ children }) {
 export function useAuth() {
 	return useContext(AuthContext);
 }
-
-
-
-
