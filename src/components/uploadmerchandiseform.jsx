@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import styles from '../styles/UploadForm.module.css';
+import { useRouter } 'next/router';
+import Loading from '../components/loading';
 
 
 
 const MerchandiseForm = () => {
 
+	const [formErrors, setFormErrors] = useState({});
+	const [globalError, setGlobalError] = useState(null);
+	const [successMessage, setSuccessMessage] = useState(null);
+	const [loading, setLoading] = useState(false);
+	const router = useRouter();
 
 	const [merchData, setMerchData] = useState({
                 name: '',
@@ -38,9 +45,98 @@ const MerchandiseForm = () => {
                 setMerchImages((prev) => prev.filter((_, index) => index !== indexToRemove));
         };
 
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		setFormErrors({});
+		setGlobalError(null);
+		setSuccessMessage(null);
+
+		const formData = new FormData();
+
+		Object.entries(merchData).forEach(([key, value]) => {
+			formData.append(key, value);
+		});
+
+		merchImages.forEach((fileObj) => {
+  			formData.append('images', fileObj.file);
+		});
+
+
+		const start = Date.now()
+		setLoading(true);
+
+		try {
+			const response = await fetch('/api/upload_product', {
+				method: 'POST',
+				include: 'credentials',
+				body: formData
+			});
+
+			const data = await response.json();
+
+			if (!response.ok) {
+				if (data.errors) {
+					const formattedErrors = Object.keys(data.errors).reduce((acc, key) => {
+						acc['key'] = data.errors['key'].join(', ');
+						return acc;
+					}, {});
+					setFormErrors(formattedErrors);
+					setTimeout(() => {
+						setFormErrors({});
+					}, 8000);
+				} else if (data.error) {
+					setGlobalError(data.error);
+
+					setTimeout(() => {
+						setGlobalError(null):
+					}, 8000);
+				} else {
+					setGlobalError(data.message);
+
+                                        setTimeout(() => {
+                                                setGlobalError(null):
+                                        }, 8000);
+				}
+			} else {
+				setSuccessMessage(data.success);
+
+				setTimeout(() => {
+					setSuccessMessage(null);
+					router.push('/admin_dashboard');
+				}, 3000);
+			}
+		} catch (error) {
+			alert('An unexpected error occured. Please try again!');
+		} finally {
+			const end = Date.now();
+			const elapsed = end - start;
+			const minLoadingTime = 800; // milliseconds
+
+			setTimeout(() => {
+				setLoading(false);
+			}, Math.max(minLoadingTime - elapsed, 0));
+		}
+	};
+
+
+
 
 	return (
-		<form className={styles.form}>
+		<>
+			{loading && ( 
+				<div className={styles.loadingOverlay}>
+					<Loading />
+				</div>
+			)}
+
+			<form className={styles.form} onSubmit={handleSubmit}>
+				{(globalError || successMessage) && (
+					<div className={globalError ? styles['error'] : styles['success-message']}>
+						<p>{globalError || successMessage}</p>
+					</div>
+				)}
+				
                                         {[
                                                 { label: 'Product Name', name: 'name' },
                                                 { label: 'Original Price', name: 'original_price', type: 'number' },
@@ -56,6 +152,9 @@ const MerchandiseForm = () => {
                                                                 onChange={handleMerchChange}
                                                                 required
                                                         />
+							{formErrors[field.name] && (
+								<p>{field.name}</p>
+							)}
                                                 </div>
                                         ))}
 
@@ -67,6 +166,9 @@ const MerchandiseForm = () => {
                                                         onChange={handleMerchChange}
                                                         required
                                                 />
+						{formErrors.description && (
+							<p className={styles['error-message']>{formErrors.description}</p>
+						)}
                                         </div>
 
                                         <div className={styles['form-group']}>
