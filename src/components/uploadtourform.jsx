@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styles from '../styles/UploadForm.module.css';
 import Loading from '../components/loading';
+import { useRouter } from 'next/router';
 
 
 const TourForm = () => {
-
+	const router = useRouter();
 	const [formErrors, setFormErrors] = useState({});
 	const [globalError, setGlobalError] = useState(null);
 	const [successMessage, setSuccessMessage] = useState(null);
@@ -149,7 +150,7 @@ const TourForm = () => {
                                                                 required
                                                         />
 							{formErrors['field.name'] && (
-								<p className={styles['error-message']}>{formErrors['field.name']</p>
+								<p className={styles['error-message']}>{formErrors[field.name]}</p>
 							)}
                                                 </div>
                                         ))}
@@ -175,6 +176,9 @@ const TourForm = () => {
                                                         onChange={handleTourChange}
                                                         required
                                                 />
+						{formErrors.included && (
+                                                        <p className={styles['error-message']}>{formErrors.included}</p>
+                                                )}
                                         </div>
 
                                         <div className={styles['form-group']}>
@@ -185,6 +189,9 @@ const TourForm = () => {
                                                         onChange={handleTourChange}
                                                         required
                                                 />
+						{formErrors.excluded && (
+                                                        <p className={styles['error-message']}>{formErrors.excluded}</p>
+                                                )}
                                         </div>
 
                                         <div className={styles['form-group']}>
@@ -198,11 +205,17 @@ const TourForm = () => {
                                                 >
                                                         <option value="upcoming">Upcoming</option>
                                                 </select>
+						{formErrors.status && (
+                                                        <p className={styles['error-message']}>{formErrors.status}</p>
+                                                )}
                                         </div>
 
                                         <div className={styles['form-group']}>
                                                 <label>Files</label>
                                                 <input type="file" multiple onChange={handleFileChange} required />
+						{formErrors.files && (
+                                                        <p className={styles['error-message']}>{files}</p>
+                                                )}
                                         </div>
 					
 					<div className={styles["preview-container"]}>
