@@ -140,7 +140,6 @@ const MerchandiseForm = () => {
                                         {[
                                                 { label: 'Product Name', name: 'name' },
                                                 { label: 'Original Price', name: 'original_price', type: 'number' },
-                                                { label: 'Product Type', name: 'product_type' },
                                                 { label: 'Discount Rate (%)', name: 'discount_rate', type: 'number' },
                                         ].map((field) => (
                                                 <div className={styles['form-group']} key={field.name}>
@@ -158,33 +157,30 @@ const MerchandiseForm = () => {
                                                 </div>
                                         ))}
 
-                                        <div className={styles['form-group']}>
-                                                <label>Description</label>
-                                                <textarea
-                                                        name="description"
-                                                        value={merchData.description}
-                                                        onChange={handleMerchChange}
-                                                        required
-                                                />
-						{formErrors.description && (
-							<p className={styles['error-message']}>{formErrors.description}</p>
-						)}
-                                        </div>
+					<div className={styles['form-group']}>
+    						<label htmlFor="product_type">Product Type</label>
+    						<select
+        						id="product_type"
+        						name="product_type"
+        						value={merchData.product_type}
+        						onChange={handleMerchChange}
+        						className={styles.selectStyles}
+    						>
+        						<option value="">Select Product Type</option>
+        						<option value="t-shirt">T-shirt</option>
+        						<option value="hoodie">Hoodie</option>
+        						<option value="polo">Polo</option>
+        						<option value="sweat-shirt">Sweat-shirt</option>
+        						<option value="sweat-pant">Sweat-pant</option>
+        						<option value="branded set">Branded Set</option>
+    						</select>
+						{formErrors.product_type && (
+                                                        <p className={styles['error-message']}>{formErrors.product_type}</p>
+                                                )}
+					</div>
 
-                                        <div className={styles['form-group']}>
-                                                <label htmlFor="status">Status</label>
-                                                <select
-                                                        id="status"
-                                                        name="status"
-                                                        value="in-stock"
-                                                        disabled
-                                                        className={styles.selectStyles}
-                                                >
-                                                        <option value="in-stock">In Stock</option>
-                                                </select>
-                                        </div>
 
-                                        <div className={styles['form-group']}>
+					 <div className={styles['form-group']}>
                                                 <label htmlFor="size">Size</label>
                                                 <select
                                                         id="size"
@@ -200,9 +196,39 @@ const MerchandiseForm = () => {
                                                         <option value="XXL">2XL</option>
                                                         <option value="XXXL">3XL</option>
                                                         <option value="XXXXL">4XL</option>
-						</select>
+                                                </select>
+						{formErrors.size && (
+                                                        <p className={styles['error-message']}>{formErrors.size}</p>
+                                                )}
                                         </div>
 
+
+                                        <div className={styles['form-group']}>
+                                                <label>Description</label>
+                                                <textarea
+                                                        name="description"
+                                                        value={merchData.description}
+                                                        onChange={handleMerchChange}
+                                                        required
+                                                />
+						{formErrors.description && (
+							<p className={styles['error-message']}>{formErrors.description}</p>
+						)}
+                                        </div>
+					
+
+                                        <div className={styles['form-group']}>
+                                                <label htmlFor="status">Status</label>
+                                                <select
+                                                        id="status"
+                                                        name="status"
+                                                        value="in-stock"
+                                                        disabled
+                                                        className={styles.selectStyles}
+                                                >
+                                                        <option value="in-stock">In Stock</option>
+                                                </select>
+                                        </div>
 
                                         <div className={styles['form-group']}>
                                                 <label>Images</label>
