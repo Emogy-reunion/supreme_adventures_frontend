@@ -153,7 +153,7 @@ const MerchandiseForm = () => {
                                                                 required
                                                         />
 							{formErrors[field.name] && (
-								<p>{field.name}</p>
+								<p className={styles['error-message']}>{field.name}</p>
 							)}
                                                 </div>
                                         ))}
@@ -167,7 +167,7 @@ const MerchandiseForm = () => {
                                                         required
                                                 />
 						{formErrors.description && (
-							<p className={styles['error-message']>{formErrors.description}</p>
+							<p className={styles['error-message']}>{formErrors.description}</p>
 						)}
                                         </div>
 
