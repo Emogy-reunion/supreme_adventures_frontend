@@ -112,8 +112,8 @@ const handleAuthResponse = async (response, req, page) => {
 			return {
 				redirect: {
 					destination: '/member_dashboard',
-					permanent: false},
-			};
+					permanent: false,
+				},
 			};
 		} else {
 			const response = await fetch(`/api/tours?page=${page}`, {
