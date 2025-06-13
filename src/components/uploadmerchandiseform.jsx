@@ -28,7 +28,7 @@ const MerchandiseForm = () => {
                 files.forEach((file) => {
                         const reader = new FileReader();
                         reader.onloadend = () => {
-                                setMerchImagess((prev) => [...prev, { file, preview: reader.result }]);
+				setMerchImages:q((prev) => [...prev, { file, preview: reader.result }]);
                         };
                         reader.readAsDataURL(file);
                 });
