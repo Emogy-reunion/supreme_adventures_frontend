@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../styles/UploadForm.module.css';
-import { useRouter } 'next/router';
+import { useRouter } from 'next/router';
 import Loading from '../components/loading';
 
 
