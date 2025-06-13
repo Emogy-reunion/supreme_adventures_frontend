@@ -84,6 +84,7 @@ const ResetPasswordEmail = () => {
 					<div className={styles.loadingOverlay}>
 						<Loading />
 					</div>
+					)}
 					<div className={styles['reset-container']}>
     						<div className={styles.logo}>
       							<img src="/supreme.svg" alt="Supreme adventures Logo" />
