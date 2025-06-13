@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import styles from '../styles/UploadForm.module.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import '../styles/Filepreviewslider.module.css';
+import Loading from '../components/loading';
+import { useRouter } from 'next/router';
 
 
 const TourForm = () => {
+	const router = useRouter();
+	const [formErrors, setFormErrors] = useState({});
+	const [globalError, setGlobalError] = useState(null);
+	const [successMessage, setSuccessMessage] = useState(null);
+	const [loading, setLoading] = useState(false);
 	const [tourData, setTourData] = useState({
                 name: '',
                 start_location: '',
@@ -41,12 +44,97 @@ const TourForm = () => {
 		});
 	};
 
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		setFormErrors({});
+		setGlobalError(null);
+		setSuccessMessage(null);
+
+		const formData = new FormData();
+
+		Object.entries(tourData).forEach(([key, value]) => {
+			formData.append(key, value);
+		});
+
+		tourFiles.forEach((fileObj) => {
+  			formData.append('files', fileObj.file);
+		});
+
+		setLoading(true);
+		const start = Date.now()
+		try {
+			const response = await fetch('/api/upload_tour', {
+				method: 'POST',
+				body: formData,
+				credentials: 'include',
+			});
+
+
+			const data = await response.json();
+
+			if (!response.ok) {
+				if (data.errors) {
+					const formattedErrors = Object.keys(data.errors).reduce((acc, key) => {
+						acc[key] = data.errors[key].join(', ');
+						return acc;
+					}, {});
+
+					setFormErrors(formattedErrors);
+
+					setTimeout(() => {
+						setFormErrors({});
+					}, 8000);
+				} else if (data.error) {
+					setGlobalError(data.error);
+
+					setTimeout(() => {
+						setGlobalError(null);
+					}, 5000);
+
+				} else {
+					setGlobalError(data.error);
+
+					setTimeout(() => {
+                                                setGlobalError(null);
+                                        }, 5000);
+				}
+			} else {
+				setSuccessMessage(data.success);
+				router.push('/admin_dashboard');
+			}
+		} catch (error) {
+			alert('A network error occured. Please try again!');
+		} finally {
+			const end = Date.now();
+			const elapsed = end - start;
+			const minLoadingTime = 800; // milliseconds
+
+			setTimeout(() => {
+				setLoading(false);
+			}, Math.max(minLoadingTime - elapsed, 0));
+		}
+	};
+
+
 	const removeFile = (indexToRemove) => {
 		setTourFiles((prev) => prev.filter((_, index) => index !== indexToRemove));
 	};
 
 	return (
-		<form className={styles.form}>
+		<>
+			{loading && (
+				<div className={styles.loadingOverlay}>
+					<Loading />
+				</div>
+			)}
+			<form className={styles.form} onSubmit={handleSubmit}>
+				{(globalError || successMessage) && (
+					<div className={globalError ? styles['error'] : styles['success-message']}>
+						<p>{globalError || successMessage}</p>
+					</div>
+				)}
+			
                                         {[
                                                 { label: 'Name', name: 'name' },
                                                 { label: 'Start Location', name: 'start_location' },
@@ -67,6 +155,9 @@ const TourForm = () => {
                                                                 onChange={handleTourChange}
                                                                 required
                                                         />
+							{formErrors[field.name] && (
+								<p className={styles['error-message']}>{formErrors[field.name]}</p>
+							)}
                                                 </div>
                                         ))}
 
@@ -78,6 +169,9 @@ const TourForm = () => {
                                                         onChange={handleTourChange}
                                                         required
                                                 />
+						{formErrors.description && (
+							<p className={styles['error-message']}>{formErrors.description}</p>
+						)}
                                         </div>
 
                                         <div className={styles['form-group']}>
@@ -88,6 +182,9 @@ const TourForm = () => {
                                                         onChange={handleTourChange}
                                                         required
                                                 />
+						{formErrors.included && (
+                                                        <p className={styles['error-message']}>{formErrors.included}</p>
+                                                )}
                                         </div>
 
                                         <div className={styles['form-group']}>
@@ -98,6 +195,9 @@ const TourForm = () => {
                                                         onChange={handleTourChange}
                                                         required
                                                 />
+						{formErrors.excluded && (
+                                                        <p className={styles['error-message']}>{formErrors.excluded}</p>
+                                                )}
                                         </div>
 
                                         <div className={styles['form-group']}>
@@ -111,36 +211,30 @@ const TourForm = () => {
                                                 >
                                                         <option value="upcoming">Upcoming</option>
                                                 </select>
+						{formErrors.status && (
+                                                        <p className={styles['error-message']}>{formErrors.status}</p>
+                                                )}
                                         </div>
-
 
                                         <div className={styles['form-group']}>
                                                 <label>Files</label>
                                                 <input type="file" multiple onChange={handleFileChange} required />
-						{tourFiles.length > 0 && (
-							<Swiper
-          							spaceBetween={10}
-          							slidesPerView={3}
-          							navigation
-        						>
-          							{tourFiles.map((item, index) => (
-            								<SwiperSlide key={index}>
-              									<div className="slide-wrapper">
-                									<button className="remove-button" onClick={() => removeFile(index)}>×</button>
-                									<img src={item.preview} alt={`Preview ${index}`} className="preview-img" />
-              									</div>
-            								</SwiperSlide>
-          							))}
-        						</Swiper>
-      						)}
                                         </div>
 					
-					
+					<div className={styles["preview-container"]}>
+						{tourFiles.map((item, index) => (
+    							<div className={styles["preview-card"]} key={index}>
+      								<button className={styles["remove-button"]} onClick={() => removeFile(index)}>×</button>
+      								<img src={item.preview} alt={`Preview ${index}`} className={styles["preview-img"]} />
+    							</div>
+  						))}
+					</div>
 
                                         <div className={styles['button-container']}>
                                                 <button type="submit" className={styles.btn}>Upload tour</button>
                                         </div>
                                 </form>
+		</>
 	);
 };
 
