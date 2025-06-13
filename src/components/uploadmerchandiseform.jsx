@@ -22,8 +22,20 @@ const MerchandiseForm = () => {
                 setMerchData((prev) => ({ ...prev, [name]: value }));
         };
 
-        const handleMerchImages = (e) => {
-                setMerchImages([...e.target.files]);
+        const handleMerchFileChange = (e) => {
+		const files = Array.from(e.target.files);
+
+                files.forEach((file) => {
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                                setMerchImagess((prev) => [...prev, { file, preview: reader.result }]);
+                        };
+                        reader.readAsDataURL(file);
+                });
+        };
+
+        const removeImage = (indexToRemove) => {
+                setMerchImages((prev) => prev.filter((_, index) => index !== indexToRemove));
         };
 
 
@@ -86,14 +98,24 @@ const MerchandiseForm = () => {
                                                         <option value="XXL">2XL</option>
                                                         <option value="XXXL">3XL</option>
                                                         <option value="XXXXL">4XL</option>
-                                                        </select>
+						</select>
                                         </div>
 
 
                                         <div className={styles['form-group']}>
                                                 <label>Images</label>
-                                                <input type="file" multiple onChange={handleMerchImages} required />
+                                                <input type="file" multiple onChange={handleMerchFileChange} required />
                                         </div>
+					
+					<div className={styles["preview-container"]}>
+                                                {tourFiles.map((item, index) => (
+                                                        <div className={styles["preview-card"]} key={index}>
+                                                                <button className={styles["remove-button"]} onClick={() => removeImage(index)}>×</button>
+                                                                <img src={item.preview} alt={`Preview ${index}`} className={styles["preview-img"]} />
+                                                        </div>
+                                                ))}
+                                        </div>
+					
 
                                         <div className={styles['button-container']}>
                                                 <button type="submit" className={styles.btn}>Upload Merchandise</button>
