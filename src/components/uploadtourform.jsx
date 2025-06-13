@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import styles from '../styles/UploadForm.module.css';
+import Loading from '../components/loading';
 
 
 const TourForm = () => {
+
+	const [formErrors, setFormErrors] = useState({});
+	const [globalError, setGlobalError] = useState(null);
+	const [successMessage, setSuccessMessage] = useState(null);
+	const [loading, setLoading] = useState(false);
 	const [tourData, setTourData] = useState({
                 name: '',
                 start_location: '',
@@ -37,12 +43,91 @@ const TourForm = () => {
 		});
 	};
 
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		setFormErrors({});
+		setGlobalError(null);
+		setSuccessMessage(null);
+
+		const formData = new FormData();
+
+		Object.entries(tourData).forEach(([key, value]) => {
+			formData.append(key, value);
+		});
+
+		tourFiles.forEach((fileObj) => {
+  			formData.append('files[]', fileObj.file);
+		});
+
+		setLoading(true);
+		const start = Date.now()
+		try {
+			const response = await fetch('/api/upload_tour', {
+				method: 'POST',
+				body: formData,
+				credentials: 'include',
+			});
+
+
+			const data = await response.json();
+
+			if (!response.ok) {
+				if (data.errors) {
+					formattedErrors = Object.keys(data.errors).reduce((acc, key) => {
+						acc[key] = data.errors[key].join(', ');
+						return acc;
+					}, {});
+
+					setFormErrors(formattedErrors);
+
+					setTimeout(() => {
+						setFormErrors({});
+					}, 8000);
+				} else if (data.error) {
+					setGlobalError(data.error);
+
+					setTimeout(() => {
+						setGlobalError(null);
+					}, 5000);
+
+				} else {
+					setGlobalError(data);
+
+					setTimeout(() => {
+                                                setGlobalError(null);
+                                        }, 5000);
+				}
+			} else {
+				setSuccessMessage(data.success);
+				router.push('/admin_dashboard');
+			}
+		} catch (error) {
+			alert('A network error occured. Please try again!');
+		} finally {
+			const end = Date.now();
+			const elapsed = end - start;
+			const minLoadingTime = 800; // milliseconds
+
+			setTimeout(() => {
+				setLoading(false);
+			}, Math.max(minLoadingTime - elapsed, 0));
+		}
+	};
+
+
 	const removeFile = (indexToRemove) => {
 		setTourFiles((prev) => prev.filter((_, index) => index !== indexToRemove));
 	};
 
 	return (
-		<form className={styles.form}>
+		<>
+		{loading && (
+			<div className={styles.loadingOverlay}>
+				<Loading />
+			</div>
+				)}
+		<form className={styles.form} onSubmit={handleSubmit}>
                                         {[
                                                 { label: 'Name', name: 'name' },
                                                 { label: 'Start Location', name: 'start_location' },
@@ -63,6 +148,9 @@ const TourForm = () => {
                                                                 onChange={handleTourChange}
                                                                 required
                                                         />
+							{formErrors['field.name'] && (
+								<p className={styles['error-message']}>{formErrors['field.name']</p>
+							)}
                                                 </div>
                                         ))}
 
@@ -74,6 +162,9 @@ const TourForm = () => {
                                                         onChange={handleTourChange}
                                                         required
                                                 />
+						{formErrors.description && (
+							<p className={styles['error-message']}>{formErrors.description}</p>
+						)}
                                         </div>
 
                                         <div className={styles['form-group']}>
@@ -127,6 +218,7 @@ const TourForm = () => {
                                                 <button type="submit" className={styles.btn}>Upload tour</button>
                                         </div>
                                 </form>
+		</>
 	);
 };
 
