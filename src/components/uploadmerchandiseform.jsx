@@ -35,7 +35,7 @@ const MerchandiseForm = () => {
                 files.forEach((file) => {
                         const reader = new FileReader();
                         reader.onloadend = () => {
-				setMerchImages:q((prev) => [...prev, { file, preview: reader.result }]);
+				setMerchImages((prev) => [...prev, { file, preview: reader.result }]);
                         };
                         reader.readAsDataURL(file);
                 });
@@ -223,7 +223,7 @@ const MerchandiseForm = () => {
                                                 <button type="submit" className={styles.btn}>Upload Merchandise</button>
                                         </div>
                                 </form>
-		</>
+g	</>
 	);
 };
 
