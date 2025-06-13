@@ -13,7 +13,6 @@ const RegisterForm = () => {
 	const [formErrors, setFormErrors] = useState({});
 	const [globalError, setGlobalError] = useState(null);
 	const [successMessage, setSuccessMessage] = useState(null);
-	const router = useRouter();
 	const [loading, setLoading] = useState(false);
 
 	const handleToggle = () => {
