@@ -109,17 +109,16 @@ const TourForm = () => {
                                                 </select>
                                         </div>
 
-
                                         <div className={styles['form-group']}>
                                                 <label>Files</label>
                                                 <input type="file" multiple onChange={handleFileChange} required />
                                         </div>
 					
-					<div className="preview-container">
+					<div className={styles["preview-container"]}>
 						{tourFiles.map((item, index) => (
-    							<div className="preview-card" key={index}>
-      								<button className="remove-button" onClick={() => removeFile(index)}>×</button>
-      								<img src={item.preview} alt={`Preview ${index}`} className="preview-img" />
+    							<div className={styles["preview-card"]} key={index}>
+      								<button className={styles["remove-button"]} onClick={() => removeFile(index)}>×</button>
+      								<img src={item.preview} alt={`Preview ${index}`} className={styles["preview-img"]} />
     							</div>
   						))}
 					</div>

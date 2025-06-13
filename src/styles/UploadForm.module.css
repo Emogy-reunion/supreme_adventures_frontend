@@ -188,12 +188,13 @@
   	flex-wrap: wrap;
   	gap: 16px;
   	margin-top: 10px;
+	width: 100%;
 }
 
 .preview-card {
   	position: relative;
-  	width: 160px;
-  	height: 160px;
+  	width: 200px;
+  	height: 200px;
   	border-radius: 8px;
   	overflow: hidden;
   	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
