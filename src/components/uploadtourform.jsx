@@ -123,12 +123,18 @@ const TourForm = () => {
 
 	return (
 		<>
-		{loading && (
-			<div className={styles.loadingOverlay}>
-				<Loading />
-			</div>
+			{loading && (
+				<div className={styles.loadingOverlay}>
+					<Loading />
+				</div>
+			)}
+			<form className={styles.form} onSubmit={handleSubmit}>
+				{(globalError || successMessage) && (
+					<div className={globalError ? styles['error'] : styles['success-message']}>
+						<p>{globalError || successMessage}</p>
+					</div>
 				)}
-		<form className={styles.form} onSubmit={handleSubmit}>
+			
                                         {[
                                                 { label: 'Name', name: 'name' },
                                                 { label: 'Start Location', name: 'start_location' },
