@@ -89,13 +89,13 @@ const MerchandiseForm = () => {
 					setGlobalError(data.error);
 
 					setTimeout(() => {
-						setGlobalError(null):
+						setGlobalError(null);
 					}, 8000);
 				} else {
 					setGlobalError(data.message);
 
                                         setTimeout(() => {
-                                                setGlobalError(null):
+                                                setGlobalError(null);
                                         }, 8000);
 				}
 			} else {
