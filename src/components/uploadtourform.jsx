@@ -93,7 +93,7 @@ const TourForm = () => {
 					}, 5000);
 
 				} else {
-					setGlobalError(data);
+					setGlobalError(data.error);
 
 					setTimeout(() => {
                                                 setGlobalError(null);
