@@ -108,7 +108,7 @@ const MerchandiseForm = () => {
                                         </div>
 					
 					<div className={styles["preview-container"]}>
-                                                {tourFiles.map((item, index) => (
+                                                {merchImages.map((item, index) => (
                                                         <div className={styles["preview-card"]} key={index}>
                                                                 <button className={styles["remove-button"]} onClick={() => removeImage(index)}>×</button>
                                                                 <img src={item.preview} alt={`Preview ${index}`} className={styles["preview-img"]} />
