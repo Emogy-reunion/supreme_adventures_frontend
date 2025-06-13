@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import styles from '../styles/Tourspage.module.css';
 import AdminNavBar from '../components/adminNavbar';
 
-const ToursPage = ({tours, pagination, error}) => {
+export default const ToursPage = ({tours, pagination, error}) => {
 	const [menuOpen, setMenuOpen] = useState(null);
 	const router = useRouter();
 
