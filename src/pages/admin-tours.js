@@ -209,7 +209,7 @@ export async function getServerSideProps(context) {
 				});
 
 				if (retryResponse.ok) {
-					return await handleAuthResponse(retryResponse);
+					return await handleAuthResponse(retryResponse, req, page);
 				} else {
 					return logoutAndRedirect();
 				}
