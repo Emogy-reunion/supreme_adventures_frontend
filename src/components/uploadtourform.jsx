@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import styles from '../styles/UploadForm.module.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import '../styles/Filepreviewslider.module.css';
 
 
 const TourForm = () => {
@@ -117,25 +113,16 @@ const TourForm = () => {
                                         <div className={styles['form-group']}>
                                                 <label>Files</label>
                                                 <input type="file" multiple onChange={handleFileChange} required />
-						{tourFiles.length > 0 && (
-							<Swiper
-          							spaceBetween={10}
-          							slidesPerView={3}
-          							navigation
-        						>
-          							{tourFiles.map((item, index) => (
-            								<SwiperSlide key={index}>
-              									<div className="slide-wrapper">
-                									<button className="remove-button" onClick={() => removeFile(index)}>×</button>
-                									<img src={item.preview} alt={`Preview ${index}`} className="preview-img" />
-              									</div>
-            								</SwiperSlide>
-          							))}
-        						</Swiper>
-      						)}
                                         </div>
 					
-					
+					<div className="preview-container">
+						{tourFiles.map((item, index) => (
+    							<div className="preview-card" key={index}>
+      								<button className="remove-button" onClick={() => removeFile(index)}>×</button>
+      								<img src={item.preview} alt={`Preview ${index}`} className="preview-img" />
+    							</div>
+  						))}
+					</div>
 
                                         <div className={styles['button-container']}>
                                                 <button type="submit" className={styles.btn}>Upload tour</button>
