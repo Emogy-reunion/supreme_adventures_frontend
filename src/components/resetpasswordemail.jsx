@@ -2,11 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import styles from '../styles/Resetpasswordemail.module.css';
 import { useState } from 'react';
+import Loading from '../components/loading';
 
 const ResetPasswordEmail = () => {
 	const [globalError, setGlobalError] = useState(null);
 	const [formErrors, setFormErrors] = useState({});
 	const [successMessage, setSuccessMessage] = useState(null);
+	const [loading, setLoading] = useState(false);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -17,9 +19,11 @@ const ResetPasswordEmail = () => {
 
 		const formData = new FormData(event.target);
 		const formJson = Object.fromEntries(formData.entries());
+		setLoading(true);
+		const start = Date.now();
 
 		try {
-			const response = await fetch('http://127.0.0.1:5000/reset_password', {
+			const response = await fetch('/api/reset_password', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -47,7 +51,11 @@ const ResetPasswordEmail = () => {
 						setGlobalError(null);
 					}, 5000);
 				} else {
-					throw new Error('Error: ', JSON.stringify(data));
+					 setGlobalError(data.error);
+
+                                        setTimeout(() => {
+                                                setGlobalError(null);
+                                        }, 5000);
 				}
 			} else {
 				setSuccessMessage(data.success);
@@ -58,12 +66,24 @@ const ResetPasswordEmail = () => {
 			}
 		} catch(error) {
 			alert('Network error. Please try again!');
+		} finally {
+			const end = Date.now();
+			const elapsed = end - start;
+			const minLoadingTime = 800; // milliseconds
+
+			setTimeout(() => {
+				setLoading(false);
+			}, Math.max(minLoadingTime - elapsed, 0));
 		}
 	};
 
 	return (
 			<>
 				<section id={styles['reset-section']}>
+					{loading && (
+					<div className={styles.loadingOverlay}>
+						<Loading />
+					</div>
 					<div className={styles['reset-container']}>
     						<div className={styles.logo}>
       							<img src="/supreme.svg" alt="Supreme adventures Logo" />
