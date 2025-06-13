@@ -220,3 +220,4 @@ export async function getServerSideProps(context) {
 	} catch (error) {
 		return logoutAndRedirect();
 	}
+}
