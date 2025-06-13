@@ -155,7 +155,7 @@ const TourForm = () => {
                                                                 onChange={handleTourChange}
                                                                 required
                                                         />
-							{formErrors['field.name'] && (
+							{formErrors[field.name] && (
 								<p className={styles['error-message']}>{formErrors[field.name]}</p>
 							)}
                                                 </div>
