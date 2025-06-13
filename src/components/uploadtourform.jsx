@@ -219,9 +219,6 @@ const TourForm = () => {
                                         <div className={styles['form-group']}>
                                                 <label>Files</label>
                                                 <input type="file" multiple onChange={handleFileChange} required />
-						{formErrors.files && (
-                                                        <p className={styles['error-message']}>{files}</p>
-                                                )}
                                         </div>
 					
 					<div className={styles["preview-container"]}>
