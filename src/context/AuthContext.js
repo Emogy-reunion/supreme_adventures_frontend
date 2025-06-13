@@ -10,11 +10,10 @@ export function AuthProvider({ children }) {
 	const [userRole, setUserRole] = useState(null);
 	const [isLoggingOut, setIsLoggingOut] = useState(false);
 	const router = useRouter();
-	const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 	const checkLogin = useCallback(async () => {
 		try {
-			const response = await fetch(`${baseUrl}/is_logged_in`, {
+			const response = await fetch(`/api/is_logged_in`, {
 				method: 'GET',
 				credentials: 'include',
 			});
@@ -25,7 +24,7 @@ export function AuthProvider({ children }) {
 				const refreshed = await tryRefreshToken();
 				if (refreshed) {
 
-					const retryResponse = await fetch(`${baseUrl}/is_logged_in`,{
+					const retryResponse = await fetch(`/api/is_logged_in`,{
 						method: 'GET',
 						credentials: 'include',
 					});
@@ -55,7 +54,7 @@ export function AuthProvider({ children }) {
 
 	const tryRefreshToken = async () => {
 		try {
-			const response = await fetch(`${baseUrl}/refresh_token`, {
+			const response = await fetch(`/api/refresh_token`, {
 				method: 'POST',
 				credentials: 'include',
 			});
@@ -80,7 +79,7 @@ export function AuthProvider({ children }) {
 	const logout = async () => {
 		setIsLoggingOut(true);
 		try {
-			await fetch(`${baseUrl}/logout`, {
+			await fetch(`/api/logout`, {
 				method: 'POST',
 				credentials: 'include',
 			});
@@ -104,7 +103,7 @@ export function AuthProvider({ children }) {
 			} else if (authStatus !== 'loading') {
 				logoutAndRedirect();
 			}
-		}, 5 * 60 * 1000);
+		}, 2 * 60 * 1000);
 
 		return () => clearInterval(interval);
 	}, [authStatus, checkLogin]);
