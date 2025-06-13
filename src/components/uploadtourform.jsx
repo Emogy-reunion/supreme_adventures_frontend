@@ -58,7 +58,7 @@ const TourForm = () => {
 		});
 
 		tourFiles.forEach((fileObj) => {
-  			formData.append('files[]', fileObj.file);
+  			formData.append('files', fileObj.file);
 		});
 
 		setLoading(true);
