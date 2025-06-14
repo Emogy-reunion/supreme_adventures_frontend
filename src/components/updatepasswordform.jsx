@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from '../styles/Updatepasswordform.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Loading from '../components/loading'
 
 
 const UpdatePasswordForm = ({ token }) => {
@@ -11,6 +12,7 @@ const UpdatePasswordForm = ({ token }) => {
 	const [globalError, setGlobalError] = useState(null);
 	const [successMessage, setSuccessMessage] = useState(null);
 	const [formErrors, setFormErrors] = useState({});
+	const [loading, setLoading] = useState(false);
 
 	const handleToggle = () => {
 		setShowPassword((prev) => {
@@ -30,8 +32,12 @@ const UpdatePasswordForm = ({ token }) => {
 		formData.append('token', token); // add user id to retrieve user you want to update their password
 		const formJson = Object.fromEntries(formData.entries());
 
+
+		setLoading(true);
+		const start = Date.now();
+
 		try {
-			const response = await fetch('http://127.0.0.1:5000/update_password', {
+			const response = await fetch('/api/update_password', {
 				method: 'PATCH',
 				headers: {
 					'Content-Type': 'application/json'
@@ -60,7 +66,11 @@ const UpdatePasswordForm = ({ token }) => {
 						setGlobalError(null);
 					}, 5000);
 				} else {
-					throw new Error('Error: ', JSON.stringify(data));
+					setGlobalError(data.error);
+
+                                        setTimeout(() => {
+                                                setGlobalError(null);
+                                        }, 5000);
 				}
 			} else {
 				setSuccessMessage(data.success);
@@ -72,12 +82,24 @@ const UpdatePasswordForm = ({ token }) => {
 			}
 		} catch(error) {
 			alert('Network error. Please try again!');
+		} const end = Date.now();
+			const elapsed = end - start;
+			const minLoadingTime = 800; // milliseconds
+
+			setTimeout(() => {
+				setLoading(false);
+			}, Math.max(minLoadingTime - elapsed, 0));
 		}
 	};
 
 	return (
 			<>
 				<section id={styles['update-password-section']}>
+					{loading && (
+					<div className={styles.loadingOverlay}>
+						<Loading />
+					</div>
+					)}
 					<div className={styles['update-container']}>
     						<div className={styles.logo}>
       							<img src="/supreme.svg" alt="Supreme adventures Logo" />

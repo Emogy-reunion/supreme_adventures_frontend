@@ -36,7 +36,7 @@ const AdminNavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/tours')}`}>Tours</Link>
+                    <Link href='/admin-tours' className={`${styles['nav-link']} ${isActive('/tours')}`}>Tours</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>

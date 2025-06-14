@@ -3,6 +3,7 @@ import Link from 'next/head';
 import styles from '../styles/Registerform.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Loading from '../components/loading';
 
 
 const RegisterForm = () => {
@@ -12,7 +13,7 @@ const RegisterForm = () => {
 	const [formErrors, setFormErrors] = useState({});
 	const [globalError, setGlobalError] = useState(null);
 	const [successMessage, setSuccessMessage] = useState(null);
-	const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+	const [loading, setLoading] = useState(false);
 
 	const handleToggle = () => {
 		setShowPassword((prev) => !prev);
@@ -27,8 +28,11 @@ const RegisterForm = () => {
 		const formData = new FormData(event.target);
 		const formJson = Object.fromEntries(formData.entries());
 
+		setLoading(true);
+		const start = Date.now();
+
 		try {
-			const response = await fetch(`${baseUrl}/register`, {
+			const response = await fetch(`/api/register`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -58,7 +62,7 @@ const RegisterForm = () => {
 						setGlobalError(null);
 					}, 5000);
 				} else {
-					setGlobalError(data);
+					setGlobalError(data.error);
 
                                         setTimeout(() => {
                                                 setGlobalError(null);
@@ -73,12 +77,25 @@ const RegisterForm = () => {
 			}
 		} catch (error) {
 			alert('Network error. Please try again.');
+		} finally {
+			const end = Date.now();
+			const elapsed = end - start;
+			const minLoadingTime = 800; // milliseconds
+
+			setTimeout(() => {
+				setLoading(false);
+			}, Math.max(minLoadingTime - elapsed, 0));
 		}
 	};
 
 	return (
 		<>
 			<section className={styles['register-section']}>
+				{loading && (
+					<div className={styles.loadingOverlay}>
+						<Loading />
+					</div>
+				)}
 				<div className={styles["signup-container"]}>
     					<div className={styles.logo}>
       						<img src="/supreme.svg" alt="Supreme adventures Logo" />
