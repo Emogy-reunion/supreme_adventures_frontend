@@ -45,17 +45,13 @@ const ToursPage = ({tours, pagination, error}) => {
                 								<button className={styles.delete}>Delete</button>
               								</div>
             							)}
-								<Link href='#' passHref>
-									<a className={styles["link-wrapper"]} onClick={e => e.stopPropagation()}>
-            									<img
-              										src={tour.image || '/placeholder.jpg'}
-              										alt={tour.name}
-              										className={styles["card-image"]}
-            									/>
+            							<img
+              								src={tour.image || '/placeholder.jpg'}
+              								alt={tour.name}
+              								className={styles["card-image"]}
+            							/>
 
-            									<h2 className={styles["card-title"]}>{tour.name}</h2>
-									</a>
-								</Link>
+            							<h2 className={styles["card-title"]}>{tour.name}</h2>
 
             							<div className={styles["card-info"]}>
               								<FaMapMarkerAlt />
@@ -91,6 +87,10 @@ const ToursPage = ({tours, pagination, error}) => {
                 								<span className={styles.discount}>{tour.discount}% OFF</span>
               								)}
             							</div>
+								
+								<Link href='#' className={styles["details-link"]}>
+									View Details
+								</Link>
           						</div>
 						))}
 					</div>

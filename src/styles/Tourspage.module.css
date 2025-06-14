@@ -184,10 +184,18 @@
   	justify-content: center;
 }
 
-.link-wrapper {
-  	cursor: pointer;
+.details-link {
+  	display: inline-block;
+ 	margin-top: 12px;
+  	color: #2563eb;
+  	font-weight: 600;
+  	font-size: 0.875rem;
   	text-decoration: none;
-  	color: inherit; /* prevent default blue link color */
-  	display: block; /* ensure block for image + title */
+  	transition: color 0.2s ease;
+}
+
+.details-link:hover {
+  	color: #1d4ed8;
+  	text-decoration: underline;
 }
 
