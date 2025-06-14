@@ -32,7 +32,7 @@ const ToursPage = ({tours, pagination, error}) => {
     			<section className={styles["page-container"]}>
       				<h1 className={styles.title}>Available Tours</h1>
 
-				<div className={[styles'content-wrapper']}>
+				<div className={styles['content-wrapper']}>
       					<div className={styles.grid}>
         					{tours.map((tour) => (
           						<div key={tour.tour_id} className={styles.card}>
