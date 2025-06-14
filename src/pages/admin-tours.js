@@ -65,7 +65,7 @@ const ToursPage = ({tours, pagination, error}) => {
                 							{tour.days} days
               							</div>
               							
-								{tour.nights && (
+								{tour.nights > 0 && (
 									<div className={styles["card-info"]}>
                 								<FaMoon />
                 								{tour.nights} nights
@@ -76,8 +76,7 @@ const ToursPage = ({tours, pagination, error}) => {
 
             						<div className={styles["price-discount"]}>
               							<div className={styles.price}>
-                							<FaDollarSign />
-                							{tour.price}
+                							ksh {tour.price}
               							</div>
               							
 								{tour.discount > 0 && (
@@ -88,18 +87,20 @@ const ToursPage = ({tours, pagination, error}) => {
 					))}
 				</div>
 
-      				<div className={styles.pagination}>
-        				<button onClick={() => handlePageChange(pagination.previous)} disabled={!pagination.previous}>
-          					Previous
-        				</button>
-        				<span>
-          					Page {pagination.page} of {pagination.pages}
-        				</span>
+				<div className={styles["page-footer"]}>
+      					<div className={styles.pagination}>
+        					<button onClick={() => handlePageChange(pagination.previous)} disabled={!pagination.previous}>
+          						Previous
+        					</button>
+        					<span>
+          						Page {pagination.page} of {pagination.pages}
+        					</span>
 
-        				<button onClick={() => handlePageChange(pagination.next)} disabled={!pagination.next}>
-          					Next
-        				</button>
-      				</div>
+        					<button onClick={() => handlePageChange(pagination.next)} disabled={!pagination.next}>
+          						Next
+        					</button>
+      					</div>
+				</div>
     			</section>
 		</>
 	);
