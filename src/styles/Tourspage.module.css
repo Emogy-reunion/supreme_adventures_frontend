@@ -16,8 +16,14 @@
   	margin-bottom: 24px;
 }
 
-.grid {
+.content-wrapper {
 	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.grid {
   	display: grid;
   	grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
   	gap: 24px;
@@ -177,3 +183,11 @@
   	display: flex;
   	justify-content: center;
 }
+
+.link-wrapper {
+  	cursor: pointer;
+  	text-decoration: none;
+  	color: inherit; /* prevent default blue link color */
+  	display: block; /* ensure block for image + title */
+}
+
