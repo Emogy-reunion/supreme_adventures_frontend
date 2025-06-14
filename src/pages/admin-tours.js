@@ -88,7 +88,7 @@ const ToursPage = ({tours, pagination, error}) => {
               								)}
             							</div>
 								
-								<Link href='#' className={styles["details-link"]}>
+								<Link href={`/tour-details/${tour.tour_id}`} className={styles["details-link"]}>
 									View Details
 								</Link>
           						</div>
