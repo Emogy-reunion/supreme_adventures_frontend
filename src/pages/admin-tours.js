@@ -6,6 +6,7 @@ import { FiMoreVertical } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 import styles from '../styles/Tourspage.module.css';
 import AdminNavBar from '../components/adminNavbar';
+import Link from 'next/link';
 
 
 
@@ -44,12 +45,17 @@ const ToursPage = ({tours, pagination, error}) => {
                 								<button className={styles.delete}>Delete</button>
               								</div>
             							)}
-            							<img
-              								src={tour.image || '/placeholder.jpg'}
-              								alt={tour.name}
-              								className={styles["card-image"]}
-            							/>
-            							<h2 className={styles["card-title"]}>{tour.name}</h2>
+								<Link href='#' passHref>
+									<a className={styles["link-wrapper"]} onClick={e => e.stopPropagation()}>
+            									<img
+              										src={tour.image || '/placeholder.jpg'}
+              										alt={tour.name}
+              										className={styles["card-image"]}
+            									/>
+
+            									<h2 className={styles["card-title"]}>{tour.name}</h2>
+									</a>
+								</Link>
 
             							<div className={styles["card-info"]}>
               								<FaMapMarkerAlt />

@@ -183,3 +183,11 @@
   	display: flex;
   	justify-content: center;
 }
+
+.link-wrapper {
+  	cursor: pointer;
+  	text-decoration: none;
+  	color: inherit; /* prevent default blue link color */
+  	display: block; /* ensure block for image + title */
+}
+
