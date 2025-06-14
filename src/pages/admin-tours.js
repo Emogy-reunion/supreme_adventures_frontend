@@ -30,61 +30,64 @@ const ToursPage = ({tours, pagination, error}) => {
 		<>	<AdminNavBar />
     			<section className={styles["page-container"]}>
       				<h1 className={styles.title}>Available Tours</h1>
-      				<div className={styles.grid}>
-        				{tours.map((tour) => (
-          					<div key={tour.tour_id} className={styles.card}>
-            						<button className={styles["menu-button"]} onClick={() => handleMenuToggle(tour.tour_id)} aria-label="More options">
-              							<FiMoreVertical size={20} />
-            						</button>
-            						{menuOpen === tour.tour_id && (
-              							<div className={styles["menu-dropdown"]}>
-                							<button>Update</button>
-                							<button className={styles.delete}>Delete</button>
-              							</div>
-            						)}
-            						<img
-              							src={tour.image || '/placeholder.jpg'}
-              							alt={tour.name}
-              							className={styles["card-image"]}
-            						/>
-            						<h2 className={styles["card-title"]}>{tour.name}</h2>
 
-            						<div className={styles["card-info"]}>
-              							<FaMapMarkerAlt />
-              							{tour.destination}
-            						</div>
-
-            						<div className={styles["card-info"]}>
-              							<FaCalendarAlt />
-              							{new Date(tour.start_date).toLocaleDateString()}
-            						</div>
-
-            						<div className={styles["card-info-row"]}>
-              							<div className={styles["card-info"]}>
-                							<FaSun />
-                							{tour.days} days
-              							</div>
-              							
-								{tour.nights > 0 && (
-									<div className={styles["card-info"]}>
-                								<FaMoon />
-                								{tour.nights} nights
+				<div className="content-wrapper">
+      					<div className={styles.grid}>
+        					{tours.map((tour) => (
+          						<div key={tour.tour_id} className={styles.card}>
+            							<button className={styles["menu-button"]} onClick={() => handleMenuToggle(tour.tour_id)} aria-label="More options">
+              								<FiMoreVertical size={20} />
+            							</button>
+            							{menuOpen === tour.tour_id && (
+              								<div className={styles["menu-dropdown"]}>
+                								<button>Update</button>
+                								<button className={styles.delete}>Delete</button>
               								</div>
-								)}
-            							
-							</div>
+            							)}
+            							<img
+              								src={tour.image || '/placeholder.jpg'}
+              								alt={tour.name}
+              								className={styles["card-image"]}
+            							/>
+            							<h2 className={styles["card-title"]}>{tour.name}</h2>
 
-            						<div className={styles["price-discount"]}>
-              							<div className={styles.price}>
-                							ksh {tour.price}
-              							</div>
+            							<div className={styles["card-info"]}>
+              								<FaMapMarkerAlt />
+              								{tour.destination}
+            							</div>
+
+            							<div className={styles["card-info"]}>
+              								<FaCalendarAlt />
+              								{new Date(tour.start_date).toLocaleDateString()}
+            							</div>
+
+            							<div className={styles["card-info-row"]}>
+              								<div className={styles["card-info"]}>
+                								<FaSun />
+                								{tour.days} days
+              								</div>
               							
-								{tour.discount > 0 && (
-                							<span className={styles.discount}>{tour.discount}% OFF</span>
-              							)}
-            						</div>
-          					</div>
-					))}
+									{tour.nights > 0 && (
+										<div className={styles["card-info"]}>
+                									<FaMoon />
+                									{tour.nights} nights
+              									</div>
+									)}
+            							
+								</div>
+
+            							<div className={styles["price-discount"]}>
+              								<div className={styles.price}>
+                								ksh {tour.price}
+              								</div>
+              							
+									{tour.discount > 0 && (
+                								<span className={styles.discount}>{tour.discount}% OFF</span>
+              								)}
+            							</div>
+          						</div>
+						))}
+					</div>
 				</div>
 
 				<div className={styles["page-footer"]}>
