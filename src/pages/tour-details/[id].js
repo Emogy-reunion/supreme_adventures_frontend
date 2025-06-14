@@ -35,7 +35,7 @@ const TourDetails = ({ tour, error }) => {
 					<SwiperSlide key={index}>
 						<div className={styles.slide}>
 							<Image
-								src={`${baseUrl}/send_image/${img}`}
+								src={`${baseUrl}/api/send_image/${img}`}
 								alt={`Tour Image ${index + 1}`}
 								width={1000}
 								height={500}
