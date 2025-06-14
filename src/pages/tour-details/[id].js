@@ -90,6 +90,7 @@ const TourDetails = ({ tour, error }) => {
 				</div>
 			</div>
 		</div>
+	);
 };
 
 
