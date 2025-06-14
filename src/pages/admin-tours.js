@@ -7,6 +7,10 @@ import { useRouter } from 'next/router';
 import styles from '../styles/Tourspage.module.css';
 import AdminNavBar from '../components/adminNavbar';
 
+
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+
 const ToursPage = ({tours, pagination, error}) => {
 	const [menuOpen, setMenuOpen] = useState(null);
 	const router = useRouter();
@@ -116,27 +120,27 @@ const handleAuthResponse = async (response, req, page) => {
 				},
 			};
 		} else {
-			const response = await fetch(`/api/tours?page=${page}`, {
+			const tourResponse = await fetch(`${baseUrl}/api/tours?page=${page}`, {
 				method: 'GET',
 				headers: {
 					cookie: req.headers.cookie || '',
 				},
 			});
 
-			const data = await response.json();
+			const tourData = await tourResponse.json();
 
-			if (response.ok) {
+			if (tourResponse.ok) {
 				return {
 					props: {
-						tours: data.tours,
-						pagination: data.pagination,
+						tours: tourData.tours,
+						pagination: tourData.pagination,
 						error: null,
 					},
 				};
 			} else {
 				return {
 					props: {
-						error: data.error,
+						error: tourData.error || 'Failed to fetch tours.',
 						tours: [],
 						pagination: null,
 					},
@@ -154,9 +158,9 @@ const handleAuthResponse = async (response, req, page) => {
 	}
 };
 
-const tryRefreshToken = async () => {
+const tryRefreshToken = async (req) => {
 	try {
-		const response = await fetch(`/api/refresh_token`, {
+		const response = await fetch(`${baseUrl}/api/refresh_token`, {
 			method: 'POST',
 			headers: {
 				cookie: req.headers.cookie || '',
@@ -189,7 +193,7 @@ export async function getServerSideProps(context) {
 	const page = query.page || 1;
 
 	try {
-		const response = await fetch(`/api/is_logged_in`, {
+		const response = await fetch(`${baseUrl}/api/is_logged_in`, {
 			method: 'GET',
 			headers: {
 				cookie: req.headers.cookie || '',
@@ -199,9 +203,9 @@ export async function getServerSideProps(context) {
 		if (response.ok) {
 			return await handleAuthResponse(response, req, page);
 		} else {
-			const refreshed = await tryRefreshToken();
+			const refreshed = await tryRefreshToken(req);
 			if (refreshed) {
-				const retryResponse = await fetch(`/api/is_logged_in`, {
+				const retryResponse = await fetch(`${baseUrl}/api/is_logged_in`, {
 					method: 'GET',
 					headers: {
 						cookie: req.headers.cookie || '',
