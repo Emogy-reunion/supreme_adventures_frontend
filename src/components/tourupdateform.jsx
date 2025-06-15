@@ -238,6 +238,14 @@ const TourUpdateForm = ({tour, closeForm}) => {
 
 					<div className={styles['button-container']}>
                                                 <button type="submit" className={styles.btn}>Save Changes</button>
+						<button
+    							type="button"
+    							className={styles.btn}
+    							onClick={closeForm}
+    							style={{ marginLeft: '10px' }}
+  						>
+    							Close
+  						</button>
                                         </div>
 				</form>
 			</div>
