@@ -12,8 +12,9 @@ import Link from 'next/link';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
-const ToursPage = ({tours, pagination, error}) => {
+const ToursPage = ({toursData, pagination, error}) => {
 	const [menuOpen, setMenuOpen] = useState(null);
+	const [tours, setTours] = useState(toursData);
 	const router = useRouter();
 
 	const handleMenuToggle = (tourId) => {
@@ -26,6 +27,28 @@ const ToursPage = ({tours, pagination, error}) => {
 			router.push(`/tours?page=${page}`);
 		}
 	};
+
+	const handleDelete = async (tourId) => {
+		if (!confirm("Are you sure you want to delete this tour?")) return;
+
+		try {
+			const response = await fetch(`/api/delete_tour/${tourId}`, {
+				method: 'DELETE',
+				credentials: 'include'
+			});
+
+			if (!response.ok) {
+				const data = await response.json();
+				alert(data.error || "Failed to delete the tour.");
+			} else {
+				setTours((prevTours) => prevTours.filter(tour => tour.tour_id !== tourId));
+				alert("Tour deleted successfully");
+			}
+		} catch (error) {
+			alert('An unexpected error occurred. Please try again!');
+		}
+	};
+
 
 	return (
 		<>	<AdminNavBar />
@@ -41,8 +64,8 @@ const ToursPage = ({tours, pagination, error}) => {
             							</button>
             							{menuOpen === tour.tour_id && (
               								<div className={styles["menu-dropdown"]}>
-                								<button>Update</button>
-                								<button className={styles.delete}>Delete</button>
+                								<button type='button' onClick={() => handleDelete(tour.tourId)}>Update</button>
+                								<button type='button' className={styles.delete}>Delete</button>
               								</div>
             							)}
             							<img
