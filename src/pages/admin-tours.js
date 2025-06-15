@@ -113,7 +113,7 @@ const ToursPage = ({toursData, pagination, error}) => {
 
             							<div className={styles["price-discount"]}>
               								<div className={styles.price}>
-                								ksh {tour.price}
+                								ksh {tour.final_price}
               								</div>
               							
 									{tour.discount > 0 && (
