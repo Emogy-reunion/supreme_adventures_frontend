@@ -60,7 +60,7 @@ const ToursPage = ({tours, pagination, error}) => {
 
             							<div className={styles["card-info"]}>
               								<FaCalendarAlt />
-              								{new Date(tour.start_date).toLocaleDateString()}
+              								{tour.start_date}
             							</div>
 
             							<div className={styles["card-info-row"]}>
