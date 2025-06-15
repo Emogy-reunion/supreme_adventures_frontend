@@ -128,7 +128,7 @@ const TourUpdateForm = ({tour, closeForm}) => {
 					<img src="/supreme.svg" alt="Supreme adventures Logo" />
 				</div>
 
-	   			<h2><h2>Update {tour?.name || 'Tour'} Tour</h2>
+	   			<h2>Update {tour?.name || 'Tour'} Tour</h2>
 
   				{loading && (
     					<div className={styles.loadingOverlay}>
