@@ -3,7 +3,7 @@ import styles from '../styles/UploadForm.module.css';
 import Loading from '../components/loading';
 import withAdmin from '../hoc/withAdmin';
 
-const TourUpdateForm = ({tour, closeForm}) => {
+const TourUpdateForm = ({tour, closeForm, setTours}) => {
 
 	const [formErrors, setFormErrors] = useState({});
 	const [globalError, setGlobalError] = useState(null);
@@ -116,6 +116,14 @@ const TourUpdateForm = ({tour, closeForm}) => {
 				}
 			} else {
 				setSuccessMessage(data.success);
+
+				const updatedTour = data.updated_tour;
+				setTours((prevTours) =>
+					prevTours.map((tourItem) =>
+						tourItem.tour_id === updatedTour.tour_id ? updatedTour : tourItem
+					)
+				);
+
 				setTimeout(() => {
 					setSuccessMessage(null);
 					closeForm();

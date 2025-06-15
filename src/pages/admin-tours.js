@@ -99,7 +99,7 @@ const ToursPage = ({toursData, pagination, error}) => {
             							<div className={styles["card-info-row"]}>
               								<div className={styles["card-info"]}>
                 								<FaSun />
-                								{tour.days} days
+                								{tour.days > 1 ? `${tour.days} days` : `${tour.days} day`}
               								</div>
               							
 									{tour.nights > 0 && (
@@ -149,7 +149,8 @@ const ToursPage = ({toursData, pagination, error}) => {
 
 		{isEditing && (
 			<TourUpdateForm 
-				tour={tourData} 
+				tour={tourData}
+				setTours={setTours}
           			closeForm={() => setIsEditing(false)}
 			/>
 		)}
