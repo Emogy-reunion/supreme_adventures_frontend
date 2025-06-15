@@ -80,7 +80,7 @@ const TourUpdateForm = ({tour, closeForm}) => {
 		const start = Date.now()
 		try {
 			const response = await fetch(`/api/update_tour/${tour.tour_id}`, {
-				method: 'POST',
+				method: 'PATCH',
 				credentials: 'include',
 				body: formData,
 			});
