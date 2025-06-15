@@ -58,7 +58,9 @@ const ToursPage = ({toursData, pagination, error}) => {
 
 
 	return (
-		<>	{!isEditing && (
+		<>
+		{!isEditing && (
+			<>
 			<AdminNavBar />
     			<section className={styles["page-container"]}>
       				<h1 className={styles.title}>Available Tours</h1>
@@ -142,6 +144,7 @@ const ToursPage = ({toursData, pagination, error}) => {
       					</div>
 				</div>
     			</section>
+		</>
 		)}
 
 		{isEditing && (
@@ -150,7 +153,7 @@ const ToursPage = ({toursData, pagination, error}) => {
           			closeForm={() => setIsEditing(false)}
 			/>
 		)}
-		</>
+	</>
 	);
 };
 
