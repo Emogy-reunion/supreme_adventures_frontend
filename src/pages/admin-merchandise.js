@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import styles from '../styles/Productspage.module.css';
 import AdminNavBar from '../components/adminNavbar';
 import Link from 'next/link';
-import TourUpdateForm from '../components/productupdateform'
+import ProductUpdateForm from '../components/productupdateform'
 
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
@@ -26,7 +26,7 @@ const ToursPage = ({productsData, pagination, error}) => {
 
 	const handlePageChange = (page) => {
 		if (page) {
-			router.push(`/admin-merchandises?page=${page}`);
+			router.push(`/admin-merchandise?page=${page}`);
 		}
 	};
 
@@ -152,9 +152,9 @@ const ToursPage = ({productsData, pagination, error}) => {
 		)}
 
 		{isEditing && (
-			<TourUpdateForm 
-				tour={tourData}
-				setTours={setTours}
+			<ProductUpdateForm 
+				product={productData}
+				setProducts={setProducts}
           			closeForm={() => setIsEditing(false)}
 			/>
 		)}
