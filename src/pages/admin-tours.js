@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import styles from '../styles/Tourspage.module.css';
 import AdminNavBar from '../components/adminNavbar';
 import Link from 'next/link';
-
+import TourUpdateForm from '../components/tourupdateform'
 
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
@@ -15,6 +15,8 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 const ToursPage = ({toursData, pagination, error}) => {
 	const [menuOpen, setMenuOpen] = useState(null);
 	const [tours, setTours] = useState(toursData);
+	const [isEditing, setIsEditing] = useState(false);
+	const [tourData, setTourData] = useState(null);
 	const router = useRouter();
 
 	const handleMenuToggle = (tourId) => {
@@ -49,9 +51,15 @@ const ToursPage = ({toursData, pagination, error}) => {
 		}
 	};
 
+	const handleUpdate = (tour) => {
+		setTourData(tour);
+		setIsEditing(true);
+	};
+
 
 	return (
-		<>	<AdminNavBar />
+		<>	{!isEditing && (
+			<AdminNavBar />
     			<section className={styles["page-container"]}>
       				<h1 className={styles.title}>Available Tours</h1>
 
@@ -64,8 +72,8 @@ const ToursPage = ({toursData, pagination, error}) => {
             							</button>
             							{menuOpen === tour.tour_id && (
               								<div className={styles["menu-dropdown"]}>
-                								<button type='button' onClick={() => handleDelete(tour.tourId)}>Update</button>
-                								<button type='button' className={styles.delete}>Delete</button>
+                								<button type='button' onClick={() => handleUpdate(tour)}>Update</button>
+                								<button type='button' onClick={() => handleDelete(tour.tour_id)} className={styles.delete}>Delete</button>
               								</div>
             							)}
             							<img
@@ -134,6 +142,14 @@ const ToursPage = ({toursData, pagination, error}) => {
       					</div>
 				</div>
     			</section>
+		)}
+
+		{isEditing && (
+			<TourUpdateForm 
+				tour={tourData} 
+          			closeForm={() => setIsEditing(false)}
+			/>
+		)}
 		</>
 	);
 };
@@ -165,7 +181,7 @@ const handleAuthResponse = async (response, req, page) => {
 			if (tourResponse.ok) {
 				return {
 					props: {
-						tours: tourData.tours,
+						toursData: tourData.tours,
 						pagination: tourData.pagination,
 						error: null,
 					},
@@ -174,7 +190,7 @@ const handleAuthResponse = async (response, req, page) => {
 				return {
 					props: {
 						error: tourData.error || 'Failed to fetch tours.',
-						tours: [],
+						toursData: [],
 						pagination: null,
 					},
 				};
@@ -184,7 +200,7 @@ const handleAuthResponse = async (response, req, page) => {
 		return {
 			props: {
 				error: 'Failed to fetch tours. Please try again later.',
-				tours: [],
+				toursData: [],
 				pagination: null,
 			},
 		};
