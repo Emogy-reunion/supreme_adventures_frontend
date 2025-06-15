@@ -32,18 +32,31 @@ const TourUpdateForm = ({tour, closeForm}) => {
         			start_location: tour.start_location || '',
         			destination: tour.destination || '',
         			description: tour.description || '',
-        			start_date: tour.start_date || '',
-        			end_date: tour.end_date || '',
+        			start_date: formatDateForDatetimeLocal(tour.start_date),
+				end_date: formatDateForDatetimeLocal(tour.end_date),
         			days: tour.days || '',
         			nights: tour.nights || '',
         			original_price: tour.original_price || '',
-        			discount_percent: tour.discount_percent || '',
+        			discount_percent: tour.discount || '',
         			status: tour.status || 'upcoming',
         			included: tour.included || '',
         			excluded: tour.excluded || '',
       			});
     		}
 	 }, [tour]);
+
+	const formatDateForDatetimeLocal = (dateStr) => {
+  		if (!dateStr) return '';
+		const date = new Date(dateStr);
+
+  		const year = date.getFullYear();
+  		const month = String(date.getMonth() + 1).padStart(2, '0');
+  		const day = String(date.getDate()).padStart(2, '0');
+ 	 	const hours = String(date.getHours()).padStart(2, '0');
+  		const minutes = String(date.getMinutes()).padStart(2, '0');
+
+  		return `${year}-${month}-${day}T${hours}:${minutes}`;
+	};
 
 	const handleTourChange = (e) => {
                 const { name, value } = e.target;
