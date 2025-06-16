@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaTag, FaCheckCircle, FaTshirt, FaPercent } from 'react-icons/fa';
+import { FaTag, FaCheckCircle, FaTshirt } from 'react-icons/fa';
 import { FiMoreVertical } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 import styles from '../styles/Productspage.module.css';
@@ -116,7 +116,6 @@ const ProductsPage = ({productsData, pagination, error}) => {
 
           								{product.discount_rate > 0 && (
             									<span className={styles.discount}>
-              										<FaPercent style={{ marginRight: '4px' }} />
               										{product.discount_rate}% OFF
             									</span>
           								)}
