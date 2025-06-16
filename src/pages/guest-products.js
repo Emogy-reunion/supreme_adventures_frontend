@@ -94,7 +94,7 @@ const GuestProductsPage = ({productsData, pagination, error}) => {
 					</div>
 				</div>
 			</section>
-			</Footer>
+			<Footer />
 		</>
 	);
 };
