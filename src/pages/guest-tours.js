@@ -5,6 +5,8 @@ import { FaMapMarkerAlt, FaCalendarAlt, FaSun, FaMoon } from 'react-icons/fa';
 import styles from '../styles/Tourspage.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import NavBar from '../components/navbar';
+import Footer from '../components/footer';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -19,6 +21,8 @@ const GuestToursPage = ({ toursData, pagination, error }) => {
 	};
 
 	return (
+		<>
+		<NavBar />
 		<section className={styles["page-container"]}>
       			<h1 className={styles.title}>Available Tours</h1>
 
@@ -96,6 +100,8 @@ const GuestToursPage = ({ toursData, pagination, error }) => {
         		</div>
 		</div>
 		</section>
+		<Footer />
+		</>
 	);
 };
 
