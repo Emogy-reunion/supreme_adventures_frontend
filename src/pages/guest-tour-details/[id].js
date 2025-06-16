@@ -59,7 +59,9 @@ const GuestTourDetails = ({ tour, error }) => {
 							<span className={styles.discount}> ({tour.discount}% OFF)</span>
 						)}
 					</p>
-					<p><strong>Original Price:</strong> Ksh {tour.original_price}</p>
+					{tour.discount > 0 && (
+						<p><strong>Original Price:</strong> Ksh {tour.original_price}</p>
+					)}
 				</div>
 			</div>
 
