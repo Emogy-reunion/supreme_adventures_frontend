@@ -122,7 +122,7 @@ const ProductUpdateForm = ({product, closeForm, setProducts}) => {
 					<img src="/supreme.svg" alt="Supreme adventures Logo" />
 				</div>
 
-	   			<h2>Update {product?.name || 'Tour'}</h2>
+	   			<h2>Update {product?.name || 'Merchandise'}</h2>
 
   				{loading && (
     					<div className={styles.loadingOverlay}>
