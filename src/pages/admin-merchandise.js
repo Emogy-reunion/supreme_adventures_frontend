@@ -12,7 +12,7 @@ import ProductUpdateForm from '../components/productupdateform'
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
-const ToursPage = ({productsData, pagination, error}) => {
+const ProductsPage = ({productsData, pagination, error}) => {
 	const [menuOpen, setMenuOpen] = useState(null);
 	const [products, setProducts] = useState(productsData);
 	const [isEditing, setIsEditing] = useState(false);
