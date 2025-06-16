@@ -62,7 +62,9 @@ const ProductDetails = ({ product, error }) => {
 							</span>
 						)}
 					</p>
-					<p><FaTag /> <strong>Original:</strong> Ksh {product.original_price}</p>
+					{product.discount_rate > 0 && (
+						<p><FaTag /> <strong>Original:</strong> Ksh {product.original_price}</p>
+					)}
 				</div>
 			</div>
 
