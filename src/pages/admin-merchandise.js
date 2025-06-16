@@ -123,7 +123,7 @@ const ToursPage = ({productsData, pagination, error}) => {
         							</div>
 
         							<Link
-          								href={`/product-details/${product.product_id}`}
+          								href="#"
           								className={styles["details-link"]}
         							>
           								View Details
