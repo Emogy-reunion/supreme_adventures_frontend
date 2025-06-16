@@ -249,7 +249,7 @@ const MerchandiseForm = () => {
                                                 <button type="submit" className={styles.btn}>Upload Merchandise</button>
                                         </div>
                                 </form>
-g	</>
+	</>
 	);
 };
 

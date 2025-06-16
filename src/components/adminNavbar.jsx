@@ -36,11 +36,11 @@ const AdminNavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='/admin-tours' className={`${styles['nav-link']} ${isActive('/tours')}`}>Tours</Link>
+                    <Link href='/admin-tours' className={`${styles['nav-link']} ${isActive('/admin-tours')}`}>Tours</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/merchandise')}`}>Merchandise</Link>
+                    <Link href='/admin-merchandise' className={`${styles['nav-link']} ${isActive('/admin-merchandise')}`}>Merchandise</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>

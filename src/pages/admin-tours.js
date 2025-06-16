@@ -130,18 +130,25 @@ const ToursPage = ({toursData, pagination, error}) => {
 				</div>
 
 				<div className={styles["page-footer"]}>
-      					<div className={styles.pagination}>
-        					<button onClick={() => handlePageChange(pagination.previous)} disabled={!pagination.previous}>
-          						Previous
-        					</button>
-        					<span>
-          						Page {pagination.page} of {pagination.pages}
-        					</span>
+  					<div className={styles.pagination}>
+    						<button
+      							onClick={() => pagination?.previous && handlePageChange(pagination.previous)}
+      							disabled={!pagination?.previous}
+    						>
+      							Previous
+    						</button>
 
-        					<button onClick={() => handlePageChange(pagination.next)} disabled={!pagination.next}>
-          						Next
-        					</button>
-      					</div>
+    						<span>
+      							Page {pagination?.page || 1} of {pagination?.pages || 1}
+    						</span>
+
+    						<button
+      							onClick={() => pagination?.next && handlePageChange(pagination.next)}
+      							disabled={!pagination?.next}
+    						>
+      							Next
+    						</button>
+  					</div>
 				</div>
     			</section>
 		</>
