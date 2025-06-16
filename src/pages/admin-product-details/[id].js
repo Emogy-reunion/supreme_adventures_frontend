@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import styles from "../../styles/MerchandiseDetails.module.css";
 import Image from "next/image";
-import { FaTshirt, FaTag, FaPercentage, FaBoxOpen, FaRulerCombined, FaAlignLeft } from "react-icons/fa";
+import { FaTshirt, FaTag, FaBoxOpen, FaRulerCombined, FaAlignLeft } from "react-icons/fa";
 
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
@@ -57,7 +57,6 @@ const ProductDetails = ({ product, error }) => {
 						<span className={styles.price}> Ksh {product.final_price}</span>
 						{product.discount_rate > 0 && (
 							<span className={styles.discount}>
-								<FaPercentage style={{ marginRight: "4px" }} />
 								{product.discount_rate}% OFF
 							</span>
 						)}
