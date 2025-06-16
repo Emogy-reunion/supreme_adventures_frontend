@@ -23,23 +23,16 @@ const NavBar = () => {
     return (
         <nav>
             <ul>
-
-	    	<li className={styles.pushLeft}>
-	    		<Link href="/">
-        			<img src="/supreme.svg" alt="supreme company logo" className={styles.logo} />
-      			</Link>
-	    	</li>
-
                 <li className={styles['hide-on-mobile']}>
                     <Link href='/' className={`${styles['nav-link']} ${isActive('/')}`}>Home</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
+                    <Link href='/about' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/destinations')}`}>Destinations</Link>
+                    <Link href='/destinations' className={`${styles['nav-link']} ${isActive('/destinations')}`}>Destinations</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
@@ -51,7 +44,7 @@ const NavBar = () => {
                 </li>
 
 		<li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
+                    <Link href='/contact' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
                 </li>
 
 	    	<li className={`${styles['hide-on-mobile']} ${styles['push-right']}`}>
@@ -87,13 +80,13 @@ const NavBar = () => {
       		</li>
 
       		<li>
-        		<Link href="#" className={`${styles['nav-link']} ${isActive('/about')}`}>
+        		<Link href="/about" className={`${styles['nav-link']} ${isActive('/about')}`}>
           		About Us
         		</Link>
       		</li>
 
       		<li>
-        		<Link href="#" className={`${styles['nav-link']} ${isActive('/destinations')}`}>
+        		<Link href="/destinations" className={`${styles['nav-link']} ${isActive('/destinations')}`}>
           		Services
         		</Link>
       		</li>
@@ -123,7 +116,7 @@ const NavBar = () => {
                 </li>
 
 		<li>
-			<Link href="#" className={`${styles['nav-link']} ${isActive('/contact')}`}>
+			<Link href="/contact" className={`${styles['nav-link']} ${isActive('/contact')}`}>
                         Contact
                         </Link>
                 </li>
