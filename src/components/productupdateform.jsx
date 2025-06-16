@@ -51,11 +51,6 @@ const ProductUpdateForm = ({product, closeForm, setProducts}) => {
 			formData.append(key, value);
 		});
 
-		merchImages.forEach((fileObj) => {
-  			formData.append('images', fileObj.file);
-		});
-
-
 		const start = Date.now()
 		setLoading(true);
 
