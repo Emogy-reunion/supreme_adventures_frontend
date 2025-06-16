@@ -55,7 +55,7 @@ const ProductUpdateForm = ({product, closeForm, setProducts}) => {
 		setLoading(true);
 
 		try {
-			const response = await fetch(`/api/update_merchandise/${product.id}`, {
+			const response = await fetch(`/api/update_merchandise/${product.product_id}`, {
 				method: 'POST',
 				include: 'credentials',
 				body: formData
