@@ -95,7 +95,7 @@ const handleAuthResponse = async (response, req, id) => {
 				},
 			});
 
-			const productData = await tourResponse.json();
+			const productData = await merchResponse.json();
 
 			if (merchResponse.ok) {
 				return {
