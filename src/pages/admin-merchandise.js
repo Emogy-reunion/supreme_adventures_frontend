@@ -123,7 +123,7 @@ const ProductsPage = ({productsData, pagination, error}) => {
         							</div>
 
         							<Link
-          								href="#"
+          								href={`/admin-product-details/${product.product_id}`}
           								className={styles["details-link"]}
         							>
           								View Details
