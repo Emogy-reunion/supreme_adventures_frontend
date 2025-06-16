@@ -192,4 +192,4 @@ export async function getServerSideProps(context) {
 }
 
 
-export default MerchandiseDetails;
+export default ProductDetails;
