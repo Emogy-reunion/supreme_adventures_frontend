@@ -40,7 +40,7 @@ const NavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/shop')}`}>Shop</Link>
+                    <Link href='/guest-products' className={`${styles['nav-link']} ${isActive('/guest-products')}`}>Shop</Link>
                 </li>
 
 		<li className={styles['hide-on-mobile']}>
@@ -98,7 +98,7 @@ const NavBar = () => {
       		</li>
 
       		<li>
-        		<Link href="#" className={`${styles['nav-link']} ${isActive('/shop')}`}>
+        		<Link href="/guest-products" className={`${styles['nav-link']} ${isActive('/guest-products')}`}>
           		Shop
         		</Link>
       		</li>
