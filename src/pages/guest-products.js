@@ -5,6 +5,8 @@ import { FaTag, FaCheckCircle, FaTshirt, FaPercent } from 'react-icons/fa';
 import styles from '../styles/Productspage.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import NavBar from '../components/navbar';
+import Footer from '../components/footer';
 
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
@@ -20,7 +22,7 @@ const GuestProductsPage = ({productsData, pagination, error}) => {
 	};
 
 	return (
-		<>
+		<>	<NavBar />
 			<section className={styles["page-container"]}>
 				<h1 className={styles.title}>Available Products</h1>
 
@@ -92,6 +94,7 @@ const GuestProductsPage = ({productsData, pagination, error}) => {
 					</div>
 				</div>
 			</section>
+			</Footer>
 		</>
 	);
 };
