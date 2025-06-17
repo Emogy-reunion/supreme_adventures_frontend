@@ -29,11 +29,11 @@ const MemberNavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='/about' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
+                    <Link href='/member-about' className={`${styles['nav-link']} ${isActive('/member-about')}`}>About Us</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='/destinations' className={`${styles['nav-link']} ${isActive('/destinations')}`}>Destinations</Link>
+                    <Link href='/destinations' className={`${styles['nav-link']} ${isActive('/member-destinations')}`}>Destinations</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
