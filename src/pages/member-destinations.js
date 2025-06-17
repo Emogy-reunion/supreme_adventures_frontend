@@ -1,4 +1,4 @@
-mport React from 'react';
+import React from 'react';
 import NavBar from '../components/membernavbar';
 import PackagesSwiper from '../components/localpackages';
 import withAuth from '../hoc/withAuth';
