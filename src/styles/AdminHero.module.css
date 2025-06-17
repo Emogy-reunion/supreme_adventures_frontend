@@ -56,3 +56,12 @@
 .help:hover {
   	color: #dcdcdc;
 }
+
+.securityNotice {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  color: #ffcc00;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+}
