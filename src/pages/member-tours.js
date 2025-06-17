@@ -70,7 +70,7 @@ const MemberToursPage = ({ toursData, pagination, error }) => {
                 						)}
         					</div>
 
-              					<Link href={`/guest-tour-details/${tour.tour_id}`} className={styles["details-link"]}>
+              					<Link href={`/member-tour-details/${tour.tour_id}`} className={styles["details-link"]}>
                 					View Details
               					</Link>
             				</div>
