@@ -148,7 +148,7 @@ const RegisterForm = () => {
     								id="phone_number"
     								name="phone_number"
     								required
-    								pattern="^2547\\d{8}$"
+    								pattern="^2547[0-9]{8}$"
     								placeholder="e.g. 254712345678"
 								title="Phone number must start with 2547 followed by exactly 8 digits"
   							/>
