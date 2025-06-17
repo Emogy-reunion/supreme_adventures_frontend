@@ -1,7 +1,7 @@
 import React from 'react';
 import MemberHero from '../components/memberhero';
 import withAuth from '../hoc/withAuth';
-import MemberNavBar from '../components/adminNavbar';
+import MemberNavBar from '../components/membernavbar';
 
 const MemberDashboard = () => {
 	return (
