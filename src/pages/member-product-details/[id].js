@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -7,15 +6,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import styles from "../../styles/MerchandiseDetails.module.css";
 import Image from "next/image";
-import { FaTshirt, FaTag, FaBoxOpen, FaRulerCombined, FaAlignLeft } from "react-icons/fa";
+import { FaTshirt, FaTag, FaPercentage, FaBoxOpen, FaRulerCombined, FaAlignLeft } from "react-icons/fa";
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-const ProductDetails = ({ product, error }) => {
+const MemberProductDetails = ({ product, error }) => {
 	if (error) {
 		return <p className={styles.error}>Failed to load product: {error}</p>;
 	}
-
 
 	return (
 		<div className={styles.container}>
@@ -81,10 +79,10 @@ const handleAuthResponse = async (response, req, id) => {
 	try {
 		const data = await response.json();
 
-		if (data.role !== 'admin') {
+		if (data.role !== 'member') {
 			return {
 				redirect: {
-					destination: '/member_dashboard',
+					destination: '/admin_dashboard',
 					permanent: false,
 				},
 			};
@@ -193,4 +191,4 @@ export async function getServerSideProps(context) {
 }
 
 
-export default ProductDetails;
+export default MemberProductDetails;

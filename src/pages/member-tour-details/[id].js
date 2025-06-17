@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import styles from "../../styles/MerchandiseDetails.module.css";
-import Image from "next/image";
-import { FaTshirt, FaTag, FaBoxOpen, FaRulerCombined, FaAlignLeft } from "react-icons/fa";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import Image from 'next/image';
+import styles from '../../styles/TourDetails.module.css';
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-const ProductDetails = ({ product, error }) => {
+const MemberTourDetails = ({ tour, error }) => {
 	if (error) {
-		return <p className={styles.error}>Failed to load product: {error}</p>;
+		return <p className={styles.error}>{error}</p>;
 	}
 
+	const includedItems = tour.included?.split('\n').filter(Boolean);
+	const excludedItems = tour.excluded?.split('\n').filter(Boolean);
 
 	return (
 		<div className={styles.container}>
-			<h1 className={styles.title}>{product.name}</h1>
+			<h1 className={styles.title}>{tour.name}</h1>
 
 			<Swiper
 				modules={[Navigation, Pagination]}
@@ -29,12 +29,12 @@ const ProductDetails = ({ product, error }) => {
 				pagination={{ clickable: true }}
 				className={styles.swiperContainer}
 			>
-				{product.images.map((img, index) => (
+				{tour.images?.map((img, index) => (
 					<SwiperSlide key={index}>
 						<div className={styles.slide}>
 							<Image
 								src={`${baseUrl}/api/send_image/${img}`}
-								alt={`Merch ${index + 1}`}
+								alt={`Tour Image ${index + 1}`}
 								width={1000}
 								height={500}
 								className={styles.image}
@@ -46,70 +46,87 @@ const ProductDetails = ({ product, error }) => {
 
 			<div className={styles.infoSection}>
 				<div className={styles.column}>
-					<p><FaTshirt /> <strong>Type:</strong> {product.product_type}</p>
-					<p><FaBoxOpen /> <strong>Status:</strong> {product.status}</p>
-					<p><FaRulerCombined /> <strong>Size:</strong> {product.size}</p>
+					<p><strong>Start:</strong> {tour.start_location}</p>
+					<p><strong>Destination:</strong> {tour.destination}</p>
+					<p><strong>Duration:</strong> {tour.days} Days / {tour.nights} Nights</p>
+					<p><strong>Dates:</strong> {tour.start_date} → {tour.end_date}</p>
+					<p><strong>Status:</strong> {tour.status}</p>
 				</div>
 
 				<div className={styles.column}>
-					<p>
-						<FaTag /> <strong>Price:</strong>
-						<span className={styles.price}> Ksh {product.final_price}</span>
-						{product.discount_rate > 0 && (
-							<span className={styles.discount}>
-								{product.discount_rate}% OFF
-							</span>
+					<p><strong>Price:</strong> <span className={styles.price}>Ksh {tour.final_price}</span>
+						{tour.discount > 0 && (
+							<span className={styles.discount}> ({tour.discount}% OFF)</span>
 						)}
 					</p>
-					{product.discount_rate > 0 && (
-						<p><FaTag /> <strong>Original:</strong> Ksh {product.original_price}</p>
+					{tour.discount > 0 && (
+						<p><strong>Original Price:</strong> Ksh {tour.original_price}</p>
 					)}
 				</div>
 			</div>
 
 			<div className={styles.description}>
-				<h3><FaAlignLeft style={{ marginRight: "8px" }} />Description</h3>
-				<p>{product.description}</p>
+				<h3>Description</h3>
+				<p>{tour.description}</p>
+			</div>
+
+			<div className={styles.lists}>
+				<div className={styles.listBlock}>
+					<h3>Included</h3>
+					<ul>
+						{includedItems?.map((item, idx) => (
+							<li key={idx}>{item}</li>
+						))}
+					</ul>
+				</div>
+
+				<div className={styles.listBlock}>
+					<h3>Excluded</h3>
+					<ul>
+						{excludedItems?.map((item, idx) => (
+							<li key={idx}>{item}</li>
+						))}
+					</ul>
+				</div>
 			</div>
 		</div>
 	);
 };
 
 
-
 const handleAuthResponse = async (response, req, id) => {
 	try {
 		const data = await response.json();
 
-		if (data.role !== 'admin') {
+		if (data.role !== 'member') {
 			return {
 				redirect: {
-					destination: '/member_dashboard',
+					destination: '/admin_dashboard',
 					permanent: false,
 				},
 			};
 		} else {
-			const merchResponse = await fetch(`${baseUrl}/api/merchandise_details/${id}`, {
+			const tourResponse = await fetch(`${baseUrl}/api/tour_details/${id}`, {
 				method: 'GET',
 				headers: {
 					cookie: req.headers.cookie || '',
 				},
 			});
 
-			const productData = await merchResponse.json();
+			const tourData = await tourResponse.json();
 
-			if (merchResponse.ok) {
+			if (tourResponse.ok) {
 				return {
 					props: {
-						product: productData.product_details,
+						tour: tourData.tour_details || {},
 						error: null,
 					},
 				};
 			} else {
 				return {
 					props: {
-						error: productData.error || 'Failed to fetch product.',
-						product: {},
+						error: tourData.error || 'Failed to fetch tours.',
+						tours: {},
 					},
 				};
 			}
@@ -117,8 +134,8 @@ const handleAuthResponse = async (response, req, id) => {
 	} catch (error) {
 		return {
 			props: {
-				error: 'Failed to fetch product. Please try again later.',
-				product: {},
+				error: 'Failed to fetch tours. Please try again later.',
+				tours: {},
 			},
 		};
 	}
@@ -193,4 +210,4 @@ export async function getServerSideProps(context) {
 }
 
 
-export default ProductDetails;
+export default MemberTourDetails;
