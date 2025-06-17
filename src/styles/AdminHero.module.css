@@ -1,7 +1,7 @@
 .hero {
 	position: relative;
 	width: 100%;
-  	height: 60vh;
+  	height: 100vh;
   	background-image: url('/hero.jpg');
   	background-size: cover;
   	background-position: center;
@@ -36,4 +36,32 @@
   	max-width: 600px;
   	margin: 0 auto;
 	color: #dcdcdc;
+}
+
+.note {
+  	font-size: 1rem;
+  	margin-bottom: 1rem;
+  	font-style: italic;
+  	color: #dcdcdc;
+}
+
+.help {
+  	font-size: 0.9rem;
+  	color: #a9a9a9;
+  	text-decoration: underline;
+  	cursor: pointer;
+  	transition: color 0.3s ease;
+}
+
+.help:hover {
+  	color: #dcdcdc;
+}
+
+.securityNotice {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  color: #ffcc00;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
 }
