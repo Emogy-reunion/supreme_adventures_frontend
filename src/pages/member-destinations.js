@@ -4,7 +4,7 @@ import PackagesSwiper from '../components/localpackages';
 import withAuth from '../hoc/withAuth';
 
 
-const Destinations = () => {
+const MemberDestinations = () => {
         return (
                 <>
                         <MemberNavBar />
