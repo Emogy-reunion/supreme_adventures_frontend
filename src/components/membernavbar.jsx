@@ -37,7 +37,7 @@ const MemberNavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/tours')}`}>Tours</Link>
+                    <Link href='/member-tours' className={`${styles['nav-link']} ${isActive('/member-tours')}`}>Tours</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
