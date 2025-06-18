@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import ProfileField from '../components/profilefield';
 import styles from '../styles/Profile.module.css';
-import withAuth from '../hoc/withAuth';
 import MemberNavBar from '../components/membernavbar';
 
 const MemberProfilePage = ({ user, error }) => {
@@ -167,4 +166,4 @@ export async function getServerSideProps(context) {
 
 
 
-export default withAuth(MemberProfilePage);
+export default MemberProfilePage;
