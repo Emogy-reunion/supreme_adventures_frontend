@@ -28,7 +28,7 @@ const MemberProfilePage = ({ user, error }) => {
 			
 			<div className={styles["profile-picture-container"]}>
         			<img
-					src={user.profile_picture ? `/api/send_image/${user.profile_picture}` : '/default-avatar.png'}
+					src={user.profile_picture ? `/api/send_image/${user.profile_picture}` : '/default-avatar.jpg'}
           				alt="Profile"
           				className={styles["profile-picture"]}
         			/>
