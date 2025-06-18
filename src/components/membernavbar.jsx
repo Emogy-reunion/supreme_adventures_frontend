@@ -53,7 +53,7 @@ const MemberNavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/profile')}`}>Profile</Link>
+                    <Link href='/member-profile' className={`${styles['nav-link']} ${isActive('/member-profile')}`}>Profile</Link>
                 </li>
 
                 <li className={styles["menu-button"]}>
