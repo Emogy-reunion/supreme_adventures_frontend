@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/profile.css';
+import styles from '../styles/Profile.module.css';
 
 const  ProfileField = ({ label, value }) => {
 	return (
