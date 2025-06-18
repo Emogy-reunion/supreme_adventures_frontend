@@ -3,13 +3,20 @@ import Link from 'next/link';
 import ProfileField from '../components/profilefield';
 import styles from '../styles/profile.css';
 import withAuth from '../hoc/withAuth';
+import MemberNavBar from '../components/membernavbar';
 
 const MemberProfilePage = ({ user, error }) => {
 
 	if (error) {
-		return <p>{error}</p>;
+		return
+			<>
+				<MemberNavBar />
+				<p>{error}</p>;
+			</>
 	}
 	return (
+		<>
+		<MemberNavBar />
 		<div className="profile-container">
       			<h1 className="profile-title">Your Profile</h1>
 			
@@ -39,6 +46,7 @@ const MemberProfilePage = ({ user, error }) => {
         			<ProfileField label="Joined" value={user.registered_on} />
       			</div>
     		</div>
+		</>
   	);
 };
 
