@@ -4,15 +4,22 @@ import ProfileField from '../components/profilefield';
 import styles from '../styles/Profile.module.css';
 import MemberNavBar from '../components/membernavbar';
 
+
+
+const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 const MemberProfilePage = ({ user, error }) => {
 
 	if (error) {
-		return
+		return (
 			<>
-				<MemberNavBar />
-				<p>{error}</p>;
-			</>
+            			<MemberNavBar />
+            			<div className={styles["error-box"]}>
+                			<p>{error}</p>
+            			</div>
+       			 </>
+		);
 	}
+
 	return (
 		<>
 		<MemberNavBar />

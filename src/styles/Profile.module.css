@@ -8,6 +8,19 @@
   	font-family: Arial, sans-serif;
 }
 
+.error-box {
+  	background-color: #ffe5e5;
+  	color: #b00020;
+  	border: 1px solid #f5c2c2;
+  	padding: 16px;
+ 	border-radius: 8px;
+  	margin: 20px auto;
+  	width: 90%;
+  	max-width: 600px;
+  	text-align: center;
+  	font-weight: 500;
+}
+
 .profile-title {
   	text-align: center;
   	font-size: 28px;
