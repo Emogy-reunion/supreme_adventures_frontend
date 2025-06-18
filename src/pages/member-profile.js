@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import ProfileField from '../components/profilefield';
-import styles from '../styles/profile.css';
+import styles from '../styles/Profile.module.css';
 import withAuth from '../hoc/withAuth';
 import MemberNavBar from '../components/membernavbar';
 
@@ -17,27 +17,27 @@ const MemberProfilePage = ({ user, error }) => {
 	return (
 		<>
 		<MemberNavBar />
-		<div className="profile-container">
-      			<h1 className="profile-title">Your Profile</h1>
+		<div className={styles["profile-container"]}>
+      			<h1 className={styles["profile-title"]}>Your Profile</h1>
 			
-			<div className="profile-picture-container">
+			<div className={styles["profile-picture-container"]}>
         			<img
 					src={user.profile_picture ? `/api/send_image/${user.profile_picture}` : '/default-avatar.png'}
           				alt="Profile"
-          				className="profile-picture"
+          				className={styles["profile-picture"]}
         			/>
       			</div>
 
       			{!user.verified && (
-        			<div className="verify-warning">
+        			<div className={styles["verify-warning"]}>
           				<p>Your account is not verified.</p>
           				<Link href="#">
-            					<span className="verify-link">Click here to verify your account</span>
+            					<span className={styles["verify-link"]}>Click here to verify your account</span>
           				</Link>
         			</div>
       			)}
 
-		      <div className="profile-section">
+		      <div className={styles["profile-section"]}>
         			<ProfileField label="Full Name" value={`${user.first_name} ${user.last_name}`} />
         			<ProfileField label="Email" value={user.email} />
         			<ProfileField label="Phone Number" value={user.phone_number} />
