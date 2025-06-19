@@ -150,6 +150,7 @@
 	border: 1px solid #ccc;
 	border-radius: 6px;
 	font-size: 1rem;
+	margin: 15px 0;
 }
 
 .input:focus {
