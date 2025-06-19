@@ -5,6 +5,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import { FaWhatsapp } from 'react-icons/fa';
+import Link from 'next/link';
 import styles from '../../styles/TourDetails.module.css';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -88,6 +90,25 @@ const GuestTourDetails = ({ tour, error }) => {
 						))}
 					</ul>
 				</div>
+			</div>
+
+			<div className={styles.bookingSection}>
+				<button
+					className={styles.whatsappButton}
+					onClick={() => {
+						const message = encodeURIComponent(`Hello, I'm interested in booking the tour: ${tour.name}`);
+						window.open(`https://wa.me/254712345678?text=${message}`, '_blank');
+					}}
+				>
+					<FaWhatsapp className={styles.whatsappIcon} />
+					Book via WhatsApp
+				</button>
+
+				<p className={styles.loginCTA}>
+					Want faster booking next time?
+					<Link href="/login" className={styles.loginLink}> Log in</Link> or
+					<Link href="/register" className={styles.loginLink}> Join us</Link> to book automatically.
+				</p>
 			</div>
 		</div>
 	);

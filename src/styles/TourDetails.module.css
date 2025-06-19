@@ -173,3 +173,39 @@
 .submitBtn:hover {
   	background-color: #15803d;
 }
+
+.whatsappButton {
+	background-color: #25D366;
+	color: white;
+	border: none;
+	padding: 12px 20px;
+	border-radius: 8px;
+	font-size: 1rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.whatsappButton:hover {
+	background-color: #1ebd5a;
+}
+
+.whatsappIcon {
+	font-size: 1.2rem;
+}
+
+.loginCTA {
+	margin-top: 16px;
+	font-size: 0.95rem;
+	color: #444;
+}
+
+.loginLink {
+	color: #0070f3;
+	margin-left: 5px;
+	font-weight: 500;
+	text-decoration: underline;
+	cursor: pointer;
+}
