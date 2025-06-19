@@ -108,3 +108,36 @@
 		min-width: 100%;
 	}
 }
+
+.orderSection {
+	margin-top: 40px;
+	text-align: center;
+}
+
+.whatsappButton {
+	background-color: #25D366;
+	color: white;
+	border: none;
+	padding: 12px 20px;
+	border-radius: 8px;
+	font-size: 1rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.whatsappButton:hover {
+	background-color: #1ebd5a;
+}
+
+.whatsappIcon {
+	font-size: 1.2rem;
+}
+
+.orderNote {
+	margin-top: 12px;
+	font-size: 0.95rem;
+	color: #444;
+}
