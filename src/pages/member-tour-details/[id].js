@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -14,6 +14,8 @@ const MemberTourDetails = ({ tour, error }) => {
 		return <p className={styles.error}>{error}</p>;
 	}
 
+	const [showBookingForm, setShowBookingForm] = useState(false);
+	const [mpesaNumber, setMpesaNumber] = useState('');
 	const includedItems = tour.included?.split('\n').filter(Boolean);
 	const excludedItems = tour.excluded?.split('\n').filter(Boolean);
 
@@ -88,6 +90,34 @@ const MemberTourDetails = ({ tour, error }) => {
 						))}
 					</ul>
 				</div>
+			</div>
+
+			<div className={styles.bookingSection}>
+				<button
+					className={styles.bookNowBtn}
+					onClick={() => setShowBookingForm(!showBookingForm)}
+				>
+					{showBookingForm ? 'Cancel' : 'Book Now'}
+				</button>
+
+				{showBookingForm && (
+					<form className={styles.bookingForm}>
+						<label htmlFor="mpesa">Enter M-Pesa Number:</label>
+						<input
+							type="text"
+							id="mpesa"
+							value={mpesaNumber}
+							onChange={(e) => setMpesaNumber(e.target.value)}
+							className={styles.input}
+							pattern="^2547[0-9]{8}$"
+    							placeholder="e.g. 254712345678"
+							required
+						/>
+						<button type="submit" className={styles.submitBtn}>
+							Submit Payment
+						</button>
+					</form>
+				)}
 			</div>
 		</div>
 	);

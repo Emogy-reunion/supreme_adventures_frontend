@@ -116,3 +116,59 @@
   	color: red;
   	padding: 20px;
 }
+
+.bookingSection {
+  	margin-top: 40px;
+  	text-align: center;
+}
+
+.bookNowBtn {
+  	background-color: #2563eb;
+  	color: white;
+  	padding: 12px 24px;
+  	border: none;
+  	border-radius: 8px;
+  	font-weight: bold;
+  	cursor: pointer;
+  	transition: background-color 0.3s ease;
+}
+
+.bookNowBtn:hover {
+  	background-color: #1d4ed8;
+}
+
+.bookingForm {
+  	margin-top: 20px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+}
+
+.input {
+  	width: 400px;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 1rem;
+}
+
+.input:focus {
+	border-color: #facc15;
+	outline: none;
+	box-shadow: 0 0 0 2px #fde68a;
+}
+
+.submitBtn {
+  	background-color: #16a34a;
+  	color: white;
+  	padding: 10px 20px;
+  	border: none;
+  	border-radius: 6px;
+  	font-weight: 600;
+  	cursor: pointer;
+  	transition: background-color 0.3s ease;
+}
+
+.submitBtn:hover {
+  	background-color: #15803d;
+}
