@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import styles from "../../styles/MerchandiseDetails.module.css";
 import Image from "next/image";
-import { FaTshirt, FaTag, FaPercentage, FaBoxOpen, FaRulerCombined, FaAlignLeft } from "react-icons/fa";
+import { FaTshirt, FaTag, FaPercentage, FaBoxOpen, FaRulerCombined, FaAlignLeft, FaWhatsapp } from "react-icons/fa";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -68,6 +68,23 @@ const MemberProductDetails = ({ product, error }) => {
 			<div className={styles.description}>
 				<h3><FaAlignLeft style={{ marginRight: "8px" }} />Description</h3>
 				<p>{product.description}</p>
+			</div>
+
+			<div className={styles.orderSection}>
+				<button
+					className={styles.whatsappButton}
+					onClick={() => {
+							const message = encodeURIComponent(`Hello, I'm interested in ordering: ${product.name}`);
+							window.open(`https://wa.me/254724933300?text=${message}`, '_blank');
+					}}
+				>
+					<FaWhatsapp className={styles.whatsappIcon} />
+					Order via WhatsApp
+				</button>
+
+				<p className={styles.orderNote}>
+					Ordering for merchandise is handled manually. Tap the WhatsApp button below to place your order directly with us.
+				</p>
 			</div>
 		</div>
 	);
