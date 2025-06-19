@@ -116,3 +116,96 @@
   	color: red;
   	padding: 20px;
 }
+
+.bookingSection {
+  	margin-top: 40px;
+  	text-align: center;
+}
+
+.bookNowBtn {
+  	background-color: #2563eb;
+  	color: white;
+  	padding: 12px 24px;
+  	border: none;
+  	border-radius: 8px;
+  	font-weight: bold;
+  	cursor: pointer;
+  	transition: background-color 0.3s ease;
+}
+
+.bookNowBtn:hover {
+  	background-color: #1d4ed8;
+}
+
+.bookingForm {
+  	margin-top: 20px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+}
+
+.input {
+  	width: 400px;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 1rem;
+	margin: 15px 0;
+}
+
+.input:focus {
+	border-color: #facc15;
+	outline: none;
+	box-shadow: 0 0 0 2px #fde68a;
+}
+
+.submitBtn {
+  	background-color: #16a34a;
+  	color: white;
+  	padding: 10px 20px;
+  	border: none;
+  	border-radius: 6px;
+  	font-weight: 600;
+  	cursor: pointer;
+  	transition: background-color 0.3s ease;
+}
+
+.submitBtn:hover {
+  	background-color: #15803d;
+}
+
+.whatsappButton {
+	background-color: #25D366;
+	color: white;
+	border: none;
+	padding: 12px 20px;
+	border-radius: 8px;
+	font-size: 1rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.whatsappButton:hover {
+	background-color: #1ebd5a;
+}
+
+.whatsappIcon {
+	font-size: 1.2rem;
+}
+
+.loginCTA {
+	margin-top: 16px;
+	font-size: 0.95rem;
+	color: #444;
+}
+
+.loginLink {
+	color: #0070f3;
+	margin-left: 5px;
+	font-weight: 500;
+	text-decoration: underline;
+	cursor: pointer;
+}
