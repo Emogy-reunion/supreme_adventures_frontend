@@ -35,6 +35,7 @@ const MemberTourDetails = ({ tour, error }) => {
 
 		const formData = new FormData();
 		formData.append('phone_number', mpesaNumber);
+		formData.append('tour_id', tour.id);
 
 		setLoading(true);
 		const start = Date.now();
