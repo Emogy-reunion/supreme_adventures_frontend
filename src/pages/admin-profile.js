@@ -174,4 +174,3 @@ export async function getServerSideProps(context) {
 
 
 export default AdminProfilePage;
-emogyreunion@DESKTOP-S7TCOCP:~/projects
