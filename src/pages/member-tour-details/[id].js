@@ -3,8 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import Loading from '../components/loading';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+
 import styles from '../../styles/TourDetails.module.css';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -16,11 +18,88 @@ const MemberTourDetails = ({ tour, error }) => {
 
 	const [showBookingForm, setShowBookingForm] = useState(false);
 	const [mpesaNumber, setMpesaNumber] = useState('');
+	const [globalError, setGlobalError] = useState(null);
+	const [successMessage, setSuccessMessage] = useState(null);
+	const [formErrors, setFormErrors] = useState({});
+	const [loading, setLoading] = useState(false);
+
+
 	const includedItems = tour.included?.split('\n').filter(Boolean);
 	const excludedItems = tour.excluded?.split('\n').filter(Boolean);
 
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		setGlobalError(null);
+		setFormErrors({});
+		setSuccessMessage(null);
+
+		const formData = new FormData();
+		formData.append('phone_number', mpesaNumber);
+		formData.append('tour_id', tour.id);
+
+		setLoading(true);
+		const start = Date.now();
+		try {
+			const response = await fetch('/api/book', {
+				method: 'POST',
+				headers: {
+					Content-Type: 'application/json'
+				},
+				credentials: 'include',
+				body: JSON.stringify(formData),
+			});
+
+			data = await response.json();
+
+			if (!response.ok) {
+				if (data.errors) {
+					const formattedErrors = Object.keys(data.errors).reduce((acc, key) => {
+						acc[key] = data.errors[key].join(', ');
+						return acc;
+					}, {});
+
+					setFormErrors(formattedErrors);
+					setTimeout(() => {
+						setFormErrors({});
+					}, 5000);
+				} else if (data.error) {
+					setGlobalError(data.error);
+					setTimeout(() => {
+						setGlobalError(null);
+					}, 5000);
+				} else {
+					console.error('Unexpected error format:', data);
+					setGlobalError('An unexpected error occurred. Please try again.');
+					setTimeout(() => {
+                                                setGlobalError(null);
+                                        }, 5000);
+				}
+			} else {
+				setSuccessMessage(data.success);
+				setTimeout(() => {
+					setSuccessMessage(null);
+				}, 4000);
+			}
+		} catch(error) {
+			alert('Network error. Please try again.');
+		} finally {
+			const end = Date.now();
+			const elapsed = end - start;
+			const minLoadingTime = 800; // milliseconds
+
+			setTimeout(() => {
+				setLoading(false);
+			}, Math.max(minLoadingTime - elapsed, 0));
+		}
+	};
+
 	return (
 		<div className={styles.container}>
+			{loading && (
+				<div className={styles.loadingOverlay}>
+					<Loading />
+				</div>
+			)}
 			<h1 className={styles.title}>{tour.name}</h1>
 
 			<Swiper
@@ -102,17 +181,28 @@ const MemberTourDetails = ({ tour, error }) => {
 
 				{showBookingForm && (
 					<form className={styles.bookingForm}>
-						<label htmlFor="mpesa">Enter M-Pesa Number:</label>
-						<input
-							type="text"
-							id="mpesa"
-							value={mpesaNumber}
-							onChange={(e) => setMpesaNumber(e.target.value)}
-							className={styles.input}
-							pattern="^2547[0-9]{8}$"
-    							placeholder="e.g. 254712345678"
-							required
-						/>
+						{(globalError || successMessage) && (
+							<div className={globalError ? styles['error'] : styles['success-message']}>
+								<p>{globalError || successMessage}</p>
+							</div>
+						)}
+						<div className={styles["form-group"]}>
+							<label htmlFor="phone_number">Enter M-Pesa Number:</label>
+							<input
+								type="text"
+								id="phone_number"
+								name='phone_number'
+								value={mpesaNumber}
+								onChange={(e) => setMpesaNumber(e.target.value)}
+								className={styles.input}
+								pattern="^2547[0-9]{8}$"
+    								placeholder="e.g. 254712345678"
+								required
+							/>
+						</div>
+						{formErrors.phone_number && (
+							<p className={styles['error-message']}>{formErrors.phone_number}</p>
+						)}
 						<button type="submit" className={styles.submitBtn}>
 							Submit Payment
 						</button>
