@@ -68,9 +68,9 @@ const AdminBookingsTable = ({ booking_details, error }) => {
 				</tbody>
 			</table>
 		</div>
+		</>
 	);
 };
-
 
 
 const handleAuthResponse = async (response, req) => {
