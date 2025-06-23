@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from '../styles/Adminmanagement.module.css';
+import AdminNavBar from '../components/adminNavbar'
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
@@ -62,6 +63,8 @@ const ManageAdmins = ({ initialAdmins }) => {
 	};
 
 	return (
+		<>
+		<AdminNavBar />
 		<div className={styles.container}>
 			<h1>Admin Management</h1>
 
@@ -120,6 +123,7 @@ const ManageAdmins = ({ initialAdmins }) => {
 				</tbody>
 			</table>
 		</div>
+		</>
 	);
 };
 
