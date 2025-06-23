@@ -11,7 +11,7 @@ const MemberBookingsPage = ({ booking_details = [], error }) => {
 			<>
 				<MemberNavBar />
 				<div className={styles.container}>
-					<h1>My Bookings</h1>
+					<h1 className={styles.title}>My Bookings</h1>
 					<p className={styles.error}>{error}</p>
 				</div>
 				<Footer />
@@ -23,7 +23,7 @@ const MemberBookingsPage = ({ booking_details = [], error }) => {
 		<>
 			<MemberNavBar />
 			<section className={styles.container}>
-				<h1>My Bookings</h1>
+				<h1 className={styles.title}>My Bookings</h1>
 				<div className={styles.grid}>
 					{booking_details.map((booking, index) => (
 						<div className={styles.card} key={index}>
