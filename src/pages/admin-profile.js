@@ -3,11 +3,20 @@ import Link from 'next/link';
 import ProfileField from '../components/profilefield';
 import styles from '../styles/Adminprofile.module.css';
 import AdminNavBar from '../components/adminNavbar';
+import { useAuth } from '../context/AuthContext'
 
 
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 const AdminProfilePage = ({ user, error }) => {
+
+	const { logout } = useAuth();
+
+	const handleLogout = () => {
+		if (confirm('Are you sure you want to log out?')) {
+			logout();
+		}
+	};
 
         if (error) {
                 return (
@@ -50,6 +59,9 @@ const AdminProfilePage = ({ user, error }) => {
                                 <ProfileField label="Role" value={user.role} />
                                 <ProfileField label="Verified" value={user.verified ? 'Yes' : 'No'} />
                                 <ProfileField label="Joined" value={user.registered_on} />
+				<button onClick={handleLogout} className={styles["logout-button"]}>
+					Log Out
+				</button>
                         </div>
                 </div>
                 </>
