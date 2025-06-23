@@ -4,7 +4,7 @@ import withAuth from '../hoc/withAuth';
 import MemberNavBar from '../components/membernavbar';
 import WhyChooseUs from '../components/whychooseus';
 import ReviewsPreview from '../components/reviewspreview.jsx';
-import NewsLetter from '../components/newsletter.jsx';
+import DiscoverSection from '../components/discover.jsx';
 
 const MemberDashboard = () => {
 	return (
@@ -13,7 +13,7 @@ const MemberDashboard = () => {
 			<MemberHero />
 			<WhyChooseUs />
 			<ReviewsPreview />
-			<NewsLetter />
+			<DiscoverSection />
 		</>
 	);
 };
