@@ -148,7 +148,7 @@ const handleAuthResponse = async (response, req) => {
 			if (adminRes.ok) {
 				return {
 					props: {
-						admins: adminData.admins || [],
+						initialAdmins: adminData.admins || [],
 						error: null,
 					},
 				};
@@ -156,7 +156,7 @@ const handleAuthResponse = async (response, req) => {
 				return {
 					props: {
 						error: adminData.error || 'Failed to fetch admins.',
-						admins: [],
+						initialAdmins: [],
 					},
 				};
 			}
@@ -165,7 +165,7 @@ const handleAuthResponse = async (response, req) => {
 		return {
 			props: {
 				error: 'Failed to fetch admins. Please try again later.',
-				admins: [],
+				initialAdmins: [],
 			},
 		};
 	}
