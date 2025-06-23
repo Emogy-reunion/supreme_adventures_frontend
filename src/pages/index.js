@@ -4,7 +4,7 @@ import LandingHero from '../components/landinghero';
 import PopularDestinations from '../components/populardestinations';
 import WhyChooseUs from '../components/whychooseus';
 import ReviewsPreview from '../components/reviewspreview.jsx';
-import NewsLetter from '../components/newsletter.jsx';
+import DiscoverSection from '../components/discover.jsx';
 import Footer from '../components/footer.jsx';
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
 			<PopularDestinations />
 			<WhyChooseUs />
 			<ReviewsPreview />
-			<NewsLetter />
+			<DiscoverSection />
 			<Footer />
 		</>
 	);
