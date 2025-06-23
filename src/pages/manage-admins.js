@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styles from '../styles/Adminmanagement.module.css';
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+
 const ManageAdmins = ({ initialAdmins }) => {
 	const [admins, setAdmins] = useState(initialAdmins || []);
 	const [email, setEmail] = useState('');
