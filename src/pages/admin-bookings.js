@@ -9,15 +9,19 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 const AdminBookingsTable = ({ booking_details, error }) => {
 	if (error) {
 		return(
+			<>
 			<AdminNavBar />
 			<p className={styles.error}>{error}</p>;
+			</>
 		);
 	}
 
 	if (!booking_details || booking_details.length === 0) {
 		return(
+			<>
 			<AdminNavBar />
 			<p className={styles.message}>No bookings available.</p>;
+			</>
 		);
 	}
 
