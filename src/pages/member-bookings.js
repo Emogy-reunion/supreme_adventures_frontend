@@ -16,7 +16,6 @@ const MemberBookingsPage = ({ booking_details = [], error }) => {
 					<h1 className={styles.title}>My Bookings</h1>
 					<p className={styles.error}>{error}</p>
 				</div>
-				<Footer />
 			</>
 		);
 	}
@@ -63,7 +62,6 @@ const MemberBookingsPage = ({ booking_details = [], error }) => {
 					))}
 				</div>
 			</section>
-			<Footer />
 		</>
 	);
 };
