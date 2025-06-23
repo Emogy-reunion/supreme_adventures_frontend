@@ -36,9 +36,11 @@
 	color: red;
 	padding: 1rem;
 	text-align: center;
+	margin-top: 80px;
 }
 
 .message {
+	margin-top: 80px;
 	color: black;
 	text-align: center;
 	padding: 1rem;
