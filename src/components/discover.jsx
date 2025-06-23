@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 
 const DiscoverSection = () => {
 	const { authStatus } = useAuth();
-	const isAuthenticated = authStatus === 'logged_in';
+	const isAuthenticated = authStatus === 'member';
 
 	return (
 		<section className={styles["newsletter-section"]}>
@@ -16,7 +16,7 @@ const DiscoverSection = () => {
             				: 'Plan, discover, and enjoy unforgettable experiences with us.'}
     			</p>
     			<Link
-        			href={isAuthenticated ? '/member_dashboard' : '/tours'}
+        			href={isAuthenticated ? '/member_dashboard' : '/guest-tours'}
         			className={styles["newsletter-btn"]}
     			>
         			{isAuthenticated ? 'Go to Dashboard' : 'Browse Tours'}
