@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Loading from '../components/loading';
+import Loading from '../../components/loading';
 import 'swiper/css/pagination';
 import Image from 'next/image';
 
