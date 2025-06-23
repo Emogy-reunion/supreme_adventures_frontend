@@ -9,17 +9,18 @@ const DiscoverSection = () => {
 
 	return (
 		<section className={styles["newsletter-section"]}>
-			<h2>Ready for Your Next Adventure?</h2>
-			<p>
-				{isAuthenticated
-					? 'Manage your bookings and explore personalized offers.'
-					: 'Plan, discover, and enjoy unforgettable experiences with us.'}
-			</p>
-			<Link href={isAuthenticated ? '/member_dashboard' : '/tours'}>
-				<a className={styles["newsletter-btn"]}>
-					{isAuthenticated ? 'Go to Dashboard' : 'Browse Tours'}
-				</a>
-			</Link>
+    			<h2>Ready for Your Next Adventure?</h2>
+    			<p>
+        			{isAuthenticated
+            				? 'Manage your bookings and explore personalized offers.'
+            				: 'Plan, discover, and enjoy unforgettable experiences with us.'}
+    			</p>
+    			<Link
+        			href={isAuthenticated ? '/member_dashboard' : '/tours'}
+        			className={styles["newsletter-btn"]}
+    			>
+        			{isAuthenticated ? 'Go to Dashboard' : 'Browse Tours'}
+    			</Link>
 		</section>
 	);
 };
