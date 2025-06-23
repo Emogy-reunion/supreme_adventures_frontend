@@ -75,31 +75,31 @@ const MemberNavBar = () => {
                 </li>
 
                 <li>
-                        <Link href="/" className={`${styles['nav-link']} ${isActive('/')}`}>
+                        <Link href="/member_dashboard" className={`${styles['nav-link']} ${isActive('/member_dashboard')}`}>
                         Home
                         </Link>
                 </li>
 
                 <li>
-                        <Link href="/about" className={`${styles['nav-link']} ${isActive('/about')}`}>
-                        About Us
+                        <Link href="/member-about" className={`${styles['nav-link']} ${isActive('/member-about')}`}>
+                        About
                         </Link>
                 </li>
 
                 <li>
-                        <Link href="/destinations" className={`${styles['nav-link']} ${isActive('/destinations')}`}>
-                        Services
+                        <Link href="/member-destinations" className={`${styles['nav-link']} ${isActive('/memberdestinations')}`}>
+                        Destinations
                         </Link>
                 </li>
 
                 <li>
-                        <Link href="#" className={`${styles['nav-link']} ${isActive('/tours')}`}>
+                        <Link href="/member-tours" className={`${styles['nav-link']} ${isActive('/member-tours')}`}>
                         Tours
                         </Link>
                 </li>
 
                 <li>
-                        <Link href="#" className={`${styles['nav-link']} ${isActive('/shop')}`}>
+                        <Link href="/member-products" className={`${styles['nav-link']} ${isActive('/member-products')}`}>
                         Shop
                         </Link>
                 </li>
@@ -111,13 +111,13 @@ const MemberNavBar = () => {
                 </li>
 
                 <li>
-                        <Link href="#" className={`${styles['nav-link']} ${isActive('/blog')}`}>
-                        Blog
+                        <Link href="#" className={`${styles['nav-link']} ${isActive('/member-bookings')}`}>
+                        Bookings
                         </Link>
                 </li>
 
                 <li>
-                        <Link href="#" className={`${styles['nav-link']} ${isActive('/profile')}`}>
+                        <Link href="/member-profile" className={`${styles['nav-link']} ${isActive('/member-profile')}`}>
                         Profile
                         </Link>
                 </li>
