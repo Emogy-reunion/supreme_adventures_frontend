@@ -3,6 +3,9 @@
 import AdminNavBar from '../components/adminNavbar';
 import styles from '../styles/AdminBookingsTable.module.css';
 
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
 const AdminBookingsTable = ({ booking_details, error }) => {
 	if (error) {
 		return(
