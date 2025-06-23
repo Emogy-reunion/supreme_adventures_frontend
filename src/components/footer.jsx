@@ -10,7 +10,7 @@ const Footer = () => {
   				<p>&copy; 2025 Supreme Adventures. All Rights Reserved.</p>
     				<p>		
 					<Link href="/" className={styles.link}>Home</Link> |{" "}
-    					<Link href="/tours" className={styles.link}>Tours</Link> |{" "}
+    					<Link href="/guest-tours" className={styles.link}>Tours</Link> |{" "}
     					<Link href="/contact" className={styles.link}>Contact</Link>
   				</p>
 			</footer>
