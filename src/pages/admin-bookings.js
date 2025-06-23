@@ -10,8 +10,8 @@ const AdminBookingsTable = ({ booking_details, error }) => {
 	if (error) {
 		return(
 			<>
-			<AdminNavBar />
-			<p className={styles.error}>{error}</p>;
+				<AdminNavBar />
+				<p className={styles.error}>{error}</p>
 			</>
 		);
 	}
@@ -19,8 +19,8 @@ const AdminBookingsTable = ({ booking_details, error }) => {
 	if (!booking_details || booking_details.length === 0) {
 		return(
 			<>
-			<AdminNavBar />
-			<p className={styles.message}>No bookings available.</p>;
+				<AdminNavBar />
+				<p className={styles.message}>No bookings available.</p>
 			</>
 		);
 	}
