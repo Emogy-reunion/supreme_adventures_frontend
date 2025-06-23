@@ -25,7 +25,7 @@ const MemberContactSection = () => {
 				'Content-Type': 'application/json',
 			},
 			method: 'POST',
-			credentials: 'include'
+			credentials: 'include',
 			body: JSON.stringify(formJson),
 		});
 
