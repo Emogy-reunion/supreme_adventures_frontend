@@ -5,6 +5,8 @@ import styles from '../styles/MemberBookings.module.css';
 import MemberNavBar from '../components/membernavbar';
 import { FaMoneyBillAlt, FaCalendarAlt, FaClipboardCheck } from 'react-icons/fa';
 
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 const MemberBookingsPage = ({ booking_details = [], error }) => {
 	if (error) {
 		return (
