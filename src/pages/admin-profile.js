@@ -46,7 +46,7 @@ const AdminProfilePage = ({ user, error }) => {
                         {!user.verified && (
                                 <div className={styles["verify-warning"]}>
                                         <p>Your account is not verified.</p>
-                                        <Link href="#">
+                                        <Link href="/resend-verification">
                                                 <span className={styles["verify-link"]}>Click here to verify your account</span>
                                         </Link>
                                 </div>
