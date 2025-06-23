@@ -145,7 +145,6 @@ const logoutAndRedirect = () => {
 
 export async function getServerSideProps(context) {
 	const { req, query } = context;
-	const page = query.page || 1;
 
 	try {
 		const response = await fetch(`${baseUrl}/api/is_logged_in`, {
@@ -156,7 +155,7 @@ export async function getServerSideProps(context) {
 		});
 
 		if (response.ok) {
-			return await handleAuthResponse(response, req, page);
+			return await handleAuthResponse(response, req);
 		} else {
 			const refreshed = await tryRefreshToken(req);
 			if (refreshed) {
@@ -168,7 +167,7 @@ export async function getServerSideProps(context) {
 				});
 
 				if (retryResponse.ok) {
-					return await handleAuthResponse(retryResponse, req, page);
+					return await handleAuthResponse(retryResponse, req);
 				} else {
 					return logoutAndRedirect();
 				}
