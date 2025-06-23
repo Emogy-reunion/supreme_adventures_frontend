@@ -19,7 +19,7 @@ const ContactSection = () => {
 		const formData = new FormData(event.target);
 		const formJson = Object.fromEntries(formData.entries());
 
-		const response = await fetch('http://127.0.0.1:5000/guest_contact', {
+		const response = await fetch('/api/guest_contact', {
 			headers: {
 				'Content-Type': 'application/json',
 			},
