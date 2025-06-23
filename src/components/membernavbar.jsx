@@ -49,7 +49,7 @@ const MemberNavBar = () => {
                 </li>
 
                 <li className={`${styles['hide-on-mobile']} ${styles['push-right']}`}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/member-bookings')}`}>Bookings</Link>
+                    <Link href='/member_bookings' className={`${styles['nav-link']} ${isActive('/member-bookings')}`}>Bookings</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
@@ -111,7 +111,7 @@ const MemberNavBar = () => {
                 </li>
 
                 <li>
-                        <Link href="#" className={`${styles['nav-link']} ${isActive('/member-bookings')}`}>
+                        <Link href="/member-bookings" className={`${styles['nav-link']} ${isActive('/member-bookings')}`}>
                         Bookings
                         </Link>
                 </li>

@@ -36,15 +36,15 @@ const AdminNavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='/admin-tours' className={`${styles['nav-link']} ${isActive('/tours')}`}>Tours</Link>
+                    <Link href='/admin-tours' className={`${styles['nav-link']} ${isActive('/admin-tours')}`}>Tours</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='/admin-merchandise' className={`${styles['nav-link']} ${isActive('/merchandise')}`}>Merchandise</Link>
+                    <Link href='/admin-merchandise' className={`${styles['nav-link']} ${isActive('/admin-merchandise')}`}>Merchandise</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/bookings')}`}>Bookings</Link>
+                    <Link href='/admin-bookings' className={`${styles['nav-link']} ${isActive('/admin-bookings')}`}>Bookings</Link>
                 </li>
 
                 <li className={`${styles['hide-on-mobile']} ${styles['push-right']}`}>
@@ -104,7 +104,7 @@ const AdminNavBar = () => {
                 </li>
             
                 <li>
-                        <Link href="#" className={`${styles['nav-link']} ${isActive('/bookings')}`}>
+                        <Link href="/admin-bookings" className={`${styles['nav-link']} ${isActive('/admin-bookings')}`}>
                         Bookings
                         </Link>
                 </li>
