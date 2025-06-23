@@ -1,12 +1,12 @@
 import React from 'react';
-import NavBar from '../components/adminNavbar';
+import NavBar from '../components/membernavbar';
 import MemberContactSection from '../components/membercontact.jsx';
 import withAuth from '../hoc/withAuth';
 
 const MemberContactPage = () => {
         return (
                 <>
-                        <AdminNavBar />
+                        <MemberNavBar />
                         <MemberContactSection />
                 </>
         );
