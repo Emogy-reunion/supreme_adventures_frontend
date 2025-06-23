@@ -142,9 +142,16 @@ const PackagesSwiper = () => {
               									<div className={styles.content}>
               										<h3 className={styles.title}>{pkg.title}</h3>
             	    									<p>{pkg.description}</p>
-											<button type="button" className={styles.inquireButton}>
-												Inquire for Details
-											</button>
+											<a
+  												href={`https://wa.me/254724933300?text=${encodeURIComponent(
+    													`Hello, I'm interested in the "${pkg.title}" package. Could you share more details about it?`
+  												)}`}
+  												target="_blank"
+ 	 											rel="noopener noreferrer"
+  												className={styles.inquireButton}
+											>
+  												Inquire for Details
+											</a>
 										</div>
               								</div>
             							</div>
@@ -186,9 +193,16 @@ const PackagesSwiper = () => {
                                                                                 <div className={styles.content}>
                                                                                         <h3 className={styles.title}>{pkg.title}</h3>
                                                                                         <p>{pkg.description}</p>
-                                                                                        <button type="button" className={styles.inquireButton}>
-                                                                                                Inquire for Details
-                                                                                        </button>
+                                                                                        <a
+                                                                                                href={`https://wa.me/254724933300?text=${encodeURIComponent(
+                                                                                                        `Hello, I'm interested in the "${pkg.title}" package. Could you share more details about it?`
+                                                                                                )}`}
+                                                                                                target="_blank"
+                                                                                                rel="noopener noreferrer"
+                                                                                                className={styles.inquireButton}
+                                                                                        >
+                                                                                                Inquire for Details 
+                                                                                        </a>
                                                                                 </div>
                                                                         </div>
                                                                 </div>
@@ -230,9 +244,16 @@ const PackagesSwiper = () => {
                                                                                 <div className={styles.content}>
                                                                                         <h3 className={styles.title}>{pkg.title}</h3>
                                                                                         <p>{pkg.description}</p>
-                                                                                        <button type="button" className={styles.inquireButton}>
-                                                                                                Inquire for Details
-                                                                                        </button>
+                                                                                        <a
+                                                                                                href={`https://wa.me/254724933300?text=${encodeURIComponent(
+                                                                                                        `Hello, I'm interested in the "${pkg.title}" package. Could you share more details about it?`
+                                                                                                )}`}
+                                                                                                target="_blank"
+                                                                                                rel="noopener noreferrer"
+                                                                                                className={styles.inquireButton}
+                                                                                        >
+                                                                                                Inquire for Details 
+                                                                                        </a>
                                                                                 </div>
                                                                         </div>
                                                                 </div>
