@@ -3,11 +3,20 @@ import Link from 'next/link';
 import ProfileField from '../components/profilefield';
 import styles from '../styles/Profile.module.css';
 import MemberNavBar from '../components/membernavbar';
+import { useAuth } from '../context/AuthContext';
 
 
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 const MemberProfilePage = ({ user, error }) => {
+
+	const { logout } = useAuth();
+
+	const handleLogout = () => {
+		if (confirm('Are you sure you want to log out?')) {
+			logout();
+		}
+	};
 
 	if (error) {
 		return (
@@ -37,7 +46,7 @@ const MemberProfilePage = ({ user, error }) => {
       			{!user.verified && (
         			<div className={styles["verify-warning"]}>
           				<p>Your account is not verified.</p>
-          				<Link href="#">
+          				<Link href="/resend-verification">
             					<span className={styles["verify-link"]}>Click here to verify your account</span>
           				</Link>
         			</div>
@@ -50,6 +59,9 @@ const MemberProfilePage = ({ user, error }) => {
         			<ProfileField label="Role" value={user.role} />
         			<ProfileField label="Verified" value={user.verified ? 'Yes' : 'No'} />
         			<ProfileField label="Joined" value={user.registered_on} />
+				<button onClick={handleLogout} className={styles["logout-button"]}>
+					Log Out
+				</button>
       			</div>
     		</div>
 		</>

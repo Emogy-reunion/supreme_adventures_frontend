@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import styles from '../styles/Adminmanagement.module.css';
+import AdminNavBar from '../components/adminNavbar'
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
 const ManageAdmins = ({ initialAdmins }) => {
 	const [admins, setAdmins] = useState(initialAdmins || []);
@@ -60,6 +63,8 @@ const ManageAdmins = ({ initialAdmins }) => {
 	};
 
 	return (
+		<>
+		<AdminNavBar />
 		<div className={styles.container}>
 			<h1>Admin Management</h1>
 
@@ -118,6 +123,7 @@ const ManageAdmins = ({ initialAdmins }) => {
 				</tbody>
 			</table>
 		</div>
+		</>
 	);
 };
 
@@ -146,7 +152,7 @@ const handleAuthResponse = async (response, req) => {
 			if (adminRes.ok) {
 				return {
 					props: {
-						admins: adminData.admins || [],
+						initialAdmins: adminData.admins || [],
 						error: null,
 					},
 				};
@@ -154,7 +160,7 @@ const handleAuthResponse = async (response, req) => {
 				return {
 					props: {
 						error: adminData.error || 'Failed to fetch admins.',
-						admins: [],
+						initialAdmins: [],
 					},
 				};
 			}
@@ -163,7 +169,7 @@ const handleAuthResponse = async (response, req) => {
 		return {
 			props: {
 				error: 'Failed to fetch admins. Please try again later.',
-				admins: [],
+				initialAdmins: [],
 			},
 		};
 	}
