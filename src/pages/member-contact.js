@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../components/membernavbar';
+import MemberNavBar from '../components/membernavbar';
 import MemberContactSection from '../components/membercontact.jsx';
 import withAuth from '../hoc/withAuth';
 
