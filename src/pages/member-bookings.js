@@ -108,7 +108,7 @@ const handleAuthResponse = async (response, req) => {
 		return {
 			props: {
 				booking_details: [],
-				error: 'Failed to fetch bookings. Please try again later.',
+				error: 'Failed to fetch bookings. Please try again later!.',
 			},
 		};
 	}
