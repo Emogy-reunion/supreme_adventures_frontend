@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Loading from '../components/loading';
+import Loading from '../../components/loading';
 import 'swiper/css/pagination';
 import Image from 'next/image';
 
@@ -43,7 +43,7 @@ const MemberTourDetails = ({ tour, error }) => {
 			const response = await fetch('/api/book', {
 				method: 'POST',
 				headers: {
-					Content-Type: 'application/json'
+					'Content-Type': 'application/json'
 				},
 				credentials: 'include',
 				body: JSON.stringify(formData),
