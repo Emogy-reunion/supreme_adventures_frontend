@@ -75,6 +75,8 @@ const TourForm = () => {
   			formData.append('files', fileObj.file);
 		});
 
+		formData.append('poster', tourPoster.file);
+
 		setLoading(true);
 		const start = Date.now()
 		try {
