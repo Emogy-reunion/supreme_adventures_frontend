@@ -26,6 +26,7 @@ const TourForm = () => {
                 excluded: '',
         });
         const [tourFiles, setTourFiles] = useState([]);
+	const [tourPoster, setTourPoster] = useState(null);
 
 	const handleTourChange = (e) => {
                 const { name, value } = e.target;
@@ -44,6 +45,19 @@ const TourForm = () => {
 		});
 	};
 
+
+	const handlePosterChange = (e) => {
+		const file = e.target.files[0]; // Only one poster expected
+
+		if (file) {
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				setTourPoster({ file, preview: reader.result });
+			};
+			reader.readAsDataURL(file);
+		}
+	};
+
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
@@ -60,6 +74,8 @@ const TourForm = () => {
 		tourFiles.forEach((fileObj) => {
   			formData.append('files', fileObj.file);
 		});
+
+		formData.append('poster', tourPoster.file);
 
 		setLoading(true);
 		const start = Date.now()
@@ -214,6 +230,22 @@ const TourForm = () => {
 						{formErrors.status && (
                                                         <p className={styles['error-message']}>{formErrors.status}</p>
                                                 )}
+                                        </div>
+
+					<div className={styles['form-group']}>
+                                                <label>Poster</label>
+                                                <input type="file" onChange={handlePosterChange} required />
+
+						<div className={styles["poster-preview-container"]}>
+    							{tourPoster ? (
+      								<div className={styles["preview-card"]}>
+        								<button className={styles["remove-button"]} onClick={() => setTourPoster(null)}>×</button>
+        								<img src={tourPoster.preview} alt="Poster Preview" className={styles["preview-img"]} />
+      								</div>
+    							) : (
+      								<p>No poster selected yet</p>
+    							)}
+  						</div>
                                         </div>
 
                                         <div className={styles['form-group']}>
