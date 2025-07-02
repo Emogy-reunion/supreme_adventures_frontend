@@ -233,7 +233,7 @@ const MerchandiseForm = () => {
 
                                         <div className={styles['form-group']}>
                                                 <label>Images</label>
-                                                <input type="file" multiple id='images-upload' onChange={handleMerchFileChange} required />
+                                                <input type="file" multiple id='images-upload' onChange={handleMerchFileChange} required style={{ display: 'none' }}/>
 						<label htmlFor="images-upload" className={styles['upload-container']}>
         						<FaCloudUploadAlt className={styles['upload-icon']} />
         						<p className={styles['upload-text']}>Click to upload photos</p>
