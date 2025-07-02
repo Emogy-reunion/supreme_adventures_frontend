@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/UploadForm.module.css';
 import { useRouter } from 'next/router';
 import Loading from '../components/loading';
+import { FaCloudUploadAlt } from 'react-icons/fa';
 
 
 
@@ -232,7 +233,11 @@ const MerchandiseForm = () => {
 
                                         <div className={styles['form-group']}>
                                                 <label>Images</label>
-                                                <input type="file" multiple onChange={handleMerchFileChange} required />
+                                                <input type="file" multiple id='images-upload' onChange={handleMerchFileChange} required />
+						<label htmlFor="images-upload" className={styles['upload-container']}>
+        						<FaCloudUploadAlt className={styles['upload-icon']} />
+        						<p className={styles['upload-text']}>Click to upload photos</p>
+      						</label>
                                         </div>
 					
 					<div className={styles["preview-container"]}>
