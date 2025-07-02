@@ -259,7 +259,7 @@ const TourForm = () => {
 
 						<label htmlFor="images-upload" className={styles['upload-container']}>
                                                         <FaCloudUploadAlt className={styles['upload-icon']} />
-                                                        <p className={styles['upload-text']}>Click to upload poster</p>
+                                                        <p className={styles['upload-text']}>Click to upload Tour images</p>
                                                 </label>
                                         </div>
 					
