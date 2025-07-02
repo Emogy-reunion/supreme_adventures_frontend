@@ -79,7 +79,7 @@ const ToursPage = ({toursData, pagination, error}) => {
               								</div>
             							)}
             							<img
-              								src={tour.poster ? `/api/send_image?filename=${tour.poster}` : '/placeholder.jpg'}
+              								src={tour.poster ? `/api/send_image/${tour.poster}` : '/placeholder.jpg'}
               								alt={tour.name}
               								className={styles["card-image"]}
             							/>
