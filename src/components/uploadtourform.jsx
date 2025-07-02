@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/UploadForm.module.css';
 import Loading from '../components/loading';
 import { useRouter } from 'next/router';
+import { FaCloudUploadAlt } from 'react-icons/fa';
 
 
 const TourForm = () => {
@@ -234,7 +235,11 @@ const TourForm = () => {
 
 					<div className={styles['form-group']}>
                                                 <label>Poster</label>
-                                                <input type="file" onChange={handlePosterChange} required />
+                                                <input type="file" id="poster-upload" onChange={handlePosterChange} required style={{ display: 'none' }}/>
+						<label htmlFor="poster-upload" className={styles['upload-container']}>
+  							<FaCloudUploadAlt className={styles['upload-icon']} />
+  							<p className={styles['upload-text']}>Click to upload poster</p>
+						</label>
 
 						<div className={styles["poster-preview-container"]}>
     							{tourPoster ? (
@@ -250,7 +255,12 @@ const TourForm = () => {
 
                                         <div className={styles['form-group']}>
                                                 <label>Files</label>
-                                                <input type="file" multiple onChange={handleFileChange} required />
+                                                <input type="file" id='images-upload' multiple onChange={handleFileChange} required style={{ display: 'none' }} />
+
+						<label htmlFor="images-upload" className={styles['upload-container']}>
+                                                        <FaCloudUploadAlt className={styles['upload-icon']} />
+                                                        <p className={styles['upload-text']}>Click to upload Tour images</p>
+                                                </label>
                                         </div>
 					
 					<div className={styles["preview-container"]}>
