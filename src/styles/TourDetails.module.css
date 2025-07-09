@@ -34,6 +34,27 @@
   	border-radius: 12px;
 }
 
+.posterWrapper {
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: center;
+}
+
+.posterImage {
+        width: 100%;
+        max-width: 800px; /* A4 scaled width */
+        height: auto;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+        .posterImage {
+                max-width: 100%;
+        }
+}
+
 .infoSection {
   	display: flex;
   	justify-content: space-between;
