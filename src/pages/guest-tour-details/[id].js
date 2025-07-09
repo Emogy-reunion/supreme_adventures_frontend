@@ -109,7 +109,7 @@ const GuestTourDetails = ({ tour, error }) => {
 					className={styles.whatsappButton}
 					onClick={() => {
 						const message = encodeURIComponent(`Hello, I'm interested in booking the tour: ${tour.name}`);
-						window.open(`https://wa.me/254712345678?text=${message}`, '_blank');
+						window.open(`https://wa.me/254759080100?text=${message}`, '_blank');
 					}}
 				>
 					<FaWhatsapp className={styles.whatsappIcon} />
