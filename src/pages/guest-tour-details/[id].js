@@ -49,7 +49,7 @@ const GuestTourDetails = ({ tour, error }) => {
 			 {tour.poster && (
                                 <div className={styles.posterWrapper}>
                                         <Image
-                                                src={`${baseUrl}/send_image/${tour.poster}`}
+                                                src={`${baseUrl}/api/send_image/${tour.poster}`}
                                                 alt="Tour Poster"
                                                 width={800}
                                                 height={1131}
