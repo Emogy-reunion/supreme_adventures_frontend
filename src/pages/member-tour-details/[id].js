@@ -125,6 +125,18 @@ const MemberTourDetails = ({ tour, error }) => {
 				))}
 			</Swiper>
 
+			 {tour.poster && (
+                                <div className={styles.posterWrapper}>
+                                        <Image
+                                                src={`${baseUrl}/send_image/${tour.poster}`}
+                                                alt="Tour Poster"
+                                                width={800}
+                                                height={1131}
+                                                className={styles.posterImage}
+                                        />
+                                </div>
+                        )}
+
 			<div className={styles.infoSection}>
 				<div className={styles.column}>
 					<p><strong>Start:</strong> {tour.start_location}</p>
