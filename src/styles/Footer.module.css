@@ -1,7 +1,7 @@
 .footer {
-  	background-color: #f9fafb;
+  	background-color: #000;
+  	color: #fff;
   	padding: 40px 20px;
-  	color: #374151;
   	font-size: 0.95rem;
   	border-top: 1px solid #e5e7eb;
 }
@@ -52,12 +52,12 @@
 }
 
 .socials a {
-  	color: #374151;
+  	color: #fff;
   	transition: color 0.3s ease;
 }
 
 .socials a:hover {
-  	color: #2563eb;
+  	color: #00acee;
 }
 
 .bottom {
@@ -66,4 +66,9 @@
   	border-top: 1px solid #e5e7eb;
   	padding-top: 20px;
   	font-size: 0.85rem;
+}
+
+.logoImage {
+  	object-fit: contain;
+  	margin-bottom: 10px;
 }
