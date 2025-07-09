@@ -143,7 +143,7 @@ const PackagesSwiper = () => {
               										<h3 className={styles.title}>{pkg.title}</h3>
             	    									<p>{pkg.description}</p>
 											<a
-  												href={`https://wa.me/254724933300?text=${encodeURIComponent(
+  												href={`https://wa.me/254759080100?text=${encodeURIComponent(
     													`Hello, I'm interested in the "${pkg.title}" package. Could you share more details about it?`
   												)}`}
   												target="_blank"
@@ -194,7 +194,7 @@ const PackagesSwiper = () => {
                                                                                         <h3 className={styles.title}>{pkg.title}</h3>
                                                                                         <p>{pkg.description}</p>
                                                                                         <a
-                                                                                                href={`https://wa.me/254724933300?text=${encodeURIComponent(
+                                                                                                href={`https://wa.me/254759080100?text=${encodeURIComponent(
                                                                                                         `Hello, I'm interested in the "${pkg.title}" package. Could you share more details about it?`
                                                                                                 )}`}
                                                                                                 target="_blank"
@@ -245,7 +245,7 @@ const PackagesSwiper = () => {
                                                                                         <h3 className={styles.title}>{pkg.title}</h3>
                                                                                         <p>{pkg.description}</p>
                                                                                         <a
-                                                                                                href={`https://wa.me/254724933300?text=${encodeURIComponent(
+                                                                                                href={`https://wa.me/254759080100?text=${encodeURIComponent(
                                                                                                         `Hello, I'm interested in the "${pkg.title}" package. Could you share more details about it?`
                                                                                                 )}`}
                                                                                                 target="_blank"
