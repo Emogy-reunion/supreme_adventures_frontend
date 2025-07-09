@@ -7,11 +7,17 @@ const Footer = () => {
 	return (
 		<footer className={styles.footer}>
       			<div className={styles.container}>
+				<div className={styles.section}>
+  					<Image
+    						src="/supreme.svg"
+    						alt="Supreme Adventures Logo"
+    						width={150}
+    						height={50}
+    						className={styles.logoImage}
+  					/>
+  					<p>Creating unforgettable tour experiences across the globe.</p>
+				</div>
 
-   				<div className={styles.section}>
-          				<h2 className={styles.logo}>Supreme Adventures</h2>
-          				<p>Creating unforgettable tour experiences across the globe.</p>
-        			</div>
 
         			<div className={styles.section}>
           				<h3>Quick Links</h3>
