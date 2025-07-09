@@ -91,7 +91,7 @@ const ProductsPage = ({productsData, pagination, error}) => {
 								)}
 
         							<img
-          								src={product.image || '/placeholder.jpg'}
+          								src={product.image ? `${baseUrl}/api/send_image/${product.image}` : '/placeholder.jpg'}
           								alt={product.name}
           								className={styles["card-image"]}
         							/>
