@@ -75,7 +75,7 @@ const GuestProductDetails = ({ product, error }) => {
 					className={styles.whatsappButton}
 					onClick={() => {
 						const message = encodeURIComponent(`Hello, I'm interested in ordering: ${product.name}`);
-						window.open(`https://wa.me/254759080100?text=${message}`, '_blank');
+						window.open(`https://wa.me/254790844766?text=${message}`, '_blank');
 					}}
 				>
 					<FaWhatsapp className={styles.whatsappIcon} />
