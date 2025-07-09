@@ -63,7 +63,7 @@ const ToursPage = ({toursData, pagination, error}) => {
 			<>
 			<AdminNavBar />
     			<section className={styles["page-container"]}>
-      				<h1 className={styles.title}>Available Tours</h1>
+      				<h1 className={styles.title}>Upcoming Tours</h1>
 
 				<div className={styles['content-wrapper']}>
       					<div className={styles.grid}>
@@ -79,7 +79,7 @@ const ToursPage = ({toursData, pagination, error}) => {
               								</div>
             							)}
             							<img
-              								src={tour.poster ? `/api/send_image/${tour.poster}` : '/placeholder.jpg'}
+              								src={tour.image ? `/api/send_image/${tour.image}` : '/placeholder.jpg'}
               								alt={tour.name}
               								className={styles["card-image"]}
             							/>

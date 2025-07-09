@@ -46,6 +46,18 @@ const GuestTourDetails = ({ tour, error }) => {
 				))}
 			</Swiper>
 
+			 {tour.poster && (
+                                <div className={styles.posterWrapper}>
+                                        <Image
+                                                src={`${baseUrl}/api/send_image/${tour.poster}`}
+                                                alt="Tour Poster"
+                                                width={800}
+                                                height={1131}
+                                                className={styles.posterImage}
+                                        />
+                                </div>
+                        )}
+
 			<div className={styles.infoSection}>
 				<div className={styles.column}>
 					<p><strong>Start:</strong> {tour.start_location}</p>
@@ -97,7 +109,7 @@ const GuestTourDetails = ({ tour, error }) => {
 					className={styles.whatsappButton}
 					onClick={() => {
 						const message = encodeURIComponent(`Hello, I'm interested in booking the tour: ${tour.name}`);
-						window.open(`https://wa.me/254712345678?text=${message}`, '_blank');
+						window.open(`https://wa.me/254759080100?text=${message}`, '_blank');
 					}}
 				>
 					<FaWhatsapp className={styles.whatsappIcon} />

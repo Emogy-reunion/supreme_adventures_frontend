@@ -30,7 +30,7 @@ const MemberProductsPage = ({productsData, pagination, error}) => {
 						{products.map((product) => (
 							<div key={product.product_id} className={styles.card}>
 								<img
-									src={product.image || '/placeholder.jpg'}
+									src={product.image ? `${baseUrl}/api/send_image/${product.image}` : '/placeholder.jpg'}
 									alt={product.name}
 									className={styles["card-image"]}
 								/>
