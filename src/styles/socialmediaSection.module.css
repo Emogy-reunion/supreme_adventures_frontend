@@ -1,0 +1,27 @@
+.socialSection {
+  	padding: 40px 24px;
+  	text-align: center;
+  	background-color: #fff;
+}
+
+.socialSection h3 {
+  	font-size: 1.5rem;
+  	margin-bottom: 20px;
+  	color: red;
+}
+
+.icons {
+  	display: flex;
+  	justify-content: center;
+  	gap: 24px;
+  	font-size: 1.8rem;
+}
+
+.icons a {
+  	color: #111827;
+  	transition: color 0.3s ease;
+}
+
+.icons a:hover {
+  	color: #2563eb;
+}
