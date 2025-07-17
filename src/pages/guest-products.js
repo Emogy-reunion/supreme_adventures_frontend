@@ -26,6 +26,16 @@ const GuestProductsPage = ({productsData, pagination, error}) => {
 			<section className={styles["page-container"]}>
 				<h1 className={styles.title}>Available Products</h1>
 
+				{error && (
+    					<div className={styles["error-message"]}>{error}</div>
+				)}
+
+  				{!error && products.length === 0 && (
+    					<div className={styles["empty-message"]}>
+      						No availbale products at the moment. Please check back later.
+    					</div>
+  				)}
+
 				<div className={styles['content-wrapper']}>
 					<div className={styles.grid}>
 						{products.map((product) => (
@@ -121,13 +131,23 @@ export async function getServerSideProps(context) {
 			}
 		};
 	} catch (err) {
-		return {
-			props: {
-				productsData: [],
-				pagination: null,
-				error: 'Failed to load products. Please try again.',
-			}
-		};
+		if (res.status === 404) {
+                        return {
+                                props: {
+                                        error: null,
+                                        productsData: [],
+                                        pagination: null,
+                                }
+                        };
+                } else {
+                        return {
+                                props: {
+                                        error: data.error || 'Failed to fetch products.',
+                                        productsData: [],
+                                        pagination: null,
+                                },
+                        };
+                }
 	}
 }
 

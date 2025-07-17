@@ -24,7 +24,17 @@ const MemberToursPage = ({ toursData, pagination, error }) => {
 		<>
 		<MemberNavBar />
 		<section className={styles["page-container"]}>
-      			<h1 className={styles.title}>Available Tours</h1>
+      			<h1 className={styles.title}>Upcoming Trips</h1>
+
+			{error && (
+                                <div className={styles["error-message"]}>{error}</div>
+                        )}
+
+                        {!error && tours.length === 0 && (
+                                <div className={styles["empty-message"]}>
+                                        No upcoming trips at the moment. Please check back later.
+                                </div>
+                        )}
 
       			<div className={styles['content-wrapper']}>
         		<div className={styles.grid}>
@@ -135,13 +145,23 @@ const handleAuthResponse = async (response, req, page) => {
 					},
 				};
 			} else {
-				return {
-					props: {
-						error: tourData.error || 'Failed to fetch tours.',
-						toursData: [],
-						pagination: null,
-					},
-				};
+				if (tourResponse.status === 404) {
+					return {
+                                        	props: {
+                                                	error: null,
+                                                	toursData: [],
+                                                	pagination: null,
+                                        	},
+                                	};
+                        	} else {
+                                	return {
+                                        	props: {
+                                                	error: data.error || 'Failed to fetch tours.',
+                                               		toursData: [],
+                                                	pagination: null,
+                                        	},
+                                	};
+				}
 			}
 		}
 	} catch (error) {
