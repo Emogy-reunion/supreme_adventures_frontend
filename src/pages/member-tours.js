@@ -162,6 +162,7 @@ const handleAuthResponse = async (response, req, page) => {
                                         	},
                                 	};
 				}
+			}
 		}
 	} catch (error) {
 		return {
