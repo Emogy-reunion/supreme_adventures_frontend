@@ -133,11 +133,24 @@ export async function getServerSideProps(context) {
       			};
     		} else {
       			return {
-        			props: {
-          				error: data.error || 'Failed to fetch tours.',
-          				toursData: [],
-          				pagination: null,
-        			},
+        			if (response.status === 404) {
+					// No tours found, but not a real error for frontend
+        				return {
+            					props: {
+                					error: null,
+                					toursData: [],
+                					pagination: null,
+            					},
+        				};
+				} else {
+        				return {
+            					props: {
+               	 					error: data.error || 'Failed to fetch tours.',
+                					toursData: [],
+                					pagination: null,
+            					},
+        				};
+    				}
       			};
     		}
 	} catch (error) {
