@@ -63,7 +63,17 @@ const ToursPage = ({toursData, pagination, error}) => {
 			<>
 			<AdminNavBar />
     			<section className={styles["page-container"]}>
-      				<h1 className={styles.title}>Upcoming Tours</h1>
+      				<h1 className={styles.title}>Upcoming Trips</h1>
+
+				{error && (
+                                	<div className={styles["error-message"]}>{error}</div>
+                        	)}
+
+                        	{!error && tours.length === 0 && (
+                                	<div className={styles["empty-message"]}>
+                                        	No upcoming trips at the moment. Please check back later.
+                                	</div>
+                        	)}
 
 				<div className={styles['content-wrapper']}>
       					<div className={styles.grid}>
