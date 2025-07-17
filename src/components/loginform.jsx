@@ -23,7 +23,6 @@ const LoginForm = () => {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		
-		// clear existing error messages
 		setGlobalError(null);
 		setSuccessMessage(null);
 		setFormErrors({});
@@ -119,7 +118,7 @@ const LoginForm = () => {
 								</div>
 							)}
 							<div className={styles["form-group"]}>
-								<label htmlFor="identifier">Email/Username</label>
+								<label htmlFor="identifier">Email or Username</label>
 								<input type="text" id="identifier" name="identifier" placeholder="Email or username" required />
 								{formErrors.identifier && (
 									<p className={styles['error-message']}>{formErrors.identifier}</p>
