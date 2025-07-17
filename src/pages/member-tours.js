@@ -145,7 +145,7 @@ const handleAuthResponse = async (response, req, page) => {
 					},
 				};
 			} else {
-				if (response.status === 404) {
+				if (tourResponse.status === 404) {
 					return {
                                         	props: {
                                                 	error: null,
