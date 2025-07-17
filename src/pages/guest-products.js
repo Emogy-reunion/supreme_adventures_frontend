@@ -113,41 +113,48 @@ const GuestProductsPage = ({productsData, pagination, error}) => {
 
 export async function getServerSideProps(context) {
 	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-	const page = context.query.page || 1;
+	const { query } = context;
+	const page = query.page || 1;
 
 	try {
-		const res = await fetch(`${baseUrl}/api/merchandise?page=${page}`);
-		const data = await res.json();
+		const response = await fetch(`${baseUrl}/api/merchandise?page=${page}`);
+		const data = await response.json();
 
-		if (!res.ok) {
-			throw new Error(data.error || 'Failed to fetch products');
+		if (response.ok) {
+			return {
+				props: {
+					productsData: data.products,
+					pagination: data.pagination,
+					error: null,
+				},
+			};
+		} else {
+			if (response.status === 404) {
+				return {
+					props: {
+						error: null,
+						productsData: [],
+						pagination: null,
+					},
+				};
+			} else {
+				return {
+					props: {
+						error: data.error || 'Failed to fetch products.',
+						productsData: [],
+						pagination: null,
+					},
+				};
+			}
 		}
-
+	} catch (error) {
 		return {
 			props: {
-				productsData: data.products,
-				pagination: data.pagination,
-				error: null,
-			}
+				error: 'An unexpected error occurred.',
+				productsData: [],
+				pagination: null,
+			},
 		};
-	} catch (err) {
-		if (res.status === 404) {
-                        return {
-                                props: {
-                                        error: null,
-                                        productsData: [],
-                                        pagination: null,
-                                }
-                        };
-                } else {
-                        return {
-                                props: {
-                                        error: data.error || 'Failed to fetch products.',
-                                        productsData: [],
-                                        pagination: null,
-                                },
-                        };
-                }
 	}
 }
 
