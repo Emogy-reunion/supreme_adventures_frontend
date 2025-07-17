@@ -219,13 +219,23 @@ const handleAuthResponse = async (response, req, page) => {
 			}
 		}
 	} catch (error) {
-		return {
-			props: {
-				error: 'Failed to fetch products. Please try again later.',
-				productsData: [],
-				pagination: null,
-			},
-		};
+		if (productResponse.status === 404) {
+			return {
+				props: {
+					error: null,
+					productsData: [],
+					pagination: null,
+				}
+			};
+		} else {
+			return {
+				props: {
+					error: data.error || 'Failed to fetch products.',
+					productsData: [],
+					pagination: null,
+				},
+			};
+		}
 	}
 };
 

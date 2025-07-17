@@ -139,13 +139,23 @@ const handleAuthResponse = async (response, req, page) => {
 					},
 				};
 			} else {
-				return {
-					props: {
-						error: productData.error || 'Failed to fetch products.',
-						productsData: [],
-						pagination: null,
-					},
-				};
+				if (productResponse.status === 404) {
+                                        return {
+                                                props: {
+                                                        error: null,
+                                                        productsData: [],
+                                                        pagination: null,
+                                                },
+                                        };
+                                } else {
+                                        return {
+                                                props: {
+                                                        error: data.error || 'Failed to fetch products.',
+                                                        productsData: [],
+                                                        pagination: null,
+                                                },
+                                        };
+                                }
 			}
 		}
 	} catch (error) {
