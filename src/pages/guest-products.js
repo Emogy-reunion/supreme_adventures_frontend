@@ -131,13 +131,23 @@ export async function getServerSideProps(context) {
 			}
 		};
 	} catch (err) {
-		return {
-			props: {
-				productsData: [],
-				pagination: null,
-				error: 'Failed to load products. Please try again.',
-			}
-		};
+		if (res.status === 404) {
+                        return {
+                                props: {
+                                        error: null,
+                                        productsData: [],
+                                        pagination: null,
+                                }
+                        };
+                } else {
+                        return {
+                                props: {
+                                        error: data.error || 'Failed to fetch products.',
+                                        productsData: [],
+                                        pagination: null,
+                                },
+                        };
+                }
 	}
 }
 
