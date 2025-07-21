@@ -3,6 +3,13 @@
 	margin-top: 60px;
 }
 
+.container h1 {
+	text-align: center;
+	color: red;
+	text-decoration: underline;
+	margin-bottom: 20px;
+}
+
 .formRow {
 	display: flex;
 	gap: 10px;
