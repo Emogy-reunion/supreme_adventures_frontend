@@ -1,5 +1,13 @@
 .container {
 	padding: 2rem;
+	margin-top: 60px;
+}
+
+.container h1 {
+	text-align: center;
+	color: red;
+	font-size: 2rem;
+	margin-bottom: 20px;
 }
 
 .formRow {
