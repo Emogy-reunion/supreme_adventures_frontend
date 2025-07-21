@@ -1,4 +1,4 @@
-import React from 'react';#2563eb;
+import React from 'react';
 import styles from '../styles/Loginform.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
