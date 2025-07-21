@@ -6,7 +6,7 @@
 .container h1 {
 	text-align: center;
 	color: red;
-	text-decoration: underline;
+	font-size: 2rem;
 	margin-bottom: 20px;
 }
 
