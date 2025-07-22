@@ -36,6 +36,7 @@ const MemberTourDetails = ({ tour, error }) => {
 		const formData = new FormData();
 		formData.append('phone_number', mpesaNumber);
 		formData.append('tour_id', tour.id);
+		const formJson = Object.fromEntries(formData.entries());
 
 		setLoading(true);
 		const start = Date.now();
@@ -46,7 +47,7 @@ const MemberTourDetails = ({ tour, error }) => {
 					'Content-Type': 'application/json'
 				},
 				credentials: 'include',
-				body: JSON.stringify(formData),
+				body: JSON.stringify(formJson),
 			});
 
 			data = await response.json();
