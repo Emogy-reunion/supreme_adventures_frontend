@@ -35,7 +35,8 @@ const MemberTourDetails = ({ tour, error }) => {
 
 		const formData = new FormData();
 		formData.append('phone_number', mpesaNumber);
-		formData.append('tour_id', tour.id);
+		formData.append('tour_id', tour.tour_id);
+		const formJson = Object.fromEntries(formData.entries());
 
 		setLoading(true);
 		const start = Date.now();
@@ -46,7 +47,7 @@ const MemberTourDetails = ({ tour, error }) => {
 					'Content-Type': 'application/json'
 				},
 				credentials: 'include',
-				body: JSON.stringify(formData),
+				body: JSON.stringify(formJson),
 			});
 
 			data = await response.json();
@@ -192,7 +193,7 @@ const MemberTourDetails = ({ tour, error }) => {
 				</button>
 
 				{showBookingForm && (
-					<form className={styles.bookingForm}>
+					<form className={styles.bookingForm} onSubmit={handleSubmit}>
 						{(globalError || successMessage) && (
 							<div className={globalError ? styles['error'] : styles['success-message']}>
 								<p>{globalError || successMessage}</p>
