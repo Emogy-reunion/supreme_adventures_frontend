@@ -181,7 +181,7 @@ const MemberTourDetails = ({ tour, error }) => {
 				</button>
 
 				{showBookingForm && (
-					<form className={styles.bookingForm}>
+					<form className={styles.bookingForm} onSubmit={handleSubmit}>
 						{(globalError || successMessage) && (
 							<div className={globalError ? styles['error'] : styles['success-message']}>
 								<p>{globalError || successMessage}</p>
