@@ -24,7 +24,7 @@ const MemberBookingsPage = ({ booking_details = [], error }) => {
 	return (
 		<>
 			<MemberNavBar />
-			<section className={styles.container}>
+			<section className={styles['bookings-section']}>
 				<h1 className={styles.title}>My Bookings</h1>
 				<div className={styles.grid}>
 					{booking_details.map((booking, index) => (
