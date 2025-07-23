@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from '../styles/MemberBookings.module.css';
 import MemberNavBar from '../components/membernavbar';
+import Link from 'next/link';
 import { FaMoneyBillAlt, FaCalendarAlt, FaClipboardCheck } from 'react-icons/fa';
 
 
@@ -58,6 +59,12 @@ const MemberBookingsPage = ({ booking_details = [], error }) => {
 							<div className={styles.bookedBy}>
 								Booked By: {booking.user_name}
 							</div>
+
+							<div className={styles.buttonContainer}>
+								<Link href={`/member-tour-details/${booking.tour_id}`} className={styles.viewButton}>
+          								View Tour
+        							</Link>
+      							</div>
 						</div>
 					))}
 				</div>
