@@ -8,6 +8,15 @@
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.title {
+        margin-top: 60px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        font-weight: 600;
+        color: red;
+}
+
 .table {
 	width: 100%;
 	border-collapse: collapse;
@@ -32,16 +41,22 @@
 	background-color: #f2f2f2;
 }
 
-.error {
-	color: red;
-	padding: 1rem;
-	text-align: center;
-	margin-top: 80px;
+.error-message {
+        color: #dc3545;
+        background-color: #f8d7da;
+        border: 1px solid #f5c2c7;
+        padding: 16px;
+        border-radius: 8px;
+        margin: 16px 0;
+        text-align: center;
 }
 
-.message {
-	margin-top: 80px;
-	color: black;
-	text-align: center;
-	padding: 1rem;
+.empty-message {
+        color: #0d6efd;
+        background-color: #e7f1ff;
+        border: 1px solid #b6d4fe;
+        padding: 16px;
+        border-radius: 8px;
+        margin: 16px 0;
+        text-align: center;
 }
