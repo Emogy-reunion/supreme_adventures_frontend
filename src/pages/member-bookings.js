@@ -3,28 +3,28 @@
 import React from 'react';
 import styles from '../styles/MemberBookings.module.css';
 import MemberNavBar from '../components/membernavbar';
+import Link from 'next/link';
 import { FaMoneyBillAlt, FaCalendarAlt, FaClipboardCheck } from 'react-icons/fa';
 
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 const MemberBookingsPage = ({ booking_details = [], error }) => {
-	if (error) {
-		return (
-			<>
-				<MemberNavBar />
-				<div className={styles.container}>
-					<h1 className={styles.title}>My Bookings</h1>
-					<p className={styles.error}>{error}</p>
-				</div>
-			</>
-		);
-	}
 
 	return (
 		<>
 			<MemberNavBar />
-			<section className={styles.container}>
+			<section className={styles['bookings-section']}>
 				<h1 className={styles.title}>My Bookings</h1>
+
+				{error && (
+                                        <div className={styles["error-message"]}>{error}</div>
+                                )}
+
+                                {!error && booking_details.length === 0 && (
+                                        <div className={styles["empty-message"]}>
+                                                No availbale bookings at the moment.
+                                        </div>
+                                )}
 				<div className={styles.grid}>
 					{booking_details.map((booking, index) => (
 						<div className={styles.card} key={index}>
@@ -58,6 +58,12 @@ const MemberBookingsPage = ({ booking_details = [], error }) => {
 							<div className={styles.bookedBy}>
 								Booked By: {booking.user_name}
 							</div>
+
+							<div className={styles.buttonContainer}>
+								<Link href={`/member-tour-details/${booking.tour_id}`} className={styles.viewButton}>
+          								View Tour
+        							</Link>
+      							</div>
 						</div>
 					))}
 				</div>
@@ -92,6 +98,13 @@ const handleAuthResponse = async (response, req) => {
 				return {
 					props: {
 						booking_details: bookingsData.booking_details || [],
+						error: null,
+					},
+				};
+			} else if (bookingsResponse.status === 404) {
+				return {
+					props: {
+						booking_details: [],
 						error: null,
 					},
 				};
