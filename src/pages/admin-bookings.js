@@ -7,28 +7,20 @@ import styles from '../styles/AdminBookingsTable.module.css';
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const AdminBookingsTable = ({ booking_details, error }) => {
-	if (error) {
-		return(
-			<>
-				<AdminNavBar />
-				<p className={styles.error}>{error}</p>
-			</>
-		);
-	}
-
-	if (!booking_details || booking_details.length === 0) {
-		return(
-			<>
-				<AdminNavBar />
-				<p className={styles.message}>No bookings available.</p>
-			</>
-		);
-	}
-
 	return (
 		<>
 		<AdminNavBar />
 		<div className={styles.tableContainer}>
+
+			{error && (
+				<div className={styles["error-message"]}>{error}</div>
+			)}
+
+			{!error && booking_details.length === 0 && (
+				<div className={styles["empty-message"]}>
+					No availbale bookings at the moment. Please check back later.
+				</div>
+			)}
 			<table className={styles.table}>
 				<thead>
 					<tr>
@@ -98,6 +90,13 @@ const handleAuthResponse = async (response, req) => {
 				return {
 					props: {
 						booking_details: bookingsData.booking_details || [],
+						error: null,
+					},
+				};
+			} else if (bookingsResponse.status === 404) {
+				return {
+					props: {
+						booking_details: [],
 						error: null,
 					},
 				};
