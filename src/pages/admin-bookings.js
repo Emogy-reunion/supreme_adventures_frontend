@@ -11,6 +11,7 @@ const AdminBookingsTable = ({ booking_details, error }) => {
 		<>
 		<AdminNavBar />
 		<div className={styles.tableContainer}>
+			<h1 className={styles.title}>Bookings</h1>
 
 			{error && (
 				<div className={styles["error-message"]}>{error}</div>
