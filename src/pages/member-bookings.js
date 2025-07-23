@@ -22,7 +22,7 @@ const MemberBookingsPage = ({ booking_details = [], error }) => {
 
                                 {!error && booking_details.length === 0 && (
                                         <div className={styles["empty-message"]}>
-                                                No availbale products at the moment. Please check back later.
+                                                No availbale bookings at the moment.
                                         </div>
                                 )}
 				<div className={styles.grid}>
