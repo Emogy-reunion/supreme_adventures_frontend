@@ -37,8 +37,11 @@ const LandingHero = () => {
         {destinations.map((dest, index) => (
           <div key={index} className="relative h-screen w-full">
             {/* Background Image */}
-            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${dest.image})` }}>
-              <div className="absolute inset-0 bg-black/40" />
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${dest.image})` }}
+            >
+              <div className="absolute inset-0 bg-black/50" />
             </div>
 
             {/* Overlay Text */}
@@ -47,7 +50,7 @@ const LandingHero = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg"
+                className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg"
               >
                 {dest.name}
               </motion.h1>
@@ -56,33 +59,34 @@ const LandingHero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.3 }}
-                className="bg-yellow-500 hover:bg-yellow-600 text-black text-lg px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2 mb-6"
+                className="bg-yellow-500 hover:bg-yellow-600 text-black text-lg sm:text-xl px-6 sm:px-8 py-3 sm:py-4 rounded-3xl shadow-lg font-semibold flex items-center gap-2 mb-8 transition-all duration-300"
               >
-                View Destination <ArrowRight size={18} />
+                View Destination <ArrowRight size={20} />
               </motion.button>
 
               {/* Search Bar */}
               <motion.form
+                onSubmit={handleSearch}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.6 }}
-                className="flex flex-wrap gap-4 justify-center bg-white/90 backdrop-blur-sm rounded-2xl p-4 max-w-2xl w-full"
+                className="flex flex-col sm:flex-row gap-4 justify-center bg-white/90 backdrop-blur-md rounded-3xl p-4 sm:p-6 max-w-3xl w-full shadow-md"
               >
                 <input
                   type="text"
                   name="destination"
                   placeholder="Where to?"
-                  className="flex-1 px-4 py-3 rounded-xl border focus:outline-none"
+                  className="flex-1 px-4 py-3 sm:py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 text-gray-800 placeholder-gray-500"
                   required
                 />
                 <input
                   type="date"
                   name="date"
-                  className="px-4 py-3 rounded-xl border focus:outline-none"
+                  className="px-4 py-3 sm:py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 text-gray-800"
                 />
                 <button
                   type="submit"
-                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-xl flex items-center gap-2"
+                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl flex items-center gap-2 justify-center transition-all duration-300 shadow-md"
                 >
                   <Search size={18} /> Search
                 </button>
