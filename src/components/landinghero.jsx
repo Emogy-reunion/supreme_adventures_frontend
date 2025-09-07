@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import { ArrowRight, Search, ChevronLeft, ChevronRight } from "lucide-react";
-import styles from "../styles/LandingHero.module.css";
+import styles from "./LandingHero.module.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -13,7 +13,7 @@ const destinations = [
   { name: "Tokyo, Japan", slug: "tokyo", image: "https://images.unsplash.com/photo-1551776235-dde6d4829808" },
 ];
 
-// Custom arrows
+// Carousel arrows
 const NextArrow = ({ onClick }) => (
   <div className={styles.nextArrow} onClick={onClick}>
     <ChevronRight size={24} />
@@ -43,8 +43,7 @@ const LandingHero = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     const destination = e.target.destination.value;
-    const date = e.target.date.value;
-    window.location.href = `/tours?destination=${destination}&date=${date}`;
+    window.location.href = `/trips?destination=${destination}`;
   };
 
   return (
@@ -89,14 +88,9 @@ const LandingHero = () => {
                 <input
                   type="text"
                   name="destination"
-                  placeholder="Where to?"
+                  placeholder="Search your destination"
                   className={styles.input}
                   required
-                />
-                <input
-                  type="date"
-                  name="date"
-                  className={styles.input}
                 />
                 <button type="submit" className={styles.searchButton}>
                   <Search size={18} /> Search
