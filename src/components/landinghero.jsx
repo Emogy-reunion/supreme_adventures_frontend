@@ -5,6 +5,7 @@ import styles from "../styles/LandingHero.module.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// Sample destinations (replace with DB fetch later)
 const destinations = [
   { name: "Paris, France", slug: "paris", image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34" },
   { name: "Nairobi, Kenya", slug: "nairobi", image: "https://images.unsplash.com/photo-1558979158-65a1eaa08691" },
@@ -13,7 +14,7 @@ const destinations = [
   { name: "Tokyo, Japan", slug: "tokyo", image: "https://images.unsplash.com/photo-1551776235-dde6d4829808" },
 ];
 
-// Carousel arrows
+// Custom carousel arrows
 const NextArrow = ({ onClick }) => (
   <div className={styles.nextArrow} onClick={onClick}>
     <ChevronRight size={24} />
@@ -43,6 +44,7 @@ const LandingHero = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     const destination = e.target.destination.value;
+    if (!destination) return;
     window.location.href = `/trips?destination=${destination}`;
   };
 
@@ -59,6 +61,7 @@ const LandingHero = () => {
             </div>
 
             <div className={styles.content}>
+              {/* Destination Name */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -68,6 +71,7 @@ const LandingHero = () => {
                 {dest.name}
               </motion.h1>
 
+              {/* View Destination Button */}
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -78,6 +82,7 @@ const LandingHero = () => {
                 View Destination <ArrowRight size={20} />
               </motion.button>
 
+              {/* Search Bar */}
               <motion.form
                 onSubmit={handleSearch}
                 initial={{ opacity: 0, y: 20 }}
@@ -85,13 +90,15 @@ const LandingHero = () => {
                 transition={{ duration: 1, delay: 0.6 }}
                 className={styles.searchForm}
               >
-                <input
-                  type="text"
-                  name="destination"
-                  placeholder="Search your destination"
-                  className={styles.input}
-                  required
-                />
+                <select name="destination" className={styles.select} required>
+                  <option value="">Select your destination</option>
+                  {destinations.map((d, i) => (
+                    <option key={i} value={d.slug}>
+                      {d.name}
+                    </option>
+                  ))}
+                </select>
+
                 <button type="submit" className={styles.searchButton}>
                   <Search size={18} /> Search
                 </button>
