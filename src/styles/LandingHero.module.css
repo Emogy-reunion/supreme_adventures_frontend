@@ -81,7 +81,7 @@
   }
 }
 
-.input {
+.select {
   flex: 1;
   padding: 1rem;
   border-radius: 30px;
@@ -89,9 +89,10 @@
   outline: none;
   font-size: 1rem;
   color: #1f2937;
+  background-color: white;
 }
 
-.input:focus {
+.select:focus {
   border-color: #facc15;
   box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.3);
 }
