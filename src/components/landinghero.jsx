@@ -5,13 +5,13 @@ import styles from "../styles/LandingHero.module.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Sample destinations (replace with DB fetch later)
+
 const destinations = [
-  { name: "Paris, France", slug: "paris", image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34" },
-  { name: "Nairobi, Kenya", slug: "nairobi", image: "https://images.unsplash.com/photo-1558979158-65a1eaa08691" },
-  { name: "Bali, Indonesia", slug: "bali", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e" },
-  { name: "New York, USA", slug: "new-york", image: "https://images.unsplash.com/photo-1534447677768-be436bb09401" },
-  { name: "Tokyo, Japan", slug: "tokyo", image: "https://images.unsplash.com/photo-1551776235-dde6d4829808" },
+	{ name: "Bali, Indonesia", slug: "bali", image: "bali.jpeg" },
+	{ name: "Nairobi, Kenya", slug: "nairobi", image: "https://images.unsplash.com/photo-1558979158-65a1eaa08691" },
+	{ name: "Bali, Indonesia", slug: "bali", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e" },
+	{ name: "New York, USA", slug: "new-york", image: "https://images.unsplash.com/photo-1534447677768-be436bb09401" },
+	{name: "Tokyo, Japan", slug: "tokyo", image: "https://images.unsplash.com/photo-1551776235-dde6d4829808" },
 ];
 
 // Custom carousel arrows
