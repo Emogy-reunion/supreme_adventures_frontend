@@ -6,6 +6,7 @@
 	align-items: center;
 	color: #102533;
 	background-color: transparent;
+	white-space: nowrap;
 }
 
 .nav-link:hover {
