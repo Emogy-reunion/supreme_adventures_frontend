@@ -39,14 +39,16 @@ nav {
 nav ul {
         list-style: none;
         display: flex;
+	flex-wrap: nowrap;
         justify-content: center;
 }
 
 nav li {
         height: 50px;
+	white-space: nowrap;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
 	nav ul {
                 display: flex;
                 justify-content: flex-end;
