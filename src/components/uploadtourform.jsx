@@ -26,7 +26,7 @@ const TourForm = () => {
                 included: '',
                 excluded: '',
         });
-        const [tourFiles, setTourFiles] = useState([]);
+        const [tourImage, setTourImage] = useState(null);
 	const [tourPoster, setTourPoster] = useState(null);
 
 	const handleTourChange = (e) => {
@@ -35,15 +35,15 @@ const TourForm = () => {
         };
 
 	const handleFileChange = (e) => {
-		const files = Array.from(e.target.files);
+		const file = e.target.files[0]; // Only one image expected
 
-		files.forEach((file) => {
-			const reader = new FileReader();
-			reader.onloadend = () => {
-				setTourFiles((prev) => [...prev, { file, preview: reader.result }]);
-			};
-			reader.readAsDataURL(file);
-		});
+                if (file) {
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                                setTourImage({ file, preview: reader.result });
+                        };
+                        reader.readAsDataURL(file);
+                }
 	};
 
 
@@ -72,9 +72,7 @@ const TourForm = () => {
 			formData.append(key, value);
 		});
 
-		tourFiles.forEach((fileObj) => {
-  			formData.append('files', fileObj.file);
-		});
+		formData.append('preview', tourImage.file);
 
 		formData.append('poster', tourPoster.file);
 
@@ -134,10 +132,6 @@ const TourForm = () => {
 	};
 
 
-	const removeFile = (indexToRemove) => {
-		setTourFiles((prev) => prev.filter((_, index) => index !== indexToRemove));
-	};
-
 	return (
 		<>
 			{loading && (
@@ -158,10 +152,10 @@ const TourForm = () => {
                                                 { label: 'Destination', name: 'destination' },
                                                 { label: 'Start Date', name: 'start_date', type: 'datetime-local' },
                                                 { label: 'End Date', name: 'end_date', type: 'datetime-local' },
-                                                { label: 'Days', name: 'days', type: 'number' },
-                                                { label: 'Nights', name: 'nights', type: 'number' },
-                                                { label: 'Original Price', name: 'original_price', type: 'number' },
-                                                { label: 'Discount (%)', name: 'discount_percent', type: 'number' },
+                                                { label: 'Days', name: 'days', type: 'number', min: 1, max: 60 },
+                                                { label: 'Nights', name: 'nights', type: 'number', min: 0, max: 60 },
+                                                { label: 'Original Price', name: 'original_price', type: 'number', min: 0, max: 1000000 },
+                                                { label: 'Discount (%)', name: 'discount_percent', type: 'number', min: 0, max: 100 },
                                         ].map((field) => (
                                                 <div className={styles['form-group']} key={field.name}>
                                                         <label>{field.label}</label>
@@ -171,6 +165,8 @@ const TourForm = () => {
                                                                 value={tourData[field.name]}
                                                                 onChange={handleTourChange}
                                                                 required
+								min={field.min}
+      								max={field.max}
                                                         />
 							{formErrors[field.name] && (
 								<p className={styles['error-message']}>{formErrors[field.name]}</p>
@@ -235,7 +231,7 @@ const TourForm = () => {
 
 					<div className={styles['form-group']}>
                                                 <label>Poster</label>
-                                                <input type="file" id="poster-upload" onChange={handlePosterChange} required style={{ display: 'none' }}/>
+                                                <input type="file" id="poster-upload" onChange={handlePosterChange} style={{ display: 'none' }}/>
 						<label htmlFor="poster-upload" className={styles['upload-container']}>
   							<FaCloudUploadAlt className={styles['upload-icon']} />
   							<p className={styles['upload-text']}>Click to upload poster</p>
@@ -255,21 +251,23 @@ const TourForm = () => {
 
                                         <div className={styles['form-group']}>
                                                 <label>Files</label>
-                                                <input type="file" id='images-upload' multiple onChange={handleFileChange} required style={{ display: 'none' }} />
+                                                <input type="file" id='images-upload' onChange={handleFileChange} style={{ display: 'none' }} />
 
 						<label htmlFor="images-upload" className={styles['upload-container']}>
                                                         <FaCloudUploadAlt className={styles['upload-icon']} />
-                                                        <p className={styles['upload-text']}>Click to upload Tour images</p>
+                                                        <p className={styles['upload-text']}>Click to upload Tour preview image</p>
                                                 </label>
                                         </div>
 					
 					<div className={styles["preview-container"]}>
-						{tourFiles.map((item, index) => (
-    							<div className={styles["preview-card"]} key={index}>
-      								<button className={styles["remove-button"]} onClick={() => removeFile(index)}>×</button>
-      								<img src={item.preview} alt={`Preview ${index}`} className={styles["preview-img"]} />
+						{tourImage ?  (
+    							<div className={styles["preview-card"]}>
+      								<button className={styles["remove-button"]} onClick={() => setTourImage(null)}>×</button>
+      								<img src={tourImage.preview} alt='Image preview' className={styles["preview-img"]} />
     							</div>
-  						))}
+  						) : ( 
+							<p> No image selected yet</p>
+						)}
 					</div>
 
                                         <div className={styles['button-container']}>
