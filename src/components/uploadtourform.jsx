@@ -229,7 +229,7 @@ const TourForm = () => {
 
 					<div className={styles['form-group']}>
                                                 <label>Poster</label>
-                                                <input type="file" id="poster-upload" onChange={handlePosterChange} required style={{ display: 'none' }}/>
+                                                <input type="file" id="poster-upload" onChange={handlePosterChange} style={{ display: 'none' }}/>
 						<label htmlFor="poster-upload" className={styles['upload-container']}>
   							<FaCloudUploadAlt className={styles['upload-icon']} />
   							<p className={styles['upload-text']}>Click to upload poster</p>
@@ -249,7 +249,7 @@ const TourForm = () => {
 
                                         <div className={styles['form-group']}>
                                                 <label>Files</label>
-                                                <input type="file" id='images-upload' onChange={handleFileChange} required style={{ display: 'none' }} />
+                                                <input type="file" id='images-upload' onChange={handleFileChange} style={{ display: 'none' }} />
 
 						<label htmlFor="images-upload" className={styles['upload-container']}>
                                                         <FaCloudUploadAlt className={styles['upload-icon']} />
