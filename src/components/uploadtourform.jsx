@@ -26,7 +26,7 @@ const TourForm = () => {
                 included: '',
                 excluded: '',
         });
-        const [tourFiles, setTourFiles] = useState([]);
+        const [tourImage, setTourImage] = useState(null);
 	const [tourPoster, setTourPoster] = useState(null);
 
 	const handleTourChange = (e) => {
@@ -35,15 +35,15 @@ const TourForm = () => {
         };
 
 	const handleFileChange = (e) => {
-		const files = Array.from(e.target.files);
+		const file = e.target.files[0]; // Only one image expected
 
-		files.forEach((file) => {
-			const reader = new FileReader();
-			reader.onloadend = () => {
-				setTourFiles((prev) => [...prev, { file, preview: reader.result }]);
-			};
-			reader.readAsDataURL(file);
-		});
+                if (file) {
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                                setTourImage({ file, preview: reader.result });
+                        };
+                        reader.readAsDataURL(file);
+                }
 	};
 
 
@@ -72,9 +72,7 @@ const TourForm = () => {
 			formData.append(key, value);
 		});
 
-		tourFiles.forEach((fileObj) => {
-  			formData.append('files', fileObj.file);
-		});
+		formData.append('preview', tourImage.file);
 
 		formData.append('poster', tourPoster.file);
 
@@ -133,10 +131,6 @@ const TourForm = () => {
 		}
 	};
 
-
-	const removeFile = (indexToRemove) => {
-		setTourFiles((prev) => prev.filter((_, index) => index !== indexToRemove));
-	};
 
 	return (
 		<>
@@ -255,21 +249,23 @@ const TourForm = () => {
 
                                         <div className={styles['form-group']}>
                                                 <label>Files</label>
-                                                <input type="file" id='images-upload' multiple onChange={handleFileChange} required style={{ display: 'none' }} />
+                                                <input type="file" id='images-upload' onChange={handleFileChange} required style={{ display: 'none' }} />
 
 						<label htmlFor="images-upload" className={styles['upload-container']}>
                                                         <FaCloudUploadAlt className={styles['upload-icon']} />
-                                                        <p className={styles['upload-text']}>Click to upload Tour images</p>
+                                                        <p className={styles['upload-text']}>Click to upload Tour preview image</p>
                                                 </label>
                                         </div>
 					
 					<div className={styles["preview-container"]}>
-						{tourFiles.map((item, index) => (
+						{tourImage ?  (
     							<div className={styles["preview-card"]} key={index}>
-      								<button className={styles["remove-button"]} onClick={() => removeFile(index)}>×</button>
+      								<button className={styles["remove-button"]} onClick={() => setTourImage(null)}>×</button>
       								<img src={item.preview} alt={`Preview ${index}`} className={styles["preview-img"]} />
     							</div>
-  						))}
+  						) : ( 
+							<p> No image selected yet</p>
+						)}
 					</div>
 
                                         <div className={styles['button-container']}>
