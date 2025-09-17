@@ -259,7 +259,7 @@ const TourForm = () => {
 					
 					<div className={styles["preview-container"]}>
 						{tourImage ?  (
-    							<div className={styles["preview-card"]} key={index}>
+    							<div className={styles["preview-card"]}>
       								<button className={styles["remove-button"]} onClick={() => setTourImage(null)}>×</button>
       								<img src={tourImage.preview} alt='Image preview' className={styles["preview-img"]} />
     							</div>
