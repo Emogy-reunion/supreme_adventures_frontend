@@ -154,8 +154,8 @@ const TourForm = () => {
                                                 { label: 'End Date', name: 'end_date', type: 'datetime-local' },
                                                 { label: 'Days', name: 'days', type: 'number', min: 1, max: 60 },
                                                 { label: 'Nights', name: 'nights', type: 'number', min: 0, max: 60 },
-                                                { label: 'Original Price', name: 'original_price', type: 'number' },
-                                                { label: 'Discount (%)', name: 'discount_percent', type: 'number' },
+                                                { label: 'Original Price', name: 'original_price', type: 'number', min: 0, max: 1000000 },
+                                                { label: 'Discount (%)', name: 'discount_percent', type: 'number', min: 0, max: 100 },
                                         ].map((field) => (
                                                 <div className={styles['form-group']} key={field.name}>
                                                         <label>{field.label}</label>
