@@ -152,8 +152,8 @@ const TourForm = () => {
                                                 { label: 'Destination', name: 'destination' },
                                                 { label: 'Start Date', name: 'start_date', type: 'datetime-local' },
                                                 { label: 'End Date', name: 'end_date', type: 'datetime-local' },
-                                                { label: 'Days', name: 'days', type: 'number' },
-                                                { label: 'Nights', name: 'nights', type: 'number' },
+                                                { label: 'Days', name: 'days', type: 'number', min: 1, max: 60 },
+                                                { label: 'Nights', name: 'nights', type: 'number', min: 0, max: 60 },
                                                 { label: 'Original Price', name: 'original_price', type: 'number' },
                                                 { label: 'Discount (%)', name: 'discount_percent', type: 'number' },
                                         ].map((field) => (
@@ -165,6 +165,8 @@ const TourForm = () => {
                                                                 value={tourData[field.name]}
                                                                 onChange={handleTourChange}
                                                                 required
+								min={field.min}
+      								max={field.max}
                                                         />
 							{formErrors[field.name] && (
 								<p className={styles['error-message']}>{formErrors[field.name]}</p>
