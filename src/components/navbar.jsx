@@ -19,6 +19,11 @@ const NavBar = () => {
     const isActive = (path) => {
         return router.pathname === path ? styles['active-link'] : '';
     };
+    
+    const handleSelect = (e) => {
+	    const value = e.target.value;
+	    if (value) router.push(value);
+    };
 
     return (
         <nav>
@@ -31,17 +36,18 @@ const NavBar = () => {
                     <Link href='/about' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
                 </li>
 
-                <li className={styles['hide-on-mobile']}>
-                    <Link href='/destinations' className={`${styles['nav-link']} ${isActive('/destinations')}`}>Destinations</Link>
-                </li>
-
-                <li className={styles['hide-on-mobile']}>
-                    <Link href='/guest-tours' className={`${styles['nav-link']} ${isActive('/guest-tours')}`}>Trips</Link>
-                </li>
-
-                <li className={styles['hide-on-mobile']}>
-                    <Link href='/guest-products' className={`${styles['nav-link']} ${isActive('/guest-products')}`}>Shop</Link>
-                </li>
+	    	<li className={styles['hide-on-mobile']}>
+        		<select
+          			className={styles['nav-select']}
+          			onChange={handleSelect}
+          			defaultValue=""
+        		>
+          			<option value="" disabled>Discover</option>
+          			<option value="/destinations">Destinations</option>
+          			<option value="/guest-tours">Trips</option>
+          			<option value="/guest-products">Shop</option>
+        		</select>
+      		</li>
 
 		<li className={styles['hide-on-mobile']}>
                     <Link href='/contact' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
