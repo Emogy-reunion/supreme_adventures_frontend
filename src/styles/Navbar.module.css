@@ -71,10 +71,10 @@
   	padding: 0 30px;
   	color: inherit;
   	font-family: inherit;
-	line-height: 1;
-	vertical-align: middle;
 
 }
+
+
 
 .nav-select:focus {
   	outline: none;
