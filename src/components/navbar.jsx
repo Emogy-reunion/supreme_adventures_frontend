@@ -42,7 +42,7 @@ const NavBar = () => {
           			onChange={handleSelect}
           			defaultValue=""
         		>
-          			<option value="" disabled>Discover</option>
+          			<option value="" disabled>Travel</option>
           			<option value="/destinations">Destinations</option>
           			<option value="/guest-tours">Trips</option>
           			<option value="/guest-products">Shop</option>
