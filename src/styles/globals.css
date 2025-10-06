@@ -46,6 +46,8 @@ nav ul {
 nav li {
         height: 50px;
 	white-space: nowrap;
+	display: flex;
+	align-items: center;
 }
 
 @media screen and (max-width: 900px) {
