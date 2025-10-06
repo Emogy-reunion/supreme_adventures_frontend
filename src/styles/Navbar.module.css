@@ -14,7 +14,7 @@
 }
 
 .push-right {
-	margin-left: auto;
+	margin-left: 60px;
 }
 
 .menu-button {
@@ -68,7 +68,7 @@
   	border: none;
   	font-size: 1rem;
   	cursor: pointer;
-  	padding: 0.5rem;
+  	padding: 0 30px;
   	color: inherit;
   	font-family: inherit;
 }
