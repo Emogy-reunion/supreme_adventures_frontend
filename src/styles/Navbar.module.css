@@ -71,6 +71,7 @@
   	padding: 0 30px;
   	color: inherit;
   	font-family: inherit;
+	margin: auto 0;
 }
 
 .nav-select:focus {
