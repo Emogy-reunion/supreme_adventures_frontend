@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/navigation';
+import Link from 'next/link';
 import styles from '../styles/Registerform.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
