@@ -1,4 +1,5 @@
 import Slider from "react-slick";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowRight, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "../styles/LandingHero.module.css";
@@ -14,101 +15,73 @@ const destinations = [
 	{name: "Tokyo, Japan", slug: "tokyo", image: "https://images.unsplash.com/photo-1551776235-dde6d4829808" },
 ];
 
-// Custom carousel arrows
+
 const NextArrow = ({ onClick }) => (
-  <div className={styles.nextArrow} onClick={onClick}>
-    <ChevronRight size={24} />
-  </div>
+	<div className={styles.nextArrow} onClick={onClick}>
+		<ChevronRight size={24} />
+  	</div>
 );
 
 const PrevArrow = ({ onClick }) => (
-  <div className={styles.prevArrow} onClick={onClick}>
-    <ChevronLeft size={24} />
-  </div>
+	<div className={styles.prevArrow} onClick={onClick}>
+    		<ChevronLeft size={24} />
+  	</div>
 );
 
 const LandingHero = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    speed: 800,
-    autoplaySpeed: 4000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-  };
+	const settings = {
+    		dots: true,
+    		infinite: true,
+    		autoplay: true,
+    		speed: 800,
+    		autoplaySpeed: 4000,
+    		slidesToShow: 1,
+    		slidesToScroll: 1,
+    		arrows: true,
+    		nextArrow: <NextArrow />,
+    		prevArrow: <PrevArrow />,
+  	};
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const destination = e.target.destination.value;
-    if (!destination) return;
-    window.location.href = `/trips?destination=${destination}`;
-  };
+	const router = useRouter();
 
-  return (
-    <section className={styles.heroSection}>
-      <Slider {...settings}>
-        {destinations.map((dest, index) => (
-          <div key={index} className={styles.slide}>
-            <div
-              className={styles.backgroundImage}
-              style={{ backgroundImage: `url(${dest.image})` }}
-            >
-              <div className={styles.overlay} />
-            </div>
+	return (
+    		<section className={styles.heroSection}>
+      			<Slider {...settings}>
+        			{destinations.map((dest, index) => (
+          				<div key={index} className={styles.slide}>
+            					<div
+              						className={styles.backgroundImage}
+              						style={{ backgroundImage: `url(${dest.image})` }}
+            					>
+              						<div className={styles.overlay} />
+            					</div>
 
-            <div className={styles.content}>
-              {/* Destination Name */}
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className={styles.title}
-              >
-                {dest.name}
-              </motion.h1>
+            					<div className={styles.content}>
+              						<motion.h1
+                						initial={{ opacity: 0, y: 30 }}
+                						animate={{ opacity: 1, y: 0 }}
+                						transition={{ duration: 0.8 }}
+                						className={styles.title}
+              						>
+                						{dest.name}
+              						</motion.h1>
 
-              {/* View Destination Button */}
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.3 }}
-                className={styles.viewButton}
-                onClick={() => (window.location.href = `/destinations/${dest.slug}`)}
-              >
-                View Destination <ArrowRight size={20} />
-              </motion.button>
-
-              {/* Search Bar */}
-              <motion.form
-                onSubmit={handleSearch}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-                className={styles.searchForm}
-              >
-                <select name="destination" className={styles.select} required>
-                  <option value="">Select your destination</option>
-                  {destinations.map((d, i) => (
-                    <option key={i} value={d.slug}>
-                      {d.name}
-                    </option>
-                  ))}
-                </select>
-
-                <button type="submit" className={styles.searchButton}>
-                  <Search size={18} /> Search
-                </button>
-              </motion.form>
-            </div>
-          </div>
-        ))}
-      </Slider>
-    </section>
-  );
+              						{/* View Destination Button */}
+              						<motion.button
+                						initial={{ opacity: 0, y: 20 }}
+                						animate={{ opacity: 1, y: 0 }}
+                						transition={{ duration: 1, delay: 0.3 }}
+                						className={styles.viewButton}
+                						onClick={() => router.push(`/destinations`)}
+              						>
+                						View Destinations <ArrowRight size={20} />
+              						</motion.button>
+            					</div>
+          				</div>
+        			))}
+      			</Slider>
+    		</section>
+  	);
 };
 
 export default LandingHero;
