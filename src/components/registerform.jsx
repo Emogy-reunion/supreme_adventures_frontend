@@ -184,7 +184,7 @@ const RegisterForm = () => {
                                                 </div>
 
 						<div className={styles['button-container']}>
-							<button type="submit" className={styles.btn}>Sign In</button>
+							<button type="submit" className={styles.btn}>Sign Up</button>
 						</div>
     					</form>
 
