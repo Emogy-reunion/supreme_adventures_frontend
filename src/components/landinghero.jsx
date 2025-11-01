@@ -14,7 +14,7 @@ const destinations = [
 	{ name: "Maasai Mara, Kenya", slug: "maasai-mara", image: "maasai-mara.jpg" },
 	{ name: "Diani, Kenya", slug: "diani", image: "diani.jpg" },
 	{ name: "Dubai, United Arab Emirates", slug: "dubai", image: "dubai.jpg" },
-	{name: "Tokyo, Japan", slug: "tokyo", image: "https://images.unsplash.com/photo-1551776235-dde6d4829808" },
+	{name: "Zanzibar, Tanzania", slug: "zanzibar", image: "zanzibar.jpg" },
 ];
 
 // Custom carousel arrows
@@ -76,7 +76,7 @@ const LandingHero = () => {
                 						animate={{ opacity: 1, y: 0 }}
                 						transition={{ duration: 1, delay: 0.3 }}
                 						className={styles.viewButton}
-                						onClick={() => router.push("/destination")}
+                						onClick={() => router.push("/destinations")}
               						>
                 						View Destinations <ArrowRight size={20} />
               						</motion.button>
