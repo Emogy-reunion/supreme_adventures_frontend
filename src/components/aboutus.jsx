@@ -20,6 +20,7 @@ const AboutUs= () => {
             				We believe travel is more than just a destination — it’s about stories, people, and unforgettable memories.
           			</p>
         		</div>
+		</div>
     </section>
   );
 };
