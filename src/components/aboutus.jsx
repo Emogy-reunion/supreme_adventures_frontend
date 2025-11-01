@@ -20,30 +20,6 @@ const AboutUs= () => {
             				We believe travel is more than just a destination — it’s about stories, people, and unforgettable memories.
           			</p>
         		</div>
-        		<div className={styles.imageGrid}>
-          			<Image
-            				src="/about-safari.jpg"
-            				alt="Safari vehicle in Maasai Mara"
-            				width={400}
-            				height={250}
-            				className={styles.image}
-          				/>
-          			<Image
-            				src="/about-beach.jpg"
-            				alt="Couple relaxing on Diani beach"
-            				width={400}
-            				height={250}
-            				className={styles.image}
-          				/>
-          			<Image
-            				src="/about-team.jpg"
-            				alt="Supreme Adventures team smiling"
-            				width={400}
-            				height={250}
-            				className={styles.image}
-          				/>
-        		</div>
-      		</div>
     </section>
   );
 }
