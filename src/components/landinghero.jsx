@@ -1,3 +1,5 @@
+"use client";
+
 import Slider from "react-slick";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -15,17 +17,17 @@ const destinations = [
 	{name: "Tokyo, Japan", slug: "tokyo", image: "https://images.unsplash.com/photo-1551776235-dde6d4829808" },
 ];
 
-
+// Custom carousel arrows
 const NextArrow = ({ onClick }) => (
-	<div className={styles.nextArrow} onClick={onClick}>
-		<ChevronRight size={24} />
-  	</div>
+  <div className={styles.nextArrow} onClick={onClick}>
+    <ChevronRight size={24} />
+  </div>
 );
 
 const PrevArrow = ({ onClick }) => (
-	<div className={styles.prevArrow} onClick={onClick}>
-    		<ChevronLeft size={24} />
-  	</div>
+  <div className={styles.prevArrow} onClick={onClick}>
+    <ChevronLeft size={24} />
+  </div>
 );
 
 const LandingHero = () => {
@@ -44,8 +46,9 @@ const LandingHero = () => {
 
 	const router = useRouter();
 
-	return (
-    		<section className={styles.heroSection}>
+
+  	return (
+		<section className={styles.heroSection}>
       			<Slider {...settings}>
         			{destinations.map((dest, index) => (
           				<div key={index} className={styles.slide}>
@@ -57,6 +60,7 @@ const LandingHero = () => {
             					</div>
 
             					<div className={styles.content}>
+              						{/* Destination Name */}
               						<motion.h1
                 						initial={{ opacity: 0, y: 30 }}
                 						animate={{ opacity: 1, y: 0 }}
@@ -72,7 +76,7 @@ const LandingHero = () => {
                 						animate={{ opacity: 1, y: 0 }}
                 						transition={{ duration: 1, delay: 0.3 }}
                 						className={styles.viewButton}
-                						onClick={() => router.push(`/destinations`)}
+                						onClick={() => router.push("/destination")}
               						>
                 						View Destinations <ArrowRight size={20} />
               						</motion.button>
