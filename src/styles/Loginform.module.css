@@ -34,7 +34,7 @@
 .login-container h2 {
 	margin-bottom: 25px;
 	font-size: 2rem;
-	color: #333;
+	color: #d90429;
 }
 
 .formWrapper {
@@ -69,7 +69,6 @@
 .form-group input:focus {
 	border-color: #d90429;
 	outline: none;
-	box-shadow: 0 0 0 2px #fde68a;
 }
 
 .check-box label {
