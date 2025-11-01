@@ -95,9 +95,10 @@
 .btn {
       	width: 100%;
       	padding: 12px;
-      	background: #3b82f6;
+      	background: #d90429;
       	border: none;
       	border-radius: 6px;
+	color: #ffffff;
       	font-weight: bold;
       	font-size: 1rem;
       	cursor: pointer;
@@ -105,7 +106,12 @@
 }
 
 .btn:hover {
-      	background: #2563eb;
+      	background: #b10320;
+	transform: translateY(-2px);
+}
+
+.btn:active {
+  	transform: translateY(0);
 }
 
 .footer-text {
@@ -117,12 +123,13 @@
 
 .link {
 	margin-bottom: 10px;
-      	color: #007BFF;
+      	color: #d90429;
       	text-decoration: none;
       	font-weight: 500;
 }
 .link:hover {
-      	color: #0056b3;
+      	text-decoration: underline;
+	color: #b10320;
 }
 
 .error-message {
@@ -168,7 +175,9 @@
         }
 
         .btn {
-                width: auto;
+		width: 180px;
+		padding: 14px;
+		font-size: 1.05rem;
         }
 
 	.logo img {
