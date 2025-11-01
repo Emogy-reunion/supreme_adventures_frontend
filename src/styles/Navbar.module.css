@@ -64,7 +64,7 @@
 }
 
 .travel-link {
-  color: white;
+  color: black;
   text-decoration: none;
   padding: 10px 15px;
   display: block;
@@ -73,7 +73,7 @@
 }
 
 .travel-link:hover {
-  color: #ffd700;
+  color: #00764d;
 }
 
 
