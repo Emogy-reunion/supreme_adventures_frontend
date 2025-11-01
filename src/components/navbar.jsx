@@ -37,17 +37,18 @@ const NavBar = () => {
                 </li>
 
 	    	<li className={styles['hide-on-mobile']}>
-        		<select
-          			className={styles['nav-select']}
-          			onChange={handleSelect}
-          			defaultValue=""
-        		>
-          			<option value="" disabled>Travel</option>
-          			<option value="/destinations">Destinations</option>
-          			<option value="/guest-tours">Trips</option>
-          			<option value="/guest-products">Shop</option>
-        		</select>
-      		</li>
+	    		<div className={styles['travel-dropdown']}>
+            			<span className={styles['travel-link']}>Travel</span>
+            			<ul className={styles['dropdown-menu']}>
+              				<li><Link href="/destinations" className={styles['travel-link']}>Destinations</Link></li>
+              				<li><Link href="/guest-tours" className={styles['travel-link']}>Trips</Link></li>
+            			</ul>
+          		</div>
+       		</li>
+
+	    	<li className={styles['hide-on-mobile']}>
+                    <Link href='/guest-products' className={`${styles['nav-link']} ${isActive('/guest-products')}`}>Shop</Link>
+                </li>
 
 		<li className={styles['hide-on-mobile']}>
                     <Link href='/contact' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
