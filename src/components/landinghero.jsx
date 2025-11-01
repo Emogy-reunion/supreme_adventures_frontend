@@ -10,11 +10,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 const destinations = [
-	{ name: "Bali, Indonesia", slug: "bali", image: "bali.jpeg" },
 	{ name: "Maasai Mara, Kenya", slug: "maasai-mara", image: "maasai-mara.jpg" },
 	{ name: "Diani, Kenya", slug: "diani", image: "diani.jpg" },
-	{ name: "Dubai, United Arab Emirates", slug: "dubai", image: "dubai.jpg" },
 	{name: "Zanzibar, Tanzania", slug: "zanzibar", image: "zanzibar.jpg" },
+	{ name: "Bali, Indonesia", slug: "bali", image: "bali.jpeg" },
+	{ name: "Dubai, United Arab Emirates", slug: "dubai", image: "dubai.jpg" },
 ];
 
 // Custom carousel arrows
