@@ -1,17 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  images: {
-	  domains: ['localhost'],
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'http://localhost:5000/api/:path*',
-      },
-    ];
-  },
+	reactStrictMode: true,
+	images: {
+		// add your real production domains for images
+		domains: ['www.supremeadventures.co.ke'],
+	},
+	async rewrites() {
+		return [
+			{
+				source: '/api/:path*',
+				destination: 'https://www.supremeadventures.co.ke/api/:path*', // backend on same domain
+			},
+		];
+	},
 };
 
 export default nextConfig;
