@@ -7,6 +7,7 @@ import Loading from '../../components/loading';
 import 'swiper/css/pagination';
 import Image from 'next/image';
 import { FaWhatsapp } from 'react-icons/fa';
+import MemberNavBar from '../components/membernavbar';
 
 import styles from '../../styles/TourDetails.module.css';
 
@@ -30,6 +31,8 @@ const MemberTourDetails = ({ tour, error }) => {
 
 
 	return (
+		<>
+		<MemberNavbar />
 		<div className={styles.container}>
 			{loading && (
 				<div className={styles.loadingOverlay}>
@@ -109,6 +112,7 @@ const MemberTourDetails = ({ tour, error }) => {
 				</button>
 			</div>
 		</div>
+		</>
 	);
 };
 
