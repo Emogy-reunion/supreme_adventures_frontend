@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import AdminNavBar from '../../components/adminNavbar';
 import styles from '../../styles/TourDetails.module.css';
 
 
@@ -20,31 +21,10 @@ const TourDetails = ({ tour, error }) => {
 
 
 	return (
+		<>
+		<AdminNavBar />
 		<div className={styles.container}>
 			<h1 className={styles.title}>{tour.name}</h1>
-
-			<Swiper
-				modules={[Navigation, Pagination]}
-				spaceBetween={20}
-				slidesPerView={1}
-				navigation
-				pagination={{ clickable: true }}
-				className={styles.swiperContainer}
-			>
-				{tour.images?.map((img, index) => (
-					<SwiperSlide key={index}>
-						<div className={styles.slide}>
-							<Image
-								src={`${baseUrl}/api/send_image/${img}`}
-								alt={`Tour Image ${index + 1}`}
-								width={1000}
-								height={500}
-								className={styles.image}
-							/>
-						</div>
-					</SwiperSlide>
-				))}
-			</Swiper>
 
 			{tour.poster && (
   				<div className={styles.posterWrapper}>
@@ -105,6 +85,7 @@ const TourDetails = ({ tour, error }) => {
 				</div>
 			</div>
 		</div>
+		</>
 	);
 };
 
