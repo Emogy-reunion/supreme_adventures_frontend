@@ -32,7 +32,7 @@ const MemberTourDetails = ({ tour, error }) => {
 
 	return (
 		<>
-		<MemberNavbar />
+		<MemberNavBar />
 		<div className={styles.container}>
 			{loading && (
 				<div className={styles.loadingOverlay}>
