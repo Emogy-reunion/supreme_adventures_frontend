@@ -94,7 +94,7 @@ const NavBar = () => {
 
       		<li>
         		<Link href="/destinations" className={`${styles['nav-link']} ${isActive('/destinations')}`}>
-          		Services
+          		Destinations
         		</Link>
       		</li>
 

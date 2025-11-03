@@ -32,13 +32,15 @@ const MemberNavBar = () => {
                     <Link href='/member-about' className={`${styles['nav-link']} ${isActive('/member-about')}`}>About Us</Link>
                 </li>
 
-                <li className={styles['hide-on-mobile']}>
-                    <Link href='/member-destinations' className={`${styles['nav-link']} ${isActive('/member-destinations')}`}>Destinations</Link>
-                </li>
-
-                <li className={styles['hide-on-mobile']}>
-                    <Link href='/member-tours' className={`${styles['nav-link']} ${isActive('/member-tours')}`}>Trips</Link>
-                </li>
+	    	<li className={styles['hide-on-mobile']}>
+	    		<div className={styles['travel-dropdown']}>
+	    			<span className={styles['travel-link']}>Travel</span>
+            			<ul className={styles['dropdown-menu']}>
+              				<li><Link href="/member-destinations" className={styles['travel-link']}>Destinations</Link></li>
+              				<li><Link href="/member-tours" className={styles['travel-link']}>Trips</Link></li>
+            			</ul>
+          		</div>
+       		</li>
 
                 <li className={styles['hide-on-mobile']}>
                     <Link href='/member-products' className={`${styles['nav-link']} ${isActive('/member-products')}`}>Shop</Link>
@@ -66,7 +68,7 @@ const MemberNavBar = () => {
             </ul>
 
             <ul className={isHidden ? styles['hide-sidebar'] : styles.sidebar}>
-                <li>
+g               <li>
                         <Link href="#" className={styles['nav-link']} onClick={HideSidebar}>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                                 <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
@@ -82,7 +84,7 @@ const MemberNavBar = () => {
 
                 <li>
                         <Link href="/member-about" className={`${styles['nav-link']} ${isActive('/member-about')}`}>
-                        About
+                        About Us
                         </Link>
                 </li>
 
