@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Registerform.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -184,7 +184,7 @@ const RegisterForm = () => {
                                                 </div>
 
 						<div className={styles['button-container']}>
-							<button type="submit" className={styles.btn}>Sign In</button>
+							<button type="submit" className={styles.btn}>Sign Up</button>
 						</div>
     					</form>
 

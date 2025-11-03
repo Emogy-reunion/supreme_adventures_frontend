@@ -1,27 +1,33 @@
 .socialSection {
-  	padding: 40px 24px;
+	width: 100%;
+  	padding: 60px 0;
   	text-align: center;
   	background-color: #fff;
 }
 
 .socialSection h3 {
-  	font-size: 1.5rem;
-  	margin-bottom: 20px;
-  	color: red;
+  	font-size: 1.8rem;
+  	font-weight: 600;
+  	margin-bottom: 40px;
+  	color: #dc2626;
+  	letter-spacing: 1px;
 }
 
 .icons {
   	display: flex;
   	justify-content: center;
-  	gap: 24px;
-  	font-size: 1.8rem;
+  	align-items: center;
+  	gap: 50px;
+  	flex-wrap: wrap;
+  	font-size: 2.8rem;
 }
 
 .icons a {
-  	color: #111827;
-  	transition: color 0.3s ease;
+  	color: #dc2626;
+  	transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .icons a:hover {
-  	color: #2563eb;
+  color: #b91c1c;
+  transform: scale(1.1);
 }

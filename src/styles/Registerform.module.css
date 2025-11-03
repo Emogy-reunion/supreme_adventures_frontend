@@ -35,7 +35,7 @@
 .signup-container h2 {
 	margin-bottom: 25px;
 	font-size: 2rem;
-	color: #333;
+	color: #d90429;
 }
 
 .signup-form {
@@ -78,9 +78,8 @@
 }
 
 .form-group input:focus {
-	border-color: #facc15;
+	border-color: #d90429;
 	outline: none;
-	box-shadow: 0 0 0 2px #fde68a;
 }
 
 .button-container {
@@ -91,9 +90,10 @@
 .btn {
       	width: 100%;
       	padding: 12px;
-      	background: #facc15;
+      	background: #d90429;
       	border: none;
       	border-radius: 6px;
+	color: #ffffff;
       	font-weight: bold;
       	font-size: 1rem;
       	cursor: pointer;
@@ -101,7 +101,7 @@
 }
 
 .btn:hover {
-      	background: #eab308;
+      	background: #b10320;
 }
 
 .footer-text {
@@ -113,11 +113,12 @@
 
 .link {
 	margin-bottom: 10px;
-      	color: #facc15;
+      	color: #d90429;
       	text-decoration: none;
       	font-weight: 500;
 }
 .link:hover {
+	color: #b10320;
       	text-decoration: underline;
 }
 
@@ -127,7 +128,9 @@
         }
 
         .btn {
-                width: auto;
+                width: 180px;
+		padding: 14px;
+		font-size: 1.05rem;
         }
 
 	.logo img {

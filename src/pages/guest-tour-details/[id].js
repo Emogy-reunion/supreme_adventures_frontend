@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import Image from 'next/image';
 import { FaWhatsapp } from 'react-icons/fa';
 import Link from 'next/link';
+import NavBar from '../../components/navbar';
 import styles from '../../styles/TourDetails.module.css';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -20,6 +21,8 @@ const GuestTourDetails = ({ tour, error }) => {
 	const excludedItems = tour.excluded?.split('\n').filter(Boolean);
 
 	return (
+		<>
+		<NavBar />
 		<div className={styles.container}>
 			<h1 className={styles.title}>{tour.name}</h1>
 
@@ -100,6 +103,7 @@ const GuestTourDetails = ({ tour, error }) => {
 				</p>
 			</div>
 		</div>
+		</>
 	);
 };
 

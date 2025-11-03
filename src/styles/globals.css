@@ -40,12 +40,14 @@ nav ul {
         list-style: none;
         display: flex;
 	flex-wrap: nowrap;
-        justify-content: center;
+        justify-content: flex-end;
 }
 
 nav li {
         height: 50px;
 	white-space: nowrap;
+	display: flex;
+	align-items: center;
 }
 
 @media screen and (max-width: 900px) {

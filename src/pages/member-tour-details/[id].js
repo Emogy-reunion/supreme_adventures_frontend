@@ -6,6 +6,8 @@ import 'swiper/css/navigation';
 import Loading from '../../components/loading';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import { FaWhatsapp } from 'react-icons/fa';
+import MemberNavBar from '../../components/membernavbar';
 
 import styles from '../../styles/TourDetails.module.css';
 
@@ -27,74 +29,10 @@ const MemberTourDetails = ({ tour, error }) => {
 	const includedItems = tour.included?.split('\n').filter(Boolean);
 	const excludedItems = tour.excluded?.split('\n').filter(Boolean);
 
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-		setGlobalError(null);
-		setFormErrors({});
-		setSuccessMessage(null);
-
-		const formData = new FormData();
-		formData.append('phone_number', mpesaNumber);
-		formData.append('tour_id', tour.tour_id);
-		const formJson = Object.fromEntries(formData.entries());
-
-		setLoading(true);
-		const start = Date.now();
-		try {
-			const response = await fetch('/api/book', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				credentials: 'include',
-				body: JSON.stringify(formJson),
-			});
-
-			data = await response.json();
-
-			if (!response.ok) {
-				if (data.errors) {
-					const formattedErrors = Object.keys(data.errors).reduce((acc, key) => {
-						acc[key] = data.errors[key].join(', ');
-						return acc;
-					}, {});
-
-					setFormErrors(formattedErrors);
-					setTimeout(() => {
-						setFormErrors({});
-					}, 5000);
-				} else if (data.error) {
-					setGlobalError(data.error);
-					setTimeout(() => {
-						setGlobalError(null);
-					}, 5000);
-				} else {
-					console.error('Unexpected error format:', data);
-					setGlobalError('An unexpected error occurred. Please try again.');
-					setTimeout(() => {
-                                                setGlobalError(null);
-                                        }, 5000);
-				}
-			} else {
-				setSuccessMessage(data.success);
-				setTimeout(() => {
-					setSuccessMessage(null);
-				}, 4000);
-			}
-		} catch(error) {
-			alert('Network error. Please try again.');
-		} finally {
-			const end = Date.now();
-			const elapsed = end - start;
-			const minLoadingTime = 800; // milliseconds
-
-			setTimeout(() => {
-				setLoading(false);
-			}, Math.max(minLoadingTime - elapsed, 0));
-		}
-	};
 
 	return (
+		<>
+		<MemberNavBar />
 		<div className={styles.container}>
 			{loading && (
 				<div className={styles.loadingOverlay}>
@@ -102,29 +40,6 @@ const MemberTourDetails = ({ tour, error }) => {
 				</div>
 			)}
 			<h1 className={styles.title}>{tour.name}</h1>
-
-			<Swiper
-				modules={[Navigation, Pagination]}
-				spaceBetween={20}
-				slidesPerView={1}
-				navigation
-				pagination={{ clickable: true }}
-				className={styles.swiperContainer}
-			>
-				{tour.images?.map((img, index) => (
-					<SwiperSlide key={index}>
-						<div className={styles.slide}>
-							<Image
-								src={`${baseUrl}/api/send_image/${img}`}
-								alt={`Tour Image ${index + 1}`}
-								width={1000}
-								height={500}
-								className={styles.image}
-							/>
-						</div>
-					</SwiperSlide>
-				))}
-			</Swiper>
 
 			 {tour.poster && (
                                 <div className={styles.posterWrapper}>
@@ -186,43 +101,18 @@ const MemberTourDetails = ({ tour, error }) => {
 
 			<div className={styles.bookingSection}>
 				<button
-					className={styles.bookNowBtn}
-					onClick={() => setShowBookingForm(!showBookingForm)}
+					className={styles.whatsappButton}
+					onClick={() => {
+						const message = encodeURIComponent(`Hello, I'm interested in booking the tour: ${tour.name}`);
+						window.open(`https://wa.me/254759080100?text=${message}`, '_blank');
+					}}
 				>
-					{showBookingForm ? 'Cancel' : 'Book Now'}
+					<FaWhatsapp className={styles.whatsappIcon} />
+					Book via WhatsApp
 				</button>
-
-				{showBookingForm && (
-					<form className={styles.bookingForm} onSubmit={handleSubmit}>
-						{(globalError || successMessage) && (
-							<div className={globalError ? styles['error'] : styles['success-message']}>
-								<p>{globalError || successMessage}</p>
-							</div>
-						)}
-						<div className={styles["form-group"]}>
-							<label htmlFor="phone_number">Enter M-Pesa Number:</label>
-							<input
-								type="text"
-								id="phone_number"
-								name='phone_number'
-								value={mpesaNumber}
-								onChange={(e) => setMpesaNumber(e.target.value)}
-								className={styles.input}
-								pattern="^2547[0-9]{8}$"
-    								placeholder="e.g. 254712345678"
-								required
-							/>
-						</div>
-						{formErrors.phone_number && (
-							<p className={styles['error-message']}>{formErrors.phone_number}</p>
-						)}
-						<button type="submit" className={styles.submitBtn}>
-							Submit Payment
-						</button>
-					</form>
-				)}
 			</div>
 		</div>
+		</>
 	);
 };
 
