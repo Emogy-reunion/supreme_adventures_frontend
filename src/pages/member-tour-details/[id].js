@@ -7,7 +7,7 @@ import Loading from '../../components/loading';
 import 'swiper/css/pagination';
 import Image from 'next/image';
 import { FaWhatsapp } from 'react-icons/fa';
-import MemberNavBar from '../components/membernavbar';
+import MemberNavBar from '../../components/membernavbar';
 
 import styles from '../../styles/TourDetails.module.css';
 
