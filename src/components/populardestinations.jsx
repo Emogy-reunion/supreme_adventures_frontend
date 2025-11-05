@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/Popular.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 const PopularDestinations = () => {
@@ -50,6 +51,12 @@ const PopularDestinations = () => {
     							<p>Escape to paradise — relax on white-sand beaches, explore turquoise waters, and unwind in the serene beauty of Zanzibar.</p>
   						</div>
 					</div>
+
+					<div className={styles.buttonContainer}>
+                                        	<Link href="/destinations" className={styles.exploreButton}>
+                                                	Explore Destinations
+                                        	</Link>
+                                	</div>
     				</div>
   			</section>
 		</>
