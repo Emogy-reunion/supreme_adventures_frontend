@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --brand-red: #d90429;
+  --text: #111827;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --gap: 28px;
+}
+
 *{
 	margin: 0;
 	padding: 0;
