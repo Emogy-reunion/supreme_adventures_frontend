@@ -1,20 +1,21 @@
 "use client";
 
-import Slider from "react-slick";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowRight, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "../styles/LandingHero.module.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import Image from "next/image";
 
 
 const destinations = [
-	{ name: "Maasai Mara, Kenya", slug: "maasai-mara", image: "maasai-mara.jpg" },
-	{ name: "Diani, Kenya", slug: "diani", image: "diani.jpg" },
-	{name: "Zanzibar, Tanzania", slug: "zanzibar", image: "zanzibar.jpg" },
-	{ name: "Bali, Indonesia", slug: "bali", image: "bali.jpeg" },
-	{ name: "Dubai, United Arab Emirates", slug: "dubai", image: "dubai.jpg" },
+	{ name: "Maasai Mara, Kenya", slug: "maasai-mara", image: "/maasai-mara.jpg" },
+	{ name: "Diani, Kenya", slug: "diani", image: "/diani.jpg" },
+	{name: "Zanzibar, Tanzania", slug: "zanzibar", image: "/zanzibar.jpg" },
+	{ name: "Bali, Indonesia", slug: "bali", image: "/bali.jpeg" },
+	{ name: "Dubai, United Arab Emirates", slug: "dubai", image: "/dubai.jpg" },
 ];
 
 // Custom carousel arrows
@@ -52,12 +53,22 @@ const LandingHero = () => {
       			<Slider {...settings}>
         			{destinations.map((dest, index) => (
           				<div key={index} className={styles.slide}>
-            					<div
-              						className={styles.backgroundImage}
-              						style={{ backgroundImage: `url(${dest.image})` }}
-            					>
-              						<div className={styles.overlay} />
-            					</div>
+						<div className={styles.backgroundImage}>
+  							<div style={{ position: "relative", width: "100%", height: "100%" }}>
+    								<Image
+      									src={dest.image}
+      									alt={dest.name}
+      									fill
+      									style={{ objectFit: "cover" }}
+      									priority={index === 0}
+      									quality={75}
+      									sizes="(max-width: 640px) 100vw, 1200px"
+    								/>
+  							</div>
+
+  							<div className={styles.overlay} />
+						</div>
+
 
             					<div className={styles.content}>
               						{/* Destination Name */}
