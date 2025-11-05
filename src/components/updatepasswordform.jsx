@@ -82,19 +82,20 @@ const UpdatePasswordForm = ({ token }) => {
 			}
 		} catch(error) {
 			alert('Network error. Please try again!');
-		} const end = Date.now();
-			const elapsed = end - start;
-			const minLoadingTime = 800; // milliseconds
+		} 
+		const end = Date.now();
+		const elapsed = end - start;
+		const minLoadingTime = 800; // milliseconds
 
-			setTimeout(() => {
-				setLoading(false);
-			}, Math.max(minLoadingTime - elapsed, 0));
-		}
+		setTimeout(() => {
+			setLoading(false);
+		}, Math.max(minLoadingTime - elapsed, 0));
 	};
 
+
 	return (
-			<>
-				<section id={styles['update-password-section']}>
+		<>
+			<section id={styles['update-password-section']}>
 					{loading && (
 					<div className={styles.loadingOverlay}>
 						<Loading />
