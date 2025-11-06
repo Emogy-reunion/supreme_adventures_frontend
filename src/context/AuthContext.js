@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 const AuthContext = createContext();
@@ -11,7 +11,34 @@ export function AuthProvider({ children }) {
 	const [isLoggingOut, setIsLoggingOut] = useState(false);
 	const router = useRouter();
 
-	const checkLogin = useCallback(async () => {
+	const publicPaths = [
+		'/',
+		'/about',
+		'/contact',
+		'/login',
+		'/register',
+		'/destinations',
+		'/guest-tours',
+		'/guest-products',
+		'/_next',
+		'/static',
+	];
+
+	const isPublicRoute = (path) => {
+		return publicPaths.some(p => path === p || path.startsWith(p));
+	};
+
+	const redirectToLoginIfNeeded = (pathname) => {
+		if (!isPublicRoute(pathname || router.pathname)) {
+			router.push('/login');
+		} else {
+			setAuthStatus('logged_out');
+			setUserRole(null);
+		}
+	};
+
+
+	const checkLogin = async () => {
 		try {
 			const response = await fetch(`/api/is_logged_in`, {
 				method: 'GET',
@@ -23,8 +50,7 @@ export function AuthProvider({ children }) {
 			} else {
 				const refreshed = await tryRefreshToken();
 				if (refreshed) {
-
-					const retryResponse = await fetch(`/api/is_logged_in`,{
+					const retryResponse = await fetch(`/api/is_logged_in`, {
 						method: 'GET',
 						credentials: 'include',
 					});
@@ -32,16 +58,17 @@ export function AuthProvider({ children }) {
 					if (retryResponse.ok) {
 						await handleAuthResponse(retryResponse);
 					} else {
-						logoutAndRedirect();
+						redirectToLoginIfNeeded();
 					}
 				} else {
-					logoutAndRedirect();
+					redirectToLoginIfNeeded();
 				}
 			}
 		} catch (error) {
-			logoutAndRedirect();
+			redirectToLoginIfNeeded();
 		}
-	}, []);
+	};
+
 
 	
 	const handleAuthResponse = async (response) => {
@@ -73,7 +100,7 @@ export function AuthProvider({ children }) {
 	const logoutAndRedirect = () => {
 		setAuthStatus('logged_out');
 		setUserRole(null);
-		router.push('/login');
+		redirectToLoginIfNeeded();
 	};
 
 	const logout = async () => {
@@ -94,19 +121,19 @@ export function AuthProvider({ children }) {
 
 	useEffect(() => {
 		checkLogin();
-	}, [checkLogin]);
+	}, [router.pathname]);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
 			if (authStatus === 'admin' || authStatus === 'member') {
 				checkLogin();
 			} else if (authStatus !== 'loading') {
-				logoutAndRedirect();
+				redirectToLoginIfNeeded(router.pathname);
 			}
 		}, 5 * 60 * 1000);
 
 		return () => clearInterval(interval);
-	}, [authStatus, checkLogin]);
+	}, [authStatus, router.pathname]);
 
 
 	return (

@@ -14,16 +14,16 @@ import styles from '../../styles/TourDetails.module.css';
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const MemberTourDetails = ({ tour, error }) => {
-	if (error) {
-		return <p className={styles.error}>{error}</p>;
-	}
 
-	const [showBookingForm, setShowBookingForm] = useState(false);
-	const [mpesaNumber, setMpesaNumber] = useState('');
 	const [globalError, setGlobalError] = useState(null);
 	const [successMessage, setSuccessMessage] = useState(null);
 	const [formErrors, setFormErrors] = useState({});
 	const [loading, setLoading] = useState(false);
+
+	if (error) {
+		return <p className={styles.error}>{error}</p>;
+	}
+
 
 
 	const includedItems = tour.included?.split('\n').filter(Boolean);

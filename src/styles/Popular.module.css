@@ -87,27 +87,34 @@
       	margin-bottom: 10px;
 }
 
-.inquireButton {
-    	display: inline-block;
-    	margin-top: 1rem;
-    	padding: 10px 16px;
-    	background-color: #007bff;
-    	color: #fff;
-    	border-radius: 5px;
-    	text-decoration: none;
-    	font-weight: 500;
-    	text-align: center;
-    	transition: background-color 0.3s ease, transform 0.3s ease;
-    	cursor: pointer;
-	margin: 0 auto;
+.buttonContainer {
+  	width: 100%;
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	margin-top: 2rem;
+  	text-align: center;
+  	flex-basis: 100%;
 }
 
-.inquireButton:hover {
-    	background-color: #0056b3;
-    	transform: scale(1.05);
+.exploreButton {
+  	display: inline-block;
+  	padding: 12px 28px;
+  	background-color: #d90429;
+  	color: #fff;
+  	font-size: 1.1rem;
+  	font-weight: 600;
+  	border-radius: 8px;
+  	text-decoration: none;
+  	text-transform: uppercase;
+ 	letter-spacing: 0.5px;
+  	box-shadow: 0 4px 10px rgba(220, 38, 38, 0.25);
+  	transition: all 0.3s ease;
 }
 
-.button-container {
-	display: flex;
-	justify-content: center;
+.exploreButton:hover {
+  	background-color: #b10320;
+  	transform: translateY(-4px);
+  	box-shadow: 0 6px 16px rgba(220, 38, 38, 0.35);
 }
+
