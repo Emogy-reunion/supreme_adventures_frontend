@@ -43,3 +43,5 @@ next-env.d.ts
 
 # PM2 configuration (server only)
 ecosystem.config.js
+
+next.config.mjs
