@@ -19,39 +19,39 @@ const NavBar = () => {
     const isActive = (path) => {
         return router.pathname === path ? styles['active-link'] : '';
     };
+    
+    const handleSelect = (e) => {
+	    const value = e.target.value;
+	    if (value) router.push(value);
+    };
 
     return (
         <nav>
             <ul>
-
-	    	<li className={styles.pushLeft}>
-	    		<Link href="/">
-        			<img src="/supreme.svg" alt="supreme company logo" className={styles.logo} />
-      			</Link>
-	    	</li>
-
                 <li className={styles['hide-on-mobile']}>
                     <Link href='/' className={`${styles['nav-link']} ${isActive('/')}`}>Home</Link>
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
+                    <Link href='/about' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
                 </li>
 
-                <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/destinations')}`}>Destinations</Link>
-                </li>
+	    	<li className={styles['hide-on-mobile']}>
+	    		<div className={styles['travel-dropdown']}>
+            			<span className={styles['travel-link']}>Travel</span>
+            			<ul className={styles['dropdown-menu']}>
+              				<li><Link href="/destinations" className={styles['travel-link']}>Destinations</Link></li>
+              				<li><Link href="/guest-tours" className={styles['travel-link']}>Trips</Link></li>
+            			</ul>
+          		</div>
+       		</li>
 
-                <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/tours')}`}>Tours</Link>
-                </li>
-
-                <li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/shop')}`}>Shop</Link>
+	    	<li className={styles['hide-on-mobile']}>
+                    <Link href='/guest-products' className={`${styles['nav-link']} ${isActive('/guest-products')}`}>Shop</Link>
                 </li>
 
 		<li className={styles['hide-on-mobile']}>
-                    <Link href='#' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
+                    <Link href='/contact' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
                 </li>
 
 	    	<li className={`${styles['hide-on-mobile']} ${styles['push-right']}`}>
@@ -87,25 +87,25 @@ const NavBar = () => {
       		</li>
 
       		<li>
-        		<Link href="#" className={`${styles['nav-link']} ${isActive('/about')}`}>
+        		<Link href="/about" className={`${styles['nav-link']} ${isActive('/about')}`}>
           		About Us
         		</Link>
       		</li>
 
       		<li>
-        		<Link href="#" className={`${styles['nav-link']} ${isActive('/destinations')}`}>
-          		Services
+        		<Link href="/destinations" className={`${styles['nav-link']} ${isActive('/destinations')}`}>
+          		Destinations
         		</Link>
       		</li>
 
       		<li>
-        		<Link href="#" className={`${styles['nav-link']} ${isActive('/tours')}`}>
-          		Tours
+        		<Link href="/guest-tours" className={`${styles['nav-link']} ${isActive('/guest-tours')}`}>
+          		Trips
         		</Link>
       		</li>
 
       		<li>
-        		<Link href="#" className={`${styles['nav-link']} ${isActive('/shop')}`}>
+        		<Link href="/guest-products" className={`${styles['nav-link']} ${isActive('/guest-products')}`}>
           		Shop
         		</Link>
       		</li>
@@ -123,7 +123,7 @@ const NavBar = () => {
                 </li>
 
 		<li>
-			<Link href="#" className={`${styles['nav-link']} ${isActive('/contact')}`}>
+			<Link href="/contact" className={`${styles['nav-link']} ${isActive('/contact')}`}>
                         Contact
                         </Link>
                 </li>

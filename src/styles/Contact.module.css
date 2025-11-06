@@ -1,0 +1,167 @@
+.contactSection {
+	max-width: 1600px;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 20px;
+}
+
+.contact-container {
+      	background: white;
+      	padding: 20px;
+      	border-radius: 10px;
+      	box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      	max-width: 450px;
+      	width: 100%;
+      	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.logo {
+	margin-bottom: 20px;
+}
+
+.logo img {
+	width: 150px;
+	height: 145px;
+}
+
+.contact-container h2 {
+	margin-bottom: 25px;
+	font-size: 2rem;
+	color: #d90429;
+}
+
+.contact-form {
+	width: 100%;
+	border: none;
+}
+
+.form-group {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.form-group label {
+	display: block;
+	margin-right: 6px;
+	font-weight: 500;
+}
+
+.form-group input {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 1rem;
+}
+
+.form-group input:focus {
+	border-color:  #d90429;
+	outline: none;
+}
+
+.textarea {
+  	width: 100%;
+  	padding: 12px;
+  	border: 1px solid #ccc;
+  	border-radius: 6px;
+  	resize: vertical;
+  	font-size: 1rem;
+  	font-family: inherit;
+}
+
+.form-group textarea:focus {
+        border-color: #d90429;
+        outline: none;
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+}
+
+.btn {
+      	width: 100%;
+      	padding: 12px;
+      	background: #d90429;
+      	border: none;
+      	border-radius: 6px;
+	color: #fff;
+      	font-weight: bold;
+      	font-size: 1rem;
+      	cursor: pointer;
+      	transition: background 0.3s ease;
+}
+
+.btn:hover {
+      	background: #b10320;
+}
+
+@media (min-width: 768px) {
+	.contact-container {
+                max-width: 600px;
+        }
+
+        .btn {
+                width: 180px;
+		padding: 14px;
+		font-size: 1.05rem;
+        }
+
+	.logo img {
+		width: 150px;
+		height: 145px;
+	}
+}
+
+.whatsappBox {
+ 	text-align: center;
+	margin-top: 20px;
+}
+
+.whatsappLink {
+	display: inline-flex;
+  	align-items: center;
+	gap: 0.5rem;
+  	background-color: #25D366;
+  	color: white;
+  	padding: 12px 20px;
+  	border-radius: 5px;
+  	text-decoration: none;
+  	font-weight: 500;
+  	transition: background-color 0.3s ease;
+}
+
+.whatsappLink p {
+	margin: 10px 0;
+}
+
+.whatsappLink:hover {
+  	background-color: #1ebe5d;
+}
+
+.error-message {
+    	color: red;
+    	font-size: 12px;
+    	margin-top: 5px;
+}
+
+
+.error {
+  	background-color: #ffe0e0;
+  	color: #b20000;
+  	border: 1px solid #ffcccc;
+	padding: 10px;
+}
+
+.success-message {
+  	background-color: #e0ffe0;
+  	color: #006600;
+  	border: 1px solid #b3ffb3;
+	padding: 10px;
+}

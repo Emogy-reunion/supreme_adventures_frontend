@@ -23,7 +23,7 @@
 * **Real-Time Availability:** Check tour availability and get up-to-date information on group sizes and tour schedules.
 
 ## Purpose
-* The purpose of Supreme Adventures is to make adventure travel more accessible, enjoyable, and hassle-free for people from all walks of life. We aim to provide travelers with a platform where they can easily explore a variety of exciting tours, book unforgettable experiences, and connect with like-minded adventurers.
+* The main purpose of Supreme Adventures is to make adventure travel more accessible, enjoyable, and hassle-free for people from all walks of life. We aim to provide travelers with a platform where they can easily explore a variety of exciting tours, book unforgettable experiences, and connect with like-minded adventurers.
 * Our goal is to inspire exploration, foster a deeper connection with nature, and create lifelong memories, all while ensuring that every step of the journey is seamless, secure, and personalized to meet individual preferences.
 
 ## Repository Structure

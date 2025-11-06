@@ -2,13 +2,17 @@ import React from 'react';
 import Link from 'next/link';
 import styles from '../styles/Updatepasswordform.module.css';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import Loading from '../components/loading'
 
 
 const UpdatePasswordForm = ({ token }) => {
+	const router = useRouter();
 	const [showPassword, setShowPassword] = useState(false);
 	const [globalError, setGlobalError] = useState(null);
 	const [successMessage, setSuccessMessage] = useState(null);
 	const [formErrors, setFormErrors] = useState({});
+	const [loading, setLoading] = useState(false);
 
 	const handleToggle = () => {
 		setShowPassword((prev) => {
@@ -28,9 +32,13 @@ const UpdatePasswordForm = ({ token }) => {
 		formData.append('token', token); // add user id to retrieve user you want to update their password
 		const formJson = Object.fromEntries(formData.entries());
 
+
+		setLoading(true);
+		const start = Date.now();
+
 		try {
-			const reponse = await fetch('http://127.0.0.1:500/update_password', {
-				method: 'POST',
+			const response = await fetch('/api/update_password', {
+				method: 'PATCH',
 				headers: {
 					'Content-Type': 'application/json'
 				},
@@ -58,23 +66,41 @@ const UpdatePasswordForm = ({ token }) => {
 						setGlobalError(null);
 					}, 5000);
 				} else {
-					throw new Error('Error: ', JSON.stringify(data));
+					setGlobalError(data.error);
+
+                                        setTimeout(() => {
+                                                setGlobalError(null);
+                                        }, 5000);
 				}
 			} else {
 				setSuccessMessage(data.success);
 
 				setTimeout(() => {
 					setSuccessMessage(null);
-				}, 5000);
+					router.push('/login');
+				}, 3000);
 			}
 		} catch(error) {
 			alert('Network error. Please try again!');
-		}
+		} 
+		const end = Date.now();
+		const elapsed = end - start;
+		const minLoadingTime = 800; // milliseconds
+
+		setTimeout(() => {
+			setLoading(false);
+		}, Math.max(minLoadingTime - elapsed, 0));
 	};
 
+
 	return (
-			<>
-				<section id={styles['update-password-section']}>
+		<>
+			<section id={styles['update-password-section']}>
+					{loading && (
+					<div className={styles.loadingOverlay}>
+						<Loading />
+					</div>
+					)}
 					<div className={styles['update-container']}>
     						<div className={styles.logo}>
       							<img src="/supreme.svg" alt="Supreme adventures Logo" />
@@ -91,7 +117,7 @@ const UpdatePasswordForm = ({ token }) => {
 								<label htmlFor='password'>Email</label>
 								<input type={showPassword ? 'text' : 'password'} id='password' name='password' placeholder='Enter you new password...' required />
 								{formErrors.password && (
-									<p>{formErrors.password}</p>
+									<p className={styles['error-message']}>{formErrors.password}</p>
 								)}
 							</div>
 
@@ -99,7 +125,7 @@ const UpdatePasswordForm = ({ token }) => {
                                                                 <label htmlFor='confirmpassword'>Email</label>
                                                                 <input type={showPassword ? 'text' : 'password'} id='confirmpassword' name='confirmpassword' placeholder='Confirm you new password...' required />
 								{formErrors.confirmpassword && (
-                                                                        <p>{formErrors.confirmpassword}</p>
+                                                                        <p className={styles['error-message']}>{formErrors.confirmpassword}</p>
                                                                 )}
                                                         </div>
 
@@ -112,12 +138,7 @@ const UpdatePasswordForm = ({ token }) => {
 									onChange={handleToggle}
 									name='showpasswords' />
                                                 	</div>
-							
-							<div className={styles["form-group"]}>
-								<label htmlFor='showpassword'>Show password</label>
-								<input type='checkbox' id='showpassword' name='showpassword' />
-							</div>
-							
+
 							<div className={styles['button-container']}>
 								<button type="submit" className={styles.btn}>Reset password</button>
 							</div>

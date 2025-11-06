@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --brand-red: #d90429;
+  --text: #111827;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --gap: 28px;
+}
+
 *{
 	margin: 0;
 	padding: 0;
@@ -39,14 +47,18 @@ nav {
 nav ul {
         list-style: none;
         display: flex;
-        justify-content: center;
+	flex-wrap: nowrap;
+        justify-content: flex-end;
 }
 
 nav li {
         height: 50px;
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
 	nav ul {
                 display: flex;
                 justify-content: flex-end;

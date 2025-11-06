@@ -9,6 +9,7 @@
 	text-align: center;
 	font-size: 2rem;
 	margin-bottom: 40px;
+	color: red;
 }
 
 .card-container {
@@ -86,10 +87,34 @@
       	margin-bottom: 10px;
 }
 
-.price {
-	color: #eab308;
-	font-weight: bold;
+.buttonContainer {
+  	width: 100%;
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	margin-top: 2rem;
+  	text-align: center;
+  	flex-basis: 100%;
 }
 
+.exploreButton {
+  	display: inline-block;
+  	padding: 12px 28px;
+  	background-color: #d90429;
+  	color: #fff;
+  	font-size: 1.1rem;
+  	font-weight: 600;
+  	border-radius: 8px;
+  	text-decoration: none;
+  	text-transform: uppercase;
+ 	letter-spacing: 0.5px;
+  	box-shadow: 0 4px 10px rgba(220, 38, 38, 0.25);
+  	transition: all 0.3s ease;
+}
 
+.exploreButton:hover {
+  	background-color: #b10320;
+  	transform: translateY(-4px);
+  	box-shadow: 0 6px 16px rgba(220, 38, 38, 0.35);
+}
 

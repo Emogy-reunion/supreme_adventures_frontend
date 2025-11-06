@@ -1,0 +1,282 @@
+import React, { useState } from 'react';
+import styles from '../styles/UploadForm.module.css';
+import Loading from '../components/loading';
+import { useRouter } from 'next/router';
+import { FaCloudUploadAlt } from 'react-icons/fa';
+
+
+const TourForm = () => {
+	const router = useRouter();
+	const [formErrors, setFormErrors] = useState({});
+	const [globalError, setGlobalError] = useState(null);
+	const [successMessage, setSuccessMessage] = useState(null);
+	const [loading, setLoading] = useState(false);
+	const [tourData, setTourData] = useState({
+                name: '',
+                start_location: '',
+                destination: '',
+                description: '',
+                start_date: '',
+                end_date: '',
+                days: '',
+                nights: '',
+                original_price: '',
+                discount_percent: '',
+                status: 'upcoming',
+                included: '',
+                excluded: '',
+        });
+        const [tourImage, setTourImage] = useState(null);
+	const [tourPoster, setTourPoster] = useState(null);
+
+	const handleTourChange = (e) => {
+                const { name, value } = e.target;
+                setTourData((prev) => ({ ...prev, [name]: value }));
+        };
+
+	const handleFileChange = (e) => {
+		const file = e.target.files[0]; // Only one image expected
+
+                if (file) {
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                                setTourImage({ file, preview: reader.result });
+                        };
+                        reader.readAsDataURL(file);
+                }
+	};
+
+
+	const handlePosterChange = (e) => {
+		const file = e.target.files[0]; // Only one poster expected
+
+		if (file) {
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				setTourPoster({ file, preview: reader.result });
+			};
+			reader.readAsDataURL(file);
+		}
+	};
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		setFormErrors({});
+		setGlobalError(null);
+		setSuccessMessage(null);
+
+		const formData = new FormData();
+
+		Object.entries(tourData).forEach(([key, value]) => {
+			formData.append(key, value);
+		});
+
+		formData.append('preview', tourImage.file);
+
+		formData.append('poster', tourPoster.file);
+
+		setLoading(true);
+		const start = Date.now()
+		try {
+			const response = await fetch('/api/upload_tour', {
+				method: 'POST',
+				body: formData,
+				credentials: 'include',
+			});
+
+
+			const data = await response.json();
+
+			if (!response.ok) {
+				if (data.errors) {
+					const formattedErrors = Object.keys(data.errors).reduce((acc, key) => {
+						acc[key] = data.errors[key].join(', ');
+						return acc;
+					}, {});
+
+					setFormErrors(formattedErrors);
+
+					setTimeout(() => {
+						setFormErrors({});
+					}, 8000);
+				} else if (data.error) {
+					setGlobalError(data.error);
+
+					setTimeout(() => {
+						setGlobalError(null);
+					}, 5000);
+
+				} else {
+					setGlobalError(data.error);
+
+					setTimeout(() => {
+                                                setGlobalError(null);
+                                        }, 5000);
+				}
+			} else {
+				setSuccessMessage(data.success);
+				router.push('/admin_dashboard');
+			}
+		} catch (error) {
+			alert('A network error occured. Please try again!');
+		} finally {
+			const end = Date.now();
+			const elapsed = end - start;
+			const minLoadingTime = 800; // milliseconds
+
+			setTimeout(() => {
+				setLoading(false);
+			}, Math.max(minLoadingTime - elapsed, 0));
+		}
+	};
+
+
+	return (
+		<>
+			{loading && (
+				<div className={styles.loadingOverlay}>
+					<Loading />
+				</div>
+			)}
+			<form className={styles.form} onSubmit={handleSubmit}>
+				{(globalError || successMessage) && (
+					<div className={globalError ? styles['error'] : styles['success-message']}>
+						<p>{globalError || successMessage}</p>
+					</div>
+				)}
+			
+                                        {[
+                                                { label: 'Name', name: 'name' },
+                                                { label: 'Start Location', name: 'start_location' },
+                                                { label: 'Destination', name: 'destination' },
+                                                { label: 'Start Date', name: 'start_date', type: 'datetime-local' },
+                                                { label: 'End Date', name: 'end_date', type: 'datetime-local' },
+                                                { label: 'Days', name: 'days', type: 'number', min: 1, max: 60 },
+                                                { label: 'Nights', name: 'nights', type: 'number', min: 0, max: 60 },
+                                                { label: 'Original Price', name: 'original_price', type: 'number', min: 0, max: 1000000 },
+                                                { label: 'Discount (%)', name: 'discount_percent', type: 'number', min: 0, max: 100 },
+                                        ].map((field) => (
+                                                <div className={styles['form-group']} key={field.name}>
+                                                        <label>{field.label}</label>
+                                                        <input
+                                                                type={field.type || 'text'}
+                                                                name={field.name}
+                                                                value={tourData[field.name]}
+                                                                onChange={handleTourChange}
+                                                                required
+								min={field.min}
+      								max={field.max}
+                                                        />
+							{formErrors[field.name] && (
+								<p className={styles['error-message']}>{formErrors[field.name]}</p>
+							)}
+                                                </div>
+                                        ))}
+
+                                        <div className={styles['form-group']}>
+                                                <label>Description</label>
+                                                <textarea
+                                                        name="description"
+                                                        value={tourData.description}
+                                                        onChange={handleTourChange}
+                                                        required
+                                                />
+						{formErrors.description && (
+							<p className={styles['error-message']}>{formErrors.description}</p>
+						)}
+                                        </div>
+
+                                        <div className={styles['form-group']}>
+                                                <label>Includes</label>
+                                                <textarea
+                                                        name="included"
+                                                        value={tourData.included}
+                                                        onChange={handleTourChange}
+                                                        required
+                                                />
+						{formErrors.included && (
+                                                        <p className={styles['error-message']}>{formErrors.included}</p>
+                                                )}
+                                        </div>
+
+                                        <div className={styles['form-group']}>
+                                                <label>Excludes</label>
+                                                <textarea
+                                                        name="excluded"
+                                                        value={tourData.excluded}
+                                                        onChange={handleTourChange}
+                                                        required
+                                                />
+						{formErrors.excluded && (
+                                                        <p className={styles['error-message']}>{formErrors.excluded}</p>
+                                                )}
+                                        </div>
+
+                                        <div className={styles['form-group']}>
+                                                <label htmlFor="status">Status</label>
+                                                <select
+                                                        id="status"
+                                                        name="status"
+                                                        value="upcoming"
+                                                        disabled
+                                                        className={styles.selectStyles}
+                                                >
+                                                        <option value="upcoming">Upcoming</option>
+                                                </select>
+						{formErrors.status && (
+                                                        <p className={styles['error-message']}>{formErrors.status}</p>
+                                                )}
+                                        </div>
+
+					<div className={styles['form-group']}>
+                                                <label>Poster</label>
+                                                <input type="file" id="poster-upload" onChange={handlePosterChange} style={{ display: 'none' }}/>
+						<label htmlFor="poster-upload" className={styles['upload-container']}>
+  							<FaCloudUploadAlt className={styles['upload-icon']} />
+  							<p className={styles['upload-text']}>Click to upload poster</p>
+						</label>
+
+						<div className={styles["poster-preview-container"]}>
+    							{tourPoster ? (
+      								<div className={styles["preview-card"]}>
+        								<button className={styles["remove-button"]} onClick={() => setTourPoster(null)}>×</button>
+        								<img src={tourPoster.preview} alt="Poster Preview" className={styles["preview-img"]} />
+      								</div>
+    							) : (
+      								<p>No poster selected yet</p>
+    							)}
+  						</div>
+                                        </div>
+
+                                        <div className={styles['form-group']}>
+                                                <label>Files</label>
+                                                <input type="file" id='images-upload' onChange={handleFileChange} style={{ display: 'none' }} />
+
+						<label htmlFor="images-upload" className={styles['upload-container']}>
+                                                        <FaCloudUploadAlt className={styles['upload-icon']} />
+                                                        <p className={styles['upload-text']}>Click to upload Tour preview image</p>
+                                                </label>
+                                        </div>
+					
+					<div className={styles["preview-container"]}>
+						{tourImage ?  (
+    							<div className={styles["preview-card"]}>
+      								<button className={styles["remove-button"]} onClick={() => setTourImage(null)}>×</button>
+      								<img src={tourImage.preview} alt='Image preview' className={styles["preview-img"]} />
+    							</div>
+  						) : ( 
+							<p> No image selected yet</p>
+						)}
+					</div>
+
+                                        <div className={styles['button-container']}>
+                                                <button type="submit" className={styles.btn}>Upload tour</button>
+                                        </div>
+                                </form>
+		</>
+	);
+};
+
+
+export default TourForm;

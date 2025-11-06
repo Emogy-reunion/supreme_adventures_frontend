@@ -1,45 +1,102 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { Typewriter } from 'react-simple-typewriter'
-import styles from '../styles/Hero.module.css';
+"use client";
 
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { ArrowRight, Search, ChevronLeft, ChevronRight } from "lucide-react";
+import styles from "../styles/LandingHero.module.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import Image from "next/image";
+
+
+const destinations = [
+	{ name: "Maasai Mara, Kenya", slug: "maasai-mara", image: "/maasai-mara.jpg" },
+	{ name: "Diani, Kenya", slug: "diani", image: "/diani.jpg" },
+	{name: "Zanzibar, Tanzania", slug: "zanzibar", image: "/zanzibar.jpg" },
+	{ name: "Bali, Indonesia", slug: "bali", image: "/bali.jpeg" },
+	{ name: "Dubai, United Arab Emirates", slug: "dubai", image: "/dubai.jpg" },
+];
+
+// Custom carousel arrows
+const NextArrow = ({ onClick }) => (
+  <div className={styles.nextArrow} onClick={onClick}>
+    <ChevronRight size={24} />
+  </div>
+);
+
+const PrevArrow = ({ onClick }) => (
+  <div className={styles.prevArrow} onClick={onClick}>
+    <ChevronLeft size={24} />
+  </div>
+);
 
 const LandingHero = () => {
-	const [showContent, setShowContent] = useState(false);
+	const settings = {
+    		dots: true,
+    		infinite: true,
+    		autoplay: true,
+    		speed: 800,
+    		autoplaySpeed: 4000,
+    		slidesToShow: 1,
+    		slidesToScroll: 1,
+    		arrows: true,
+    		nextArrow: <NextArrow />,
+    		prevArrow: <PrevArrow />,
+  	};
 
-	useEffect(() => {
-		const delay = 3750;
-		const timer = setTimeout(() => setShowContent(true), delay);
-		return () => clearTimeout(timer);
-	}, []);
-        return (
-                <>
-                        <section className={styles.hero}>
-                                <div className={styles['hero-content']}>
-                                        <h1>
-					<Typewriter
-						words={['Where do you wish to go?']}
-						loop={1}
-						cursor
-						cursorstyle='|'
-						typeSpeed={85}
-						deleteSpeed={50}
-						delaySpeed={1000}
-					/>
-					</h1>
-                                        {showContent && (
-						<div className={styles['fade-in']}>
-							<p>Discover breathtaking destinations and unforgettable tours curated just for you.</p>
-              						<div className={styles['hero-buttons']}>
-								<a href="#destinations"><button className={styles.btn}>Explore Destinations</button></a>
-								<a href="#tours"><button className={styles.btn}>View Tours</button></a>
-							</div>
+	const router = useRouter();
+
+
+  	return (
+		<section className={styles.heroSection}>
+      			<Slider {...settings}>
+        			{destinations.map((dest, index) => (
+          				<div key={index} className={styles.slide}>
+						<div className={styles.backgroundImage}>
+  							<div style={{ position: "relative", width: "100%", height: "100%" }}>
+    								<Image
+      									src={dest.image}
+      									alt={dest.name}
+      									fill
+      									style={{ objectFit: "cover" }}
+      									priority={index === 0}
+      									quality={75}
+      									sizes="(max-width: 640px) 100vw, 1200px"
+    								/>
+  							</div>
+
+  							<div className={styles.overlay} />
 						</div>
-					)}
-                                </div>
-                        </section>
-                </>
-        );
+
+
+            					<div className={styles.content}>
+              						{/* Destination Name */}
+              						<motion.h1
+                						initial={{ opacity: 0, y: 30 }}
+                						animate={{ opacity: 1, y: 0 }}
+                						transition={{ duration: 0.8 }}
+                						className={styles.title}
+              						>
+                						{dest.name}
+              						</motion.h1>
+
+              						{/* View Destination Button */}
+              						<motion.button
+                						initial={{ opacity: 0, y: 20 }}
+                						animate={{ opacity: 1, y: 0 }}
+                						transition={{ duration: 1, delay: 0.3 }}
+                						className={styles.viewButton}
+                						onClick={() => router.push("/destinations")}
+              						>
+                						View Destinations <ArrowRight size={20} />
+              						</motion.button>
+            					</div>
+          				</div>
+        			))}
+      			</Slider>
+    		</section>
+  	);
 };
 
 export default LandingHero;

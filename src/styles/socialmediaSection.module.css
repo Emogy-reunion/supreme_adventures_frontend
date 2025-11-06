@@ -1,0 +1,58 @@
+.socialSection {
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
+  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+}
+
+.socialSection h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 40px;
+  color: #b91c1c;
+  letter-spacing: 1px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #fff;
+  color: #dc2626;
+  font-size: 2rem;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.icons a:hover {
+  background: #dc2626;
+  color: #fff;
+  transform: translateY(-6px) scale(1.1);
+  box-shadow: 0 6px 18px rgba(220, 38, 38, 0.25);
+  border-color: #dc2626;
+}
+
+@media (max-width: 600px) {
+  .icons {
+    gap: 25px;
+  }
+
+  .icons a {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+  }
+}

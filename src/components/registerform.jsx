@@ -1,15 +1,19 @@
 import React from 'react';
-import Link from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Registerform.module.css';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import Loading from '../components/loading';
 
 
 const RegisterForm = () => {
 
+	const router = useRouter();
 	const [showPassword, setShowPassword] = useState(false)
 	const [formErrors, setFormErrors] = useState({});
 	const [globalError, setGlobalError] = useState(null);
 	const [successMessage, setSuccessMessage] = useState(null);
+	const [loading, setLoading] = useState(false);
 
 	const handleToggle = () => {
 		setShowPassword((prev) => !prev);
@@ -24,8 +28,11 @@ const RegisterForm = () => {
 		const formData = new FormData(event.target);
 		const formJson = Object.fromEntries(formData.entries());
 
+		setLoading(true);
+		const start = Date.now();
+
 		try {
-			const response = await fetch('http://127.0.0.1:5000/register', {
+			const response = await fetch(`/api/register`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -55,22 +62,40 @@ const RegisterForm = () => {
 						setGlobalError(null);
 					}, 5000);
 				} else {
-					throw new Error('An unknown error occurred: ' + JSON.stringify(data));
+					setGlobalError(data.error);
+
+                                        setTimeout(() => {
+                                                setGlobalError(null);
+                                        }, 5000);
 				}
 			} else {
 				setSuccessMessage(data.success);
 				setTimeout(() => {
 					setSuccessMessage(null);
-				}, 5000);
+					router.push('/login');
+				}, 3000);
 			}
 		} catch (error) {
 			alert('Network error. Please try again.');
+		} finally {
+			const end = Date.now();
+			const elapsed = end - start;
+			const minLoadingTime = 800; // milliseconds
+
+			setTimeout(() => {
+				setLoading(false);
+			}, Math.max(minLoadingTime - elapsed, 0));
 		}
 	};
 
 	return (
 		<>
 			<section className={styles['register-section']}>
+				{loading && (
+					<div className={styles.loadingOverlay}>
+						<Loading />
+					</div>
+				)}
 				<div className={styles["signup-container"]}>
     					<div className={styles.logo}>
       						<img src="/supreme.svg" alt="Supreme adventures Logo" />
@@ -123,8 +148,9 @@ const RegisterForm = () => {
     								id="phone_number"
     								name="phone_number"
     								required
-    								pattern="^(07\d{8}|(\+2547\d{8}))$"
-    								placeholder="e.g. 0712345678 or +254712345678"
+    								pattern="^2547[0-9]{8}$"
+    								placeholder="e.g. 254712345678"
+								title="Phone number must start with 2547 followed by exactly 8 digits"
   							/>
 							{formErrors.phone_number && (
                                                                 <p className={styles["error-message"]}>{formErrors.phone_number}</p>
@@ -158,7 +184,7 @@ const RegisterForm = () => {
                                                 </div>
 
 						<div className={styles['button-container']}>
-							<button type="submit" className={styles.btn}>Sign In</button>
+							<button type="submit" className={styles.btn}>Sign Up</button>
 						</div>
     					</form>
 
