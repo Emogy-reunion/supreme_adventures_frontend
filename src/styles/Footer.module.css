@@ -41,6 +41,11 @@
   	letter-spacing: 0.2px;
 }
 
+.section h4 {
+	color: var(--brand-red);
+	font-size: 1rem;
+}
+
 .section p {
   	margin: 0;
   	color: var(--text);
@@ -152,6 +157,7 @@
     	padding-top: 14px;
   }
 }
+
 
 /* larger screens: add a little spacing and more horizontal feel */
 @media (min-width: 1100px) {

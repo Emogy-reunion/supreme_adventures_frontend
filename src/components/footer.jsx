@@ -31,8 +31,10 @@ const Footer = () => {
 
         			<div className={styles.section}>
           				<h3>Contact Us</h3>
-          				<p>Email: officialsupremeadventures@gmail.com</p>
-          				<p>Phone: 0759 080100</p>
+					<h4>Email</h4>
+          				<p>officialsupremeadventures@gmail.com</p>
+					<h4>Phone</h4>
+					<p>0759 080100</p>
           				<p>Nairobi, Kenya</p>
         			</div>
 
@@ -50,7 +52,7 @@ const Footer = () => {
       			<div className={styles.bottom}>
         			<p>&copy; 2025 Supreme Adventures. All Rights Reserved.</p>
         			<p>
-          				<Link href="/terms">Terms</Link> | <Link href="/privacy">Privacy Policy</Link>
+          				<Link href="#">Terms</Link> | <Link href="#">Privacy Policy</Link>
         			</p>
       			</div>
     		</footer>
