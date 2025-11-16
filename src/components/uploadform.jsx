@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TourForm from '../components/uploadtourform';
 import MerchandiseForm from '../components/uploadmerchandiseform';
+import DestinationForm from '../components/uploaddestinationform';
 import styles from '../styles/UploadForm.module.css';
 
 
@@ -16,7 +17,7 @@ const UploadForm = () => {
 				<img src="/supreme.svg" alt="Supreme adventures Logo" />
 			</div>
 
-   			<h2>UPLOAD TOUR/MERCHANDISE</h2>
+   			<h2>UPLOAD TOUR/MERCHANDISE/DESTINATION</h2>
 
 			<div className={styles['form-group']}>
 				<label htmlFor="uploadType">Select Upload Type</label>
@@ -28,6 +29,7 @@ const UploadForm = () => {
 					className={styles.selectStyles}
 				>
 					<option value="tour">Tour</option>
+					<option value="dest">Destination</option>
 					<option value="merch">Merchandise</option>
 				</select>
 			</div>
@@ -38,6 +40,10 @@ const UploadForm = () => {
 			{uploadType === 'merch' && (
 				<MerchandiseForm />
 			)}
+
+			{uploadType === 'dest' && (
+                                <DestinationForm />
+                        )}
 		</div>
 		</section>
 	);
