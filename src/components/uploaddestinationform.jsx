@@ -27,7 +27,7 @@ const DestinationForm = () => {
 
         const handleDestChange = (e) => {
                 const { name, value } = e.target;
-                setMerchData((prev) => ({ ...prev, [name]: value }));
+                setDestData((prev) => ({ ...prev, [name]: value }));
         };
 
         const handleDestFileChange = (e) => {
@@ -70,7 +70,7 @@ const DestinationForm = () => {
                 try {
                         const response = await fetch('/api/upload_destination', {
                                 method: 'POST',
-                                include: 'credentials',
+                                credentials: 'include',
                                 body: formData
                         });
 
