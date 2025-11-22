@@ -79,7 +79,7 @@ const DestinationForm = () => {
                         if (!response.ok) {
                                 if (data.errors) {
                                         const formattedErrors = Object.keys(data.errors).reduce((acc, key) => {
-                                                acc['key'] = data.errors['key'].join(', ');
+                                                acc[key] = data.errors[key].join(', ');
                                                 return acc;
                                         }, {});
                                         setFormErrors(formattedErrors);
@@ -152,7 +152,7 @@ const DestinationForm = () => {
                                                                 required
                                                         />
                                                         {formErrors[field.name] && (
-                                                                <p className={styles['error-message']}>{field.name}</p>
+                                                                <p className={styles['error-message']}>{formErrors[field.name]}</p>
                                                         )}
                                                 </div>
                                         ))}
@@ -247,7 +247,7 @@ const DestinationForm = () => {
                                         <div className={styles["preview-container"]}>
                                                 {destImages.map((item, index) => (
                                                         <div className={styles["preview-card"]} key={index}>
-                                                                <button className={styles["remove-button"]} onClick={() => removeImage(index)}>×</button>
+                                                                <button type='button' className={styles["remove-button"]} onClick={() => removeImage(index)}>×</button>
                                                                 <img src={item.preview} alt={`Preview ${index}`} className={styles["preview-img"]} />
                                                         </div>
                                                 ))}
