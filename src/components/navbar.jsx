@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import styles from '../styles/Navbar.module.css';
 
 const NavBar = () => {
@@ -33,7 +35,7 @@ const NavBar = () => {
                 </li>
 
                 <li className={styles['hide-on-mobile']}>
-                    <Link href='/about' className={`${styles['nav-link']} ${isActive('/about')}`}>About Us</Link>
+                    <Link href='/guest/about' className={`${styles['nav-link']} ${isActive('/guest/about')}`}>About Us</Link>
                 </li>
 
 	    	<li className={styles['hide-on-mobile']}>
@@ -51,15 +53,11 @@ const NavBar = () => {
                 </li>
 
 		<li className={styles['hide-on-mobile']}>
-                    <Link href='/contact' className={`${styles['nav-link']} ${isActive('/contact')}`}>Contact</Link>
+                    <Link href='/guest/contact' className={`${styles['nav-link']} ${isActive('/guest/contact')}`}>Contact</Link>
                 </li>
 
 	    	<li className={`${styles['hide-on-mobile']} ${styles['push-right']}`}>
-                    <Link href='/login' className={`${styles['nav-link']} ${isActive('/login')}`}>Sign in</Link>
-                </li>
-
-                <li className={styles['hide-on-mobile']}>
-                    <Link href='/register' className={`${styles['nav-link']} ${isActive('/register')}`}>Sign up</Link>
+                    <Link href='/guest/login' className={`${styles['nav-link']} ${isActive('/guest/login')}`}>Sign in</Link>
                 </li>
 
                 <li className={styles["menu-button"]}>

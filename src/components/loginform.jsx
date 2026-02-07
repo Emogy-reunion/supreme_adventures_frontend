@@ -1,10 +1,11 @@
-import React from 'react';
-import styles from '../styles/Loginform.module.css';
+'use client';
+
+import styles from '@/styles/Loginform.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
-import { useAuth } from '../context/AuthContext';
-import { useRouter } from 'next/router';
-import Loading from '../components/loading';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
+import Loading from '@/components/loading';
 
 const LoginForm = () => {
 	const [showPassword, setShowPassword] = useState(false);
