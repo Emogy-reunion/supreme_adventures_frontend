@@ -1,8 +1,9 @@
-import React from 'react';
+'use client';
+
 import styles from '../styles/Contact.module.css';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const ContactSection = () => {
 	const router = useRouter();
