@@ -42,7 +42,7 @@ const NavBar = () => {
 	    		<div className={styles['travel-dropdown']}>
             			<span className={styles['travel-link']}>Travel</span>
             			<ul className={styles['dropdown-menu']}>
-              				<li><Link href="/destinations" className={styles['travel-link']}>Destinations</Link></li>
+              				<li><Link href="/guest/destinations" className={styles['travel-link']}>Destinations</Link></li>
               				<li><Link href="/guest-tours" className={styles['travel-link']}>Trips</Link></li>
             			</ul>
           		</div>
